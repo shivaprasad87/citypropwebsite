@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="47" height="20" viewBox="0 0 47 20">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#E87244" fill-rule="nonzero" d="M0 2C0 .896.897 0 2.004 0h42.992C46.103 0 47 .9 47 2v15.2c0 1.104-.897 2-2.004 2H2.004C.897 19.2 0 18.3 0 17.2V2z"/>
+        <text fill="#FFF" font-family="Roboto-Medium, Roboto" font-size="10" font-weight="400">
+            <tspan x="16" y="13">RERA </tspan>
+        </text>
+        <path fill="#FFF" d="M11.198 8.323l-3.217 3.246a.341.341 0 0 1-.488 0L5.902 9.963a.348.348 0 0 1 0-.492l.552-.557a.341.341 0 0 1 .487 0l.796.803 2.422-2.443a.341.341 0 0 1 .487 0l.552.557a.348.348 0 0 1 0 .492zm1.716 1.134a4.458 4.458 0 0 1-8.914 0 4.458 4.458 0 0 1 8.914 0z"/>
+    </g>
+</svg>

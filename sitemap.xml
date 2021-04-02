@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://holdingbricks.com/</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>http://holdingbricks.com/</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>http://holdingbricks.com/listing</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://holdingbricks.com/about</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://holdingbricks.com/contact</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.5</priority>
+    </url>     
+    <url>
+        <loc>http://holdingbricks.com/blog/real-estate</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>o.5</priority>
+    </url>     
+    <url>
+        <loc>http://holdingbricks.com/blog/environment</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>o.5</priority>
+    </url>     
+    <url>
+        <loc>http://holdingbricks.com/blog/all-blogs</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>o.5</priority>
+    </url>     
+           <url>
+        <loc>http://holdingbricks.com/city/pune</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.5</priority>
+    </url>     
+           <url>
+        <loc>http://holdingbricks.com/city/bangalore</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.5</priority>
+    </url>     
+    <url>
+        <loc>http://holdingbricks.com/bangalore/kogilu-cross/adarsh-greens/</loc>
+        <lastmod>2021-01-24 20:13:02</lastmod>
+        <priority>0.8</priority>
+    </url>
+</urlset>

@@ -1,0 +1,1 @@
+[06-Dec-2020 10:59:22 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/holdingbricks/public_html/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/holdingbricks/public_html/application/controllers/Hauth.php on line 121
