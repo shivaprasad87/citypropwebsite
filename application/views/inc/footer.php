@@ -94,26 +94,26 @@
 
 
 
-<script <?=base_url('assets/home/js')?>/jquery-2.2.0.min.js"></script>
-<script <?=base_url('assets/home/js')?>/popper.min.js"></script>
-<script <?=base_url('assets/home/js')?>/bootstrap.min.js"></script>
-<script  <?=base_url('assets/home/js')?>/bootstrap-submenu.js"></script>
-<script  <?=base_url('assets/home/js')?>/rangeslider.js"></script>
-<script  <?=base_url('assets/home/js')?>/jquery.mb.YTPlayer.js"></script>
-<script  <?=base_url('assets/home/js')?>/bootstrap-select.min.js"></script>
-<script  <?=base_url('assets/home/js')?>/jquery.easing.1.3.js"></script>
-<script  <?=base_url('assets/home/js')?>/jquery.scrollUp.js"></script>
-<script  <?=base_url('assets/home/js')?>/jquery.mCustomScrollbar.concat.min.js"></script>
-<script  <?=base_url('assets/home/js')?>/leaflet.js"></script>
-<script  <?=base_url('assets/home/js')?>/leaflet-providers.js"></script>
-<!-- <script  <?=base_url('assets/home/js')?>/leaflet.markercluster.js"></script>
-<script  <?=base_url('assets/home/js')?>/dropzone.js"></script> -->
-<script  <?=base_url('assets/home/js')?>/slick.min.js"></script>
-<!-- <script  <?=base_url('assets/home/js')?>/jquery.filterizr.js"></script> -->
-<script  <?=base_url('assets/home/js')?>/jquery.magnific-popup.min.js"></script>
-<script  <?=base_url('assets/home/js')?>/jquery.countdown.js"></script>
-<script  <?=base_url('assets/home/js')?>/maps.js"></script>
-<script  <?=base_url('assets/home/js')?>/app.js"></script>
+<script src="<?=base_url('assets/home/js')?>/jquery-2.2.0.min.js"></script>
+<script src="<?=base_url('assets/home/js')?>/popper.min.js"></script>
+<script src="<?=base_url('assets/home/js')?>/bootstrap.min.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/bootstrap-submenu.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/rangeslider.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/jquery.mb.YTPlayer.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/bootstrap-select.min.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/jquery.easing.1.3.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/jquery.scrollUp.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/jquery.mCustomScrollbar.concat.min.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/leaflet.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/leaflet-providers.js"></script>
+<!-- <script  src="<?=base_url('assets/home/js')?>/leaflet.markercluster.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/dropzone.js"></script> -->
+<script  src="<?=base_url('assets/home/js')?>/slick.min.js"></script>
+<!-- <script  src="<?=base_url('assets/home/js')?>/jquery.filterizr.js"></script> -->
+<script  src="<?=base_url('assets/home/js')?>/jquery.magnific-popup.min.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/jquery.countdown.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/maps.js"></script>
+<script  src="<?=base_url('assets/home/js')?>/app.js"></script>
 
 
 </body>
