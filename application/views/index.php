@@ -2,14 +2,21 @@
 <div class="banner banner" id="banner">
 	<div id="bannerCarousole" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
-			<div class="carousel-item banner-max-height item-bg active">
-				<img class="d-block w-100 h-100" src="assets/img/banner/img-4.jpg" alt="banner">
+			<?php $desk = 0;
+			/** @var array $sliders */
+			foreach ($sliders as $slider) {
+			$img=array();
+			$img=explode('.', $slider->image);
+
+			?>
+			<div class="carousel-item banner-max-height item-bg <?=($desk==0)?'active':'';?>">
+				<img class="d-block w-100 h-100" src="<?= base_url('uploads/sliders/' .  $slider->image) ?>" alt="banner">
 				<div class="carousel-caption banner-slider-inner d-flex h-100">
 					<div class="carousel-content container">
 						<div class="text-c">
-							<h3>Discover Modern Villa</h3>
+							<h3><?=$slider->heading?></h3>
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+								<?=$slider->title?>
 							</p>
 							<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
 							<a href="#"
@@ -18,44 +25,22 @@
 					</div>
 				</div>
 			</div>
-			<div class="carousel-item banner-max-height item-bg">
-				<img class="d-block w-100 h-100" src="assets/img/banner/img-1.jpg" alt="banner">
-				<div class="carousel-caption banner-slider-inner d-flex h-100">
-					<div class="carousel-content container">
-						<div class="text-r">
-							<h3>Find Your Dreem Property</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							</p>
-							<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
-							<a href="#"
-							   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item banner-max-height item-bg">
-				<img class="d-block w-100 h-100" src="assets/img/banner/img-2.jpg" alt="banner">
-				<div class="carousel-caption banner-slider-inner d-flex h-100 text-r">
-					<div class="carousel-content container">
-						<div class="text-l">
-							<h3>Find Your Amazing Home</h3>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							</p>
-							<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
-							<a href="#"
-							   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
+			<?php
+			$desk++;
+			}
+			?>
 		</div>
 		<div class="btn-secton">
 			<ol class="carousel-indicators">
-				<li data-target="#bannerCarousole" data-slide-to="0" class="active"></li>
-				<li data-target="#bannerCarousole" data-slide-to="1"></li>
-				<li data-target="#bannerCarousole" data-slide-to="2"></li>
+				<?php
+				$i=0;
+				foreach ($sliders as $slider) {
+				?>
+				<li data-target="#bannerCarousole" data-slide-to="<?=$i?>>" class="<?=($desk==0)?'active':'';?>"></li>
+				<?php
+					$i++;
+				}
+				?>
 			</ol>
 		</div>
 	</div>

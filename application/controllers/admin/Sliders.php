@@ -11,6 +11,7 @@ class Sliders extends Admin_Controller {
     /**
      * Constructor
      */
+
     function __construct()
     {
         parent::__construct();

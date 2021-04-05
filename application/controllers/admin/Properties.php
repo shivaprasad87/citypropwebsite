@@ -10,9 +10,6 @@ class Properties extends Admin_Controller
      */
     private $_redirect_url;
 
-    /**
-     * Constructor
-     */
     function __construct()
     {
         parent::__construct();
