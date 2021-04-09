@@ -9,13 +9,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=<?php echo $this->settings->site_version; ?>">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=<?php echo $this->settings->site_version; ?>">
     <link rel="icon" type="image/x-icon" href="/favicon.ico?v=<?php echo $this->settings->site_version; ?>">
-    <script type="text/javascript"> var base_url = "<?= base_url() ?>" </script>
-    <script type="text/javascript"> var site_url = "<?= site_url() ?>" </script>
+    <script type="text/javascript">var base_url = "<?= base_url()?>" </script>
+    <script type="text/javascript">var site_url = "<?= site_url() ?>" </script> -->
     <title><?php echo $page_title; ?> - <?php echo $this->settings->site_name; ?></title>
 
-    <?php // CSS files ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="<?= $keywords ?>">
+    <meta name="description" content="<?= $description ?>"> 
+<?php // CSS files ?>
     <?php if (isset($css_files) && is_array($css_files)) : ?>
         <?php foreach ($css_files as $css) : ?>
             <?php if (!is_null($css)) : ?>
@@ -24,9 +27,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="<?= $keywords ?>">
-<meta name="description" content="<?= $description ?>"> 
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/reality-icon.css">
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/range-Slider.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/search.css">
 
-<!-- <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/style.css"> / End -->
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css1/style.css"> 
 <link rel="stylesheet" href="<?=base_url('assets/');?>themes/admin/css/admin.css">
 <link rel="stylesheet" href="<?=base_url('assets/');?>themes/admin/css/summernote-bs3.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>themes/admin/css/adminlte.css">

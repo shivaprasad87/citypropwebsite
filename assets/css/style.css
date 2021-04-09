@@ -4763,6 +4763,10 @@ footer {
 }
 
 @media (min-width: 768px) {
+    
+    .properties-details-Slider .carousel-inner {
+        height: 650px;
+    }
 .property-box-2 .listing-img-container {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 41.666667%;
@@ -6688,6 +6692,7 @@ footer {
 
 .properties-details-Slider .smail-properties .list-inline-item {
     width: 70px;
+    height: 70px;
     margin: 5px;
     box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, .4);
 }
@@ -8657,4 +8662,9 @@ footer {
 
 
 
-
+.properties-details-Slider .carousel-inner .item img{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    
+}
