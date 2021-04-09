@@ -5,7 +5,7 @@
 
 	<div class="container">
 		<div class="col-md-12">
-			<div class="testimonials-subtitle">For Showing Your Interest In Holding Bricks</div>
+			<div class="testimonials-subtitle">For Showing Your Interest In City Prop</div>
 
 			<p></p>
 		</div>

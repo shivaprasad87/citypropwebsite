@@ -162,7 +162,7 @@ data-img-height="505">
                 <div class="spl-txt-wrap va-middle"> 
                   <div class="spl-title va-top">Authorised Channel Partner</div>
                   <ul class="va-top reset-ul offer-ul"> 
-                    <li class="offer">Holding Bricks is an authorised channel partner for this project</li>
+                    <li class="offer">City Prop is an authorised channel partner for this project</li>
                   </ul> 
                   </div>            
               </div>

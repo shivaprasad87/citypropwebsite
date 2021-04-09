@@ -36,7 +36,7 @@ class Home extends Public_Controller
     {
         $this->data['keyword'] = $this->input->post('keyword') ? $this->input->post('keyword') : ''; 
         $this->session->unset_userdata('content');
-        $this->data['meta'] = array('title' => 'Holding Bricks: Best Property Portal in India', 'description' => 'Buy Residential Properties in India at Holding Bricks, the best property agent in India. Choose from the list of top Real Estate Properties in India.  ','keywords' =>'Real Estate Websites in India, Property Sites in India, Property Portal in India, Property for Sale in India, Real Estate India, Properties in India, India Real Estate, Residential Properties in India, Property Agent in India, Apartments, Plots, Villas, Real Estate, India Property');
+        $this->data['meta'] = array('title' => 'City Prop: Best Property Portal in India', 'description' => 'Buy Residential Properties in India at City Prop, the best property agent in India. Choose from the list of top Real Estate Properties in India.  ','keywords' =>'Real Estate Websites in India, Property Sites in India, Property Portal in India, Property for Sale in India, Real Estate India, Properties in India, India Real Estate, Residential Properties in India, Property Agent in India, Apartments, Plots, Villas, Real Estate, India Property');
         $location_where = array('status' => 1);
         if($this->session->userdata('city_id')){
             $location_where["city_id"] = $this->session->userdata('city_id');
@@ -168,7 +168,7 @@ class Home extends Public_Controller
         $this->data['locations'] = $this->home_model->getWhere($location_where, 'locations');
         
         $this->data['meta'] = array(
-            'title' => 'Holding Bricks: Real Estate Properties for Sale in India',
+            'title' => 'City Prop: Real Estate Properties for Sale in India',
             'description' => 'Find the best Real Estate Properties located in Bangalore, Pune, Hyderabad and Mumbai. Get advice from Expert Real Estate Agents with complete project details. ',
             'keywords' => 'Property for sale in India, Apartments for Sale, Flats for Sale, House for Sale, Residential Properties in India, Villas for Sale, Plots for Sale, Bangalore Real Estate, Pune Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Real Estate India, Property Site India'
         );
@@ -515,7 +515,7 @@ $this->email->bcc('shivas8787@gmail.com');
     public function about()
     {
         $this->data['meta'] = array(
-            'title'         => 'Holding Bricks | Leading Real Estate Agent in India', 
+            'title'         => 'City Prop | Leading Real Estate Agent in India',
             'description'   => 'Looking for a property in India? Our experts will guide you to select among best properties in your preferred location by analyzing every project in detail.',
             'keywords'      =>'Real Estate Websites in India, Property Portals in India, Property Experts in India, Properties in India, Real Estate Properties, Online Property Sites, India Real Estate, Real Estate Agents in India, Property Sites in India, Property for Sale in India. '
         );
@@ -627,7 +627,7 @@ $this->email->bcc('shivas8787@gmail.com');
     {
         $this->data['meta'] = array(
             'title'         => 'Privacy Policy - Holdingbricks  ', 
-            'description'   => 'Privacy policy of Holding Bricks, a leading property agent in India. For any support and concerns, please connect at support@Holdingbricks.com  ',
+            'description'   => 'Privacy policy of City Prop, a leading property agent in India. For any support and concerns, please connect at support@Holdingbricks.com  ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Real Estate Websites In India, Property Sites In India, Real Estate Agents In India, Property Portals In India, Real Estate, Indian Real Estate '
         );
         $privacy = $this->home_model->getAll('terms');
@@ -682,7 +682,7 @@ $this->email->bcc('shivas8787@gmail.com');
     public function blog()
     {
         $this->data['meta'] = array(
-            'title'         => 'Holding Bricks Blogs | Latest Property Updates and Trends', 
+            'title'         => 'City Prop Blogs | Latest Property Updates and Trends',
             'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
             'keywords'      =>'Real Estate Blogs, Real Estate Blogs For Buyers, Latest Real Estate News, Real Estate News India 2018, Property Blog India, Property Blog, Property Related Blogs, Best Property Blogs In India, Real Estate Blogs India, Property Experts, Top Property Blogs, Property For Sale, Apartments For Sale'
         );
@@ -724,7 +724,7 @@ $this->email->bcc('shivas8787@gmail.com');
         }
         elseif ($blog_type){
            $this->data['meta'] = array(
-            'title'         => 'Holding Bricks Blogs | Latest Property Updates and Trends', 
+            'title'         => 'City Prop Blogs | Latest Property Updates and Trends',
             'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
             'keywords'      =>'Real Estate Blogs, Real Estate Blogs For Buyers, Latest Real Estate News, Real Estate News India 2018, Property Blog India, Property Blog, Property Related Blogs, Best Property Blogs In India, Real Estate Blogs India, Property Experts, Top Property Blogs, Property For Sale, Apartments For Sale'
         );
@@ -749,9 +749,9 @@ $this->email->bcc('shivas8787@gmail.com');
     public function contact()
     {
         $this->data['meta'] = array(
-            'title'         => 'Holding Bricks Contact and Address Details', 
+            'title'         => 'City Prop Contact and Address Details',
             'description'   => 'Want to buy a home or looking for property advice? Contact us at Holdingbricks , best property portal in India. Find our contact details across India. ',
-            'keywords'      =>'Holding Bricks Contact Details, Holding Bricks Address, Real Estate Bangalore, Real Estate Hyderabad, Real Estate Pune, Real Estate Mumbai, Real Estate Agent in Bangalore, Real Estate Agent in Hyderabad, Real Estate Agent in Pune, Real Estate Agent in Mumbai'
+            'keywords'      =>'City Prop Contact Details, City Prop Address, Real Estate Bangalore, Real Estate Hyderabad, Real Estate Pune, Real Estate Mumbai, Real Estate Agent in Bangalore, Real Estate Agent in Hyderabad, Real Estate Agent in Pune, Real Estate Agent in Mumbai'
         );
         
         if ($this->input->post()) {
@@ -802,7 +802,7 @@ $this->email->bcc('shivas8787@gmail.com');
     {
         $this->data['meta'] = array(
             'title'         => 'Find Jobs – Holdingbricks  ', 
-            'description'   => 'Career opportunities at Holding Bricks. Begin your journey in the world of Real Estate at a place where you can implement your ideas and make a difference.   ',
+            'description'   => 'Career opportunities at City Prop. Begin your journey in the world of Real Estate at a place where you can implement your ideas and make a difference.   ',
             'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Jobs in Bangalore, Jobs in Hyderabad, Jobs in Pune, Jobs in Mumbai, Job Vacancies, Job Search, Real Estate Career, Career Opportunities in Real Estate, Find Jobs Real Estate'
         );
         
@@ -881,9 +881,9 @@ $this->email->bcc('shivas8787@gmail.com');
     public function testimonials()
     {
         $this->data['meta'] = array(
-            'title'         => 'Our Customer Reviews and Testimonials - Holding Bricks ', 
-            'description'   => 'Our customers are very important to us. Read what they have to say about our services. Holding Bricks specializes in residential real estate in India.  ',
-            'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property in Bangalore, Property in Hyderabad, Property in Pune, Property in Mumbai, Customer Testimonials, Holding Bricks reviews, Client Testimonials'
+            'title'         => 'Our Customer Reviews and Testimonials - City Prop ',
+            'description'   => 'Our customers are very important to us. Read what they have to say about our services. City Prop specializes in residential real estate in India.  ',
+            'keywords'      =>'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property in Bangalore, Property in Hyderabad, Property in Pune, Property in Mumbai, Customer Testimonials, City Prop reviews, Client Testimonials'
         );
         $this->data['testimonials'] = $this->home_model->get_testimonials();
         $this->data['view_page'] = 'testimonial';
@@ -1025,9 +1025,9 @@ $this->email->bcc('shivas8787@gmail.com');
         $this->load->model('Builders_model', 'bld');
         $this->data['meta'] = 
             array(
-            'title'         => 'Builders | Holding Bricks: Best Property Portal in India', 
-            'description'   => 'Holding Bricks: Best Property Portal in India',
-            'keywords'      => 'Holding Bricks: Best Property Portal in India'
+            'title'         => 'Builders | City Prop: Best Property Portal in India',
+            'description'   => 'City Prop: Best Property Portal in India',
+            'keywords'      => 'City Prop: Best Property Portal in India'
         );
 		
         $totalRecords = $this->bld->countAllBuilders(array('b.status' => 1));
@@ -1125,7 +1125,7 @@ $this->email->bcc('shivas8787@gmail.com');
   public function achievements()
   {
     $this->data['meta'] = array(
-        'title'         => 'Holding Bricks Achivements | Latest Property Updates and Trends', 
+        'title'         => 'City Prop Achivements | Latest Property Updates and Trends',
         'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
         'keywords'      =>'Holdingbricks  achivements'
     );
@@ -1139,7 +1139,7 @@ $this->email->bcc('shivas8787@gmail.com');
   public function nri()
   {
     $this->data['meta'] = array(
-        'title'         => 'Holding Bricks NRI | Latest Property Updates and Trends', 
+        'title'         => 'City Prop NRI | Latest Property Updates and Trends',
         'description'   => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
         'keywords'      =>'Holdingbricks  NRI'
     );  
