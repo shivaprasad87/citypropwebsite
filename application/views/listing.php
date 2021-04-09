@@ -4,7 +4,7 @@
 		<div class="breadcrumb-area">
 			<h1>Properties Details</h1>
 			<ul class="breadcrumbs">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="<?=base_url()?>">Home</a></li>
 				<li class="active">Properties Details</li>
 			</ul>
 		</div>
@@ -42,202 +42,114 @@
 				</div>
 				<!-- Property box 2 start -->
 				<div class="listings-container list-layout property-box-2">
-					<div class="listing-item" >
-						<div class="row">
-							<div class="listing-img-container col-pad">
-								<div class="property-thumbnail">
-									<a href="properties-details.html" class="property-img">
-										<img src="img/properties/properties-list-1.jpg" alt="properties" class="img-fluid">
-										<div class="tag">Apartments</div>
-										<div class="listing-badges">
-											<span class="featured">Featured</span>
+					<?php
+					$i=1;
+					$j=1;
+					/** @var array $properties */
+					if(count($properties)>0) {
+						foreach ($properties as $property) {
+
+							?>
+							<div class="listing-item">
+								<div class="row">
+									<div class="listing-img-container col-pad">
+										<div class="property-thumbnail">
+											<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"
+											   class="property-img">
+												<img src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
+													 alt="properties" class="img-fluid">
+												<div class="tag">Apartments</div>
+												<div class="listing-badges">
+													<span class="featured">Featured</span>
+												</div>
+												<div class="price-box"><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+																	'property_flat_types', null,
+																	'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+													." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+																	'property_flat_types', null,
+																	'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>* <i>Onwards</i></div>
+											</a>
 										</div>
-										<div class="price-box"><span>Rs850.00</span> Per month</div>
-									</a>
-								</div>
-							</div>
-							<div class="listing-content col-pad">
-								<div class="detail">
-									<div class="hdg">
-										<h3 class="title">
-											<a href="properties-details.html">Prestige Greenwoods</a>
-										</h3>
-										<h5 class="location">
-											<a href="properties-details.html">
-												<i class="flaticon-pin"></i>Whitefiled ,Bangalore
-											</a>
-										</h5>
-										<div class="rera-tag-new" title="Rera Approved Project"><img src="img/rera-tag.svg" alt="Rera Approved Project"></div>
 									</div>
-									<div class="facilities-list">
-										<ul class="clearfix">
-											<li>
-												<span>Unit</span>2,3,4 BHK Apartments
-											</li>
+									<div class="listing-content col-pad">
+										<div class="detail">
+											<div class="hdg">
+												<h3 class="title">
+													<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"><?= $property->title ?></a>
+												</h3>
+												<h5 class="location">
+													<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
+														<i class="flaticon-pin"></i><?php echo $property->area . ", " . $property->city_name; ?>
+													</a>
+												</h5>
+												<div class="rera-tag-new" title="Rera Approved Project"><img
+															src="assets/img/rera-tag.svg" alt="Rera Approved Project">
+												</div>
+											</div>
+											<div class="facilities-list">
+												<ul class="clearfix">
+													<?php
+													if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
+														$bhk = '';
+														$i = 0;
+														foreach ($flatTypes as $flatType) {
+															if ($i == 0)
+																$bhk .= $flatType->flat_type;
+															else
+																$bhk .= ', ' . $flatType->flat_type;
+															$i++;
+														}
+													}
+													$propType = $this->properties_model->getPropertyType(['id' => $property->property_type_id]);
+													?>
+													<li>
+														<span>Unit</span><?php echo $bhk;
+														$bhk = ''; ?>
+													</li>
 
-											<li>
-												<span>Sqft</span> 35,000
-											</li>
-											<li>
-												<span>Status</span>Under Construction
-											</li>
-										</ul>
-									</div>
-									<div class="footer">
-										<a href="#" tabindex="0">
-											Possession by  May 2021
-										</a>
-										<div class="div-line"><span tabindex="0">
-                                            New
-                                        </span></div>
+													<li>
+														<span>Sqft</span> 35,000
+													</li>
+													<li>
+														<span>Status</span><?=$property->issue_date;?>
+													</li>
+												</ul>
+											</div>
+											<div class="footer">
+												<a href="#" tabindex="0">
+													<?php
+													if($property->possession_date!='0000-00-00')
+														echo  "Possession by ".date('M, Y', strtotime($property->possession_date));
+													else
+														echo "Ready"; ?>
+												</a>
+												<div class="div-line"><span tabindex="0">
+												New
+											</span></div>
 
-										<div class="disclaimer"> <a href="#" tabindex="0">
-												2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...
-											</a></div>
-									</div>
-									<div class="hdg">
-										<span itemprop="name">By Prestige Group</span>
-										<button class="btn-detail ">
-											<a href="property-detail.html" target="_blank">
-												View More
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="listing-item" >
-						<div class="row">
-							<div class="listing-img-container col-pad">
-								<div class="property-thumbnail">
-									<a href="properties-details.html" class="property-img">
-										<img src="img/properties/properties-list-1.jpg" alt="properties" class="img-fluid">
-										<div class="tag">Apartments</div>
-										<div class="listing-badges">
-											<span class="featured">Featured</span>
+												<div class="disclaimer"><a href="#" tabindex="0">
+<!--														2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...-->
+													</a></div>
+											</div>
+											<div class="hdg">
+												<span itemprop="name">By <?=$property->builder?></span>
+												<button class="btn-detail ">
+													<a href=<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" target="_blank">
+														View More
+													</a>
+												</button>
+											</div>
 										</div>
-										<div class="price-box"><span>Rs850.00</span> Per month</div>
-									</a>
-								</div>
-							</div>
-							<div class="listing-content col-pad">
-								<div class="detail">
-									<div class="hdg">
-										<h3 class="title">
-											<a href="properties-details.html">Prestige Greenwoods</a>
-										</h3>
-										<h5 class="location">
-											<a href="properties-details.html">
-												<i class="flaticon-pin"></i>Whitefiled ,Bangalore
-											</a>
-										</h5>
-										<div class="rera-tag-new" title="Rera Approved Project"><img src="img/rera-tag.svg" alt="Rera Approved Project"></div>
-									</div>
-									<div class="facilities-list">
-										<ul class="clearfix">
-											<li>
-												<span>Unit</span>2,3,4 BHK Apartments
-											</li>
-
-											<li>
-												<span>Sqft</span> 35,000
-											</li>
-											<li>
-												<span>Status</span>Under Construction
-											</li>
-										</ul>
-									</div>
-									<div class="footer">
-										<a href="#" tabindex="0">
-											Possession by  May 2021
-										</a>
-										<div class="div-line"><span tabindex="0">
-                                            New
-                                        </span></div>
-
-										<div class="disclaimer"> <a href="#" tabindex="0">
-												2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...
-											</a></div>
-									</div>
-									<div class="hdg">
-										<span itemprop="name">By Prestige Group</span>
-										<button class="btn-detail ">
-											<a href="property-detail.html" target="_blank">
-												View More
-											</a>
-										</button>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="listing-item" >
-						<div class="row">
-							<div class="listing-img-container col-pad">
-								<div class="property-thumbnail">
-									<a href="properties-details.html" class="property-img">
-										<img src="img/properties/properties-list-1.jpg" alt="properties" class="img-fluid">
-										<div class="tag">Apartments</div>
-										<div class="listing-badges">
-											<span class="featured">Featured</span>
-										</div>
-										<div class="price-box"><span>Rs850.00</span> Per month</div>
-									</a>
-								</div>
-							</div>
-							<div class="listing-content col-pad">
-								<div class="detail">
-									<div class="hdg">
-										<h3 class="title">
-											<a href="properties-details.html">Prestige Greenwoods</a>
-										</h3>
-										<h5 class="location">
-											<a href="properties-details.html">
-												<i class="flaticon-pin"></i>Whitefiled ,Bangalore
-											</a>
-										</h5>
-										<div class="rera-tag-new" title="Rera Approved Project"><img src="img/rera-tag.svg" alt="Rera Approved Project"></div>
-									</div>
-									<div class="facilities-list">
-										<ul class="clearfix">
-											<li>
-												<span>Unit</span>2,3,4 BHK Apartments
-											</li>
-
-											<li>
-												<span>Sqft</span> 35,000
-											</li>
-											<li>
-												<span>Status</span>Under Construction
-											</li>
-										</ul>
-									</div>
-									<div class="footer">
-										<a href="#" tabindex="0">
-											Possession by  May 2021
-										</a>
-										<div class="div-line"><span tabindex="0">
-                                            New
-                                        </span></div>
-
-										<div class="disclaimer"> <a href="#" tabindex="0">
-												2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...
-											</a></div>
-									</div>
-									<div class="hdg">
-										<span itemprop="name">By Prestige Group</span>
-										<button class="btn-detail ">
-											<a href="property-detail.html" target="_blank">
-												View More
-											</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
+						<?php }
+					}
+					else
+					{
+						echo "No Properties Found!";
+					}
+					?>
 				</div>
 				<div class="clearfix"></div>
 				<div class="row">
@@ -412,12 +324,12 @@
 						<div class="s-border"></div>
 						<div class="m-border"></div>
 						<div class="media mb-4">
-							<a class="pr-3" href="properties-details.html">
+							<a class="pr-3" href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">
 								<img class="media-object" src="img/properties/small-properties-1.jpg" alt="small-properties">
 							</a>
 							<div class="media-body align-self-center">
 								<h5>
-									<a href="properties-details.html">Modern Family Home</a>
+									<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">Modern Family Home</a>
 								</h5>
 								<div class="listing-post-meta">
 									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27,  </a>

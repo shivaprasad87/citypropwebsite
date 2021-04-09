@@ -1,5 +1,5 @@
-<?php 
-$property->gallery = json_decode(json_encode($property->gallery),true); 
+<?php
+$property->gallery = json_decode(json_encode($property->gallery),true);
 $gallery_images = array();
 foreach($property->gallery as $gallery) {
   if(is_array($gallery))
@@ -12,7 +12,7 @@ foreach($property->gallery as $gallery) {
   {
   array_push($gallery_images, $gallery['image']);
   }
-} 
+}
 if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
                                                 'property_desktop_banners')) != null ) {
     if(($m_images = $this->properties_model->getWhere(array('property_id' => $property->id),
@@ -30,1191 +30,740 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
     foreach ($total_images as $image) {
           array_push($gallery_images, $images[$ban]['banner_path']);
           array_push($gallery_images, $m_images[$ban]['mobile_banner_path']);
-          
-       
+
+
       }
     }
-  }  
+  }
          $this->load->view('inc/head2'); $this->load->view('inc/header');
 
 ?>
-<div class="reserveserenityforever_info fixed">
-  <div class=container>
-  
-    <div class="reserveserenityforever_list">
-      <div class="serenepark_info">
-        <div class="serenepark_img">
-          <?php
-                                                if(($logos = $this->properties_model->getWhere(array('property_id' => $property->id),
-                                                                                                'property_logo')) != null)
-                                                {
-                                                    $logos=json_decode( json_encode($logos), true);
-                                                    //builder_image;
-                                                    ?> 
-                                                <img src="<?= base_url().'uploads/'.$property->slug.'/logos/'.$map[0] ?>" alt="">
-                                                                <?php
+<!-- Properties details Slider -->
+<div class="properties-details-Slider">
+	<div id="propertiesDetailsSlider" class="carousel properties-details-sliders slide">
+		<div class="carousel-inner">
+			<?php
+			$i=0;
+			foreach ($gallery_images as $gallery) {
+			?>
+			<div class="<?=($i==0)?'active ':''?>item carousel-item overview-counter-2" data-slide-number="<?=$i?>>">
+				<img src="<?=base_url().$gallery?>" class="img-fluid slider-listing" alt="slider-properties">
+			</div>
+				<?php
+				$i++;
+				}
+				?>
 
-                                                }
-                                                else
-                                                {
-                                                    $map[0]= '' ;
-                                                ?>
-                                                <img src="<?= base_url().'uploads/builders/'.$map[0] ?>" alt="">
-                                                                    
-                                                                    <?php
-                                                }
-//print_r($gallery_images);
-                                                ?>
-         </div>
-        <div class="serenepark_cont">
-          <h6><?= $property->title ? $property->title : '' ?></h6>
-          <p><?= $property->location . ', ' . $property->city_name ?></p>
-        </div>
-      </div>
-      <div class="clearflix"></div>
-      <div class="reserveserenityforever_left">
-        <div class="show_interior_exterior_info">
-          <ul></ul>
-        </div>
-        
-        <div class="reserveserenityforever_video demo-gallery">
-					<!-- <a  href="#myVideo" style="background-image: url('images//popular-location-01.jpg');">
-					</a>-->
 
-					<ul class="lightgallery" class="list-unstyled row">
-						<li data-src="<?=base_url($gallery_images[0]);?>" >
-							<a><img class="img-responsive" src="<?=base_url($gallery_images[0]);?>"></a>
-            </li>
-            
-					</ul>
+
+<!--			<div class="item carousel-item overview-counter-2" data-slide-number="1">-->
+<!--				<img src="--><?//=base_url()?><!--assets/img/img-2.jpg" class="img-fluid slider-listing" alt="slider-properties">-->
+<!--			</div>-->
+<!--			<div class="item carousel-item overview-counter-2" data-slide-number="2">-->
+<!--				<img src="--><?//=base_url()?><!--assets/img/img-3.jpg" class="img-fluid slider-listing" alt="slider-properties">-->
+<!--			</div>-->
+		</div>
+		<ul class="carousel-indicators smail-properties list-inline nav nav-justified">
+			<?php
+			$i=0;
+			foreach ($gallery_images as $gallery) {
+			?>
+			<li class="list-inline-item <?=($i==0)?'active ':''?>">
+				<a id="carousel-selector-0" class="selected" data-slide-to="<?=$i?>" data-target="#propertiesDetailsSlider">
+					<img src="<?=base_url().$gallery?>" class="img-fluid" alt="properties-small">
+				</a>
+			</li>
+			<?php
+			$i++;
+			}
+			?>
+		</ul>
+
+	</div>
+</div>
+
+<!-- Properties details page start -->
+<div class="properties-details-page content-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12">
+				<!-- Advanced search start -->
+				<div class="widget-2 advanced-search  bg-grea-2 d-lg-none d-xl-none">
+					<h3 class="sidebar-title">Advanced Search</h3>
+					<div class="s-border"></div>
+					<div class="m-border"></div>
+					<form method="GET">
+						<div class="form-group">
+							<select class="selectpicker search-fields" name="all-status">
+								<option>All Status</option>
+								<option>For Sale</option>
+								<option>For Rent</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="selectpicker search-fields" name="all-type">
+								<option>All Type</option>
+								<option>Apartments</option>
+								<option>Shop</option>
+								<option>Restaurant</option>
+								<option>Villa</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="selectpicker search-fields" name="commercial">
+								<option>Commercial</option>
+								<option>Residential</option>
+								<option>Commercial</option>
+								<option>Land</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<select class="selectpicker search-fields" name="location">
+								<option>location</option>
+								<option>United States</option>
+								<option>American Samoa</option>
+								<option>Belgium</option>
+								<option>Canada</option>
+							</select>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="form-group">
+									<select class="selectpicker search-fields" name="bedrooms">
+										<option>Bedrooms</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="form-group">
+									<select class="selectpicker search-fields" name="bathroom">
+										<option>Bathroom</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="form-group">
+									<select class="selectpicker search-fields" name="balcony">
+										<option>Balcony</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="form-group">
+									<select class="selectpicker search-fields" name="garage">
+										<option>Garage</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="range-slider clearfix form-group">
+							<label>Area</label>
+							<div data-min="0" data-max="10000" data-min-name="min_area" data-max-name="max_area" data-unit="Sq ft" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="range-slider clearfix form-group mb-30">
+							<label>Price</label>
+							<div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="form-group mb-0">
+							<button class="search-button">Search</button>
+						</div>
+					</form>
 				</div>
-      
-      </div>
-      <div class="reserveserenityforever_right">
-        <div class="show_interior_exterior_info">
-          <ul></ul>
-        </div>
-        <div class="show_interior_exterior_list">
-          <div class="show_interior_exterior_listinner demo-gallery showall_list">
-            
-              
-              
-            <ul class="lightgallery" class="list-unstyled row">
-            <?php
-            $i=1;
-            foreach ($gallery_images as $gallery) {
-            ?>
-              <li data-src="<?=base_url($gallery);?>" >
-                <a><img class="img-responsive" src="<?=base_url($gallery);?>"></a>
-              
-              </li> 
-              <?php
-                # code...
-            }
-            ?>
-            
-            
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-</div>
-<div class="container ">
-  <div class="highlights">
-    <ul>
-      <li>
-        <p>Starting Price</p><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
-                  'property_flat_types', null,
-                  'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 
-             ." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
-                  'property_flat_types', null,
-                  'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>*</h6>
-      </li>
-      <?php
-          if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
-                                                        $property->id)) != null) {
-              $bhk='';
-              $i=0;
-              foreach ($flatTypes as $flatType) {
-                  if($i==0)
-                      $bhk.=$flatType->flat_type;
-                  else
-                  $bhk.=', '.$flatType->flat_type;
-              $i++;
-              }
-          } 
-          $propType   = $this->properties_model->getPropertyType(['id'=>$property->property_type_id]);
-          ?>
-      <li>
-        <p>Configurations</p>
-        <h6><?php echo $bhk; $bhk=''; ?></h6>
-      </li>
-      <li>
-        <p>Possession Time</p>
-        <h6><?php
-            if($property->possession_date!='0000-00-00')
-            echo  date('M, Y', strtotime($property->possession_date));
-            else 
-            echo "Ready"; ?></h6>
-      </li>
-    
-    </ul>
-  </div>
-
-</div>
-
-<div class="container property-details ">
-<div class="row">
-  <div class="col-lg-8 ">
-    <div class="div-shadow">
-      <div class="col-pad">
-        <div class="property-banner">
-          <img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>" class="img-responsive">
-          <div class="prop-status">
-            <?=$property->issue_date;?>
-          </div>
-        </div>
-      </div>
-
-      <div class="property-title1 mt-10">
-        <p><?= $property->title ? $property->title : '' ?></p>
-        <h1></h1>
-        <span><?= $property->location . ', ' . $property->city_name ?></span>
-        <p class="font9">RERA : <br> <?=$property->rera_number?$property->rera_number:'Not Updated'?></p>
-      </div>
-      <hr>
-      <div class=" mt-10">
-        <div class="project_price_details_info">
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-              <p>SBA</p><h6> 5649 sqft</h6>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-              <p>No. Of Units</p><h6> <?=$property->units?> Units</h6>
-            </div>
-              
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-              <p>No. Of Floors</p><h6><?=$property->floors?> Floors</h6>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-              <p>No. Of Towers</p><h6> <?=$property->towers?> Towers</h6>
-            </div>
-
-            
-          </div>
-        </div>
-      
-      </div>
-      <div class="projectoverview_info  mt-10">
-        <h6>Project Overview:</h6>
-        <?= $property->description?$property->description:''; ?>
-        <!-- <a href="#" class="show-more-button">Show More <i class="fa fa-angle-down"></i></a> -->
-        <center><div class="btn btn-info" data-toggle="modal" data-target="#Brochure-pop">Download Brochure</div></center>
-      </div>
-    </div>
-
-    <div class="div_info mt-10" id="Pricing">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="individualproject_title">
-		
-						<h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Pricing</h5>
-						
+				<!-- Tabbing box start -->
+				<div class="tabbing tabbing-box mb-40">
+					<ul class="nav nav-tabs" id="carTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Description</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="6-tab" data-toggle="tab" href="#6" role="tab" aria-controls="6" aria-selected="true">Features</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Floor Plans</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="true">Details</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab" aria-controls="5" aria-selected="true">Location</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab" aria-controls="4" aria-selected="true">Video</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="carTabContent">
+						<div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
+							<div class="properties-description mb-50">
+								<h3 class="heading-2">
+									Prestige Greenwoods
+								</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra a. Aliquam pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod fringilla. Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet tristique augue. Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
+								<p>pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod fringilla. Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet tristique augue. Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
+								<p>Aliquam ultricies nunc porta metus interdum mollis. Donec porttitor libero augue, vehicula tincidunt lectus placerat a. Sed tincidunt dolor non sem dictum dignissim. Nulla vulputate orci felis, ac ornare purus ultricies a. Fusce euismod magna orci, sit amet aliquam turpis dignissim ac. In at tortor at ligula pharetra sollicitudin. Sed tincidunt, purus eget laoreet elementum, felis est pharetra ante, tincidunt feugiat libero enim sed risus.Sed at leo sit amet mi bibendum aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent cursus varius odio, non faucibus dui. Nunc vehicula lectus sed velit suscipit aliquam vitae eu ipsum. adipiscing elit.</p>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
+							<div class="floor-plans mb-50">
+								<h3 class="heading-2">Floor Plans</h3>
+								<table>
+									<tbody><tr>
+										<td><strong>Size</strong></td>
+										<td><strong>Rooms</strong></td>
+										<td><strong>Bathrooms</strong></td>
+										<td><strong>Garage</strong></td>
+									</tr>
+									<tr>
+										<td>1600</td>
+										<td>3</td>
+										<td>2</td>
+										<td>1</td>
+									</tr>
+									</tbody>
+								</table>
+								<img src="<?=base_url()?>assets/img/floor-plans.png" alt="floor-plans" class="img-fluid">
+							</div>
+						</div>
+						<div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
+							<div class="property-details mb-40">
+								<h3 class="heading-2">Property Details</h3>
+								<div class="row">
+									<div class="col-md-4 col-sm-6">
+										<ul>
+											<li>
+												<strong>Property Id:</strong>215
+											</li>
+											<li>
+												<strong>Price:</strong>$1240/ Month
+											</li>
+											<li>
+												<strong>Property Type:</strong>House
+											</li>
+											<li>
+												<strong>Bathrooms:</strong>3
+											</li>
+											<li>
+												<strong>Bathrooms:</strong>2
+											</li>
+										</ul>
+									</div>
+									<div class="col-md-4 col-sm-6">
+										<ul>
+											<li>
+												<strong>Property Lot Size:</strong>800 ft2
+											</li>
+											<li>
+												<strong>Land area:</strong>230 ft2
+											</li>
+											<li>
+												<strong>Year Built:</strong>
+											</li>
+											<li>
+												<strong>Available From:</strong>
+											</li>
+											<li>
+												<strong>Garages:</strong>2
+											</li>
+										</ul>
+									</div>
+									<div class="col-md-4 col-sm-6">
+										<ul>
+											<li>
+												<strong>Sold:</strong>Yes
+											</li>
+											<li>
+												<strong>City:</strong>Usa
+											</li>
+											<li>
+												<strong>Parking:</strong>Yes
+											</li>
+											<li>
+												<strong>Property Owner:</strong>Sohel Rana
+											</li>
+											<li>
+												<strong>Zip Code: </strong>2451
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade " id="6" role="tabpanel" aria-labelledby="6-tab">
+							<div class="properties-amenities mb-30">
+								<h3 class="heading-2">Features</h3>
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<ul class="amenities">
+											<li>
+												<i class="fa fa-check"></i>Air conditioning
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Balcony
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Pool
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Room service
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Gym
+											</li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<ul class="amenities">
+											<li>
+												<i class="fa fa-check"></i>Wifi
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Parking
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Double Bed
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Home Theater
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Electric
+											</li>
+										</ul>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+										<ul class="amenities">
+											<li>
+												<i class="fa fa-check"></i>Telephone
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Jacuzzi
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Alarm
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Garage
+											</li>
+											<li>
+												<i class="fa fa-check"></i>Security
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade " id="5" role="tabpanel" aria-labelledby="5-tab">
+							<div class="location mb-50">
+								<div class="map">
+									<h3 class="heading-2">Property Location</h3>
+									<div id="map" class="contact-map">
+										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.660072568!2d77.35073295903771!3d12.954517012303143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1613576953712!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade " id="4" role="tabpanel" aria-labelledby="4-tab">
+							<div class="inside-properties mb-50">
+								<h3 class="heading-2">
+									Property Video
+								</h3>
+								<iframe src="https://www.youtube.com/embed/r2x4lL9M2Rk" allowfullscreen=""></iframe>
+							</div>
+						</div>
 					</div>
-					<table class="table">
-						<thead class="table-head">
-						  <tr>
-							<th>Type</th>
-							<th>SBA (sqft)</th>
-							<th>Carpet Area (sqft)</th>
-							<th>Price</th>
-						  </tr>
-						</thead>
-						<tbody>
-                                                                <?php
-                                                                if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
-                                                                        $property->id)) != null) {
-                                                                    foreach ($flatTypes as $flatType) {
-                                                                        ?>
-                                                                    <tr style="background: #ededed;">
-                                                                        <td>
-                                                                            <?= $flatType->flat_type ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?= $this->properties_model->getPropertyRange(array(
-                                                            'property_id' => $property->id,
-                                                            'flat_type_id' => $flatType->flat_type_id
-                                                        ), 'property_flat_types',
-                                                            'size') ?>
-                                                                                <?= $this->properties_model->getPropertyParam(array(
-                                                            'property_id' => $property->id,
-                                                            'flat_type_id' => $flatType->flat_type_id
-                                                        ), 'property_flat_types', 'unit') ?>
-                                                                        </td>
-                                                                        <td>
-                                                                            <?= $this->properties_model->getPropertyRange(array(
-                                                            'property_id' => $property->id,
-                                                            'flat_type_id' => $flatType->flat_type_id
-                                                        ), 'property_flat_types', 'carpet_area') ?> Sq.ft
-                                                                        </td>
-                                                                        <td>
-                                                                            <?php
-                                                        if ($flatType->price_on_request) {
-                                                            echo "Price on Request";
-                                                        } else {
-                                                            ?>
-                                                                                <i class="fa fa-inr" aria-hidden="true"></i>
-                                                                                <?= (($row = $this->properties_model->getPropertyParam(array(
-                                                                    'property_id' => $property->id,
-                                                                    'flat_type_id' => $flatType->flat_type_id
-                                                                ), 'property_flat_types', null,
-                                                                    'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                                                                                    -
-                                                                                    <?= (($row = $this->properties_model->getPropertyParam(array(
-                                                                    'property_id' => $property->id,
-                                                                    'flat_type_id' => $flatType->flat_type_id
-                                                                ), 'property_flat_types', null,
-                                                                    'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                                                                                        <?php
-                                                        }
-                                                        ?>
-                                                                        </td> 
-                                                                    </tr>
-                                                                    <?php
-                                            }
-                                        } else {
-                                            ?>
-                                                                        <tr style="background: #ededed;">
-                                                                            <td colspan="6" class="text-center">No data available</td>
-                                                                        </tr>
-                                                                        <?php
-                                        }
-                                        ?>
+				</div>
 
-                                                            </tbody>
-					  </table>
-			
-		
-				
-					<center class="mt-10"><div class="btn btn-info" data-toggle="modal" data-target="#Price-pop">Download Costsheet</div></center>
-		
+				<hr>
+
+				<!-- Contact 2 start -->
+				<div class="contact-2 ca mtb-50">
+					<h3 class="heading">Contact Form</h3>
+					<form action="#" method="GET" enctype="multipart/form-data">
+						<div class="row">
+							<div class="form-group name col-md-6">
+								<input type="text" name="name" class="form-control" placeholder="Name">
+							</div>
+							<div class="form-group email col-md-6">
+								<input type="email" name="email" class="form-control" placeholder="Email">
+							</div>
+							<div class="form-group number col-md-6">
+								<input type="text" name="phone" class="form-control" placeholder="Number">
+							</div>
+							<div class="form-group number col-md-6">
+								<input type="text" name="subject" class="form-control" placeholder="Subject">
+							</div>
+							<div class="form-group message col-md-12">
+								<textarea class="form-control" name="message" placeholder="Write message"></textarea>
+							</div>
+							<div class="send-btn col-md-12">
+								<button type="submit" class="btn btn-md button-theme">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- Similar Properties start -->
+				<h3 class="heading-2">Similar Properties</h3>
+				<div class=" similar-properties">
+
+					<div class="listings-container grid-layout property-box-1">
+						<div class="listing-item" >
+							<div class="row">
+								<div class="listing-img-container col-pad">
+									<div class="property-thumbnail">
+										<a href="properties-details.html" class="property-img">
+											<img src="<?=base_url()?>assets/img/properties/properties-list-1.jpg" alt="properties" class="img-fluid">
+											<div class="tag">Apartments</div>
+											<div class="listing-badges">
+												<span class="featured">Featured</span>
+											</div>
+											<div class="price-box"><span>Rs850.00</span> Per month</div>
+										</a>
+									</div>
+								</div>
+								<div class="listing-content col-pad">
+									<div class="detail">
+										<div class="hdg">
+											<h3 class="title">
+												<a href="properties-details.html">Prestige Greenwoods</a>
+											</h3>
+											<h5 class="location">
+												<a href="properties-details.html">
+													<i class="flaticon-pin"></i>Whitefiled ,Bangalore
+												</a>
+											</h5>
+											<div class="rera-tag-new" title="Rera Approved Project"><img src="<?=base_url()?>assets/img/rera-tag.svg" alt="Rera Approved Project"></div>
+										</div>
+										<div class="facilities-list">
+											<ul class="clearfix">
+												<li>
+													<span>Unit</span>2,3,4 BHK Apartments
+												</li>
+
+												<li>
+													<span>Sqft</span> 35,000
+												</li>
+												<li>
+													<span>Status</span>Under Construction
+												</li>
+											</ul>
+										</div>
+										<div class="footer">
+											<a href="#" tabindex="0">
+												Possession by  May 2021
+											</a>
+											<div class="div-line"><span tabindex="0">
+                                                New
+                                            </span></div>
+
+											<div class="disclaimer"> <a href="#" tabindex="0">
+													2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...
+												</a></div>
+										</div>
+										<div class="hdg">
+											<span itemprop="name">By Prestige Group</span>
+											<button class="btn-detail ">
+												<a href="property-detail.html" target="_blank">
+													View More
+												</a>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="listing-item" >
+							<div class="row">
+								<div class="listing-img-container col-pad">
+									<div class="property-thumbnail">
+										<a href="properties-details.html" class="property-img">
+											<img src="<?=base_url()?>assets/img/properties/properties-list-1.jpg" alt="properties" class="img-fluid">
+											<div class="tag">Apartments</div>
+											<div class="listing-badges">
+												<span class="featured">Featured</span>
+											</div>
+											<div class="price-box"><span>Rs850.00</span> Per month</div>
+										</a>
+									</div>
+								</div>
+								<div class="listing-content col-pad">
+									<div class="detail">
+										<div class="hdg">
+											<h3 class="title">
+												<a href="properties-details.html">Prestige Greenwoods</a>
+											</h3>
+											<h5 class="location">
+												<a href="properties-details.html">
+													<i class="flaticon-pin"></i>Whitefiled ,Bangalore
+												</a>
+											</h5>
+											<div class="rera-tag-new" title="Rera Approved Project"><img src="<?=base_url()?>assets/img/rera-tag.svg" alt="Rera Approved Project"></div>
+										</div>
+										<div class="facilities-list">
+											<ul class="clearfix">
+												<li>
+													<span>Unit</span>2,3,4 BHK Apartments
+												</li>
+
+												<li>
+													<span>Sqft</span> 35,000
+												</li>
+												<li>
+													<span>Status</span>Under Construction
+												</li>
+											</ul>
+										</div>
+										<div class="footer">
+											<a href="#" tabindex="0">
+												Possession by  May 2021
+											</a>
+											<div class="div-line"><span tabindex="0">
+                                                New
+                                            </span></div>
+
+											<div class="disclaimer"> <a href="#" tabindex="0">
+													2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...
+												</a></div>
+										</div>
+										<div class="hdg">
+											<span itemprop="name">By Prestige Group</span>
+											<button class="btn-detail ">
+												<a href="property-detail.html" target="_blank">
+													View More
+												</a>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-12">
+				<div class="sidebar-right">
+					<!-- Advanced search start -->
+					<div class="widget advanced-search d-none">
+						<h3 class="sidebar-title">Advanced Search</h3>
+						<div class="s-border"></div>
+						<div class="m-border"></div>
+						<form method="GET">
+							<div class="form-group">
+								<select class="selectpicker search-fields" name="all-status">
+									<option>All Status</option>
+									<option>Ready to Move In</option>
+									<option>Under Construction</option>
+									<option>New launch</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="selectpicker search-fields" name="all-type">
+									<option>All Type</option>
+
+									<option>Apartments</option>
+									<option>Villa</option>
+									<option>Plots</option>
+									<option>Commercial</option>
+
+								</select>
+							</div>
+
+							<div class="form-group">
+								<select class="selectpicker search-fields" name="location">
+									<option>Location</option>
+									<option>Bangalore</option>
+									<option>Bangalore</option>
+									<option>Bangalore</option>
+									<option>Bangalore</option>
+								</select>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<div class="form-group">
+										<select class="selectpicker search-fields" name="bedrooms">
+											<option>Bedrooms</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<div class="form-group">
+										<select class="selectpicker search-fields" name="bathroom">
+											<option>Bathroom</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6 col-md-6 col-sm-6">
+									<div class="form-group">
+										<select class="selectpicker search-fields" name="balcony">
+											<option>Balcony</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>
+									</div>
+								</div>
+
+							</div>
+							<div class="range-slider clearfix form-group">
+								<label>Area</label>
+								<div data-min="0" data-max="10000" data-min-name="min_area" data-max-name="max_area" data-unit="Sq ft" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+								<div class="clearfix"></div>
+							</div>
+							<div class="range-slider clearfix form-group mb-30">
+								<label>Price</label>
+								<div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="Rs" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+								<div class="clearfix"></div>
+							</div>
+							<a class="show-more-options" data-toggle="collapse" data-target="#options-content">
+								<i class="fa fa-plus-circle"></i> Other Features
+							</a>
+							<div id="options-content" class="collapse">
+								<h3 class="sidebar-title">Features</h3>
+								<div class="s-border"></div>
+								<div class="m-border"></div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox2" type="checkbox">
+									<label for="checkbox2">
+										Air Condition
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox3" type="checkbox">
+									<label for="checkbox3">
+										Places to seat
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox4" type="checkbox">
+									<label for="checkbox4">
+										Swimming Pool
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox1" type="checkbox">
+									<label for="checkbox1">
+										Free Parking
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox7" type="checkbox">
+									<label for="checkbox7">
+										Central Heating
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox5" type="checkbox">
+									<label for="checkbox5">
+										Laundry Room
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox6" type="checkbox">
+									<label for="checkbox6">
+										Window Covering
+									</label>
+								</div>
+								<div class="checkbox checkbox-theme checkbox-circle">
+									<input id="checkbox8" type="checkbox">
+									<label for="checkbox8">
+										Alarm
+									</label>
+								</div>
+								<br>
+							</div>
+							<div class="form-group mb-0">
+								<button class="search-button">Search</button>
+							</div>
+						</form>
+					</div>
+					<!-- Recent properties start -->
+					<div class="widget recent-properties">
+						<h3 class="sidebar-title">Recent Properties</h3>
+						<div class="s-border"></div>
+						<div class="m-border"></div>
+						<div class="media mb-4">
+							<a class="pr-3" href="properties-details.html">
+								<img class="media-object" src="<?=base_url()?>assets/img/properties/small-properties-1.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="properties-details.html">Modern Family Home</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27,  </a>
+								</div>
+							</div>
+						</div>
+						<div class="media mb-4">
+							<a class="pr-3" href="properties-details.html">
+								<img class="media-object" src="<?=base_url()?>assets/img/properties/small-properties-2.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="properties-details.html">Beautiful Single Home</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs415,000 | <a href="#"><i class="fa fa-calendar"></i> Feb 14,  </a>
+								</div>
+							</div>
+						</div>
+						<div class="media">
+							<a class="pr-3" href="properties-details.html">
+								<img class="media-object" src="<?=base_url()?>assets/img/properties/small-properties-3.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="properties-details.html">Real Luxury Villa</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 12,  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 				</div>
 			</div>
 		</div>
-
-<!--     <div class="div_info mt-10" id="Offers">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="individualproject_title">
-    
-            <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Special Offers</h5>
-            
-          </div>
-    
-      
-    
-          <div class=" specification_list">
-            <div class="col-md-6">
-              <ul class="list-4 color">
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-                <li>Integer molestie lorem at massa</li>
-                
-              </ul>
+	</div>
+</div>
+<!-- Properties details page end -->
 
 
-            </div>
-            <div class="col-md-6">
-              <ul class="list-4 color">
-                
-                <li>Lorem ipsum dolor sit amet</li>
-                <li>Consectetur adipiscing elit</li>
-                <li>Integer molestie lorem at massa</li>
-                
-              </ul>
-            </div>
-          
-          </div>
-          <center class="mt-10"><div class="btn btn-offer" data-toggle="modal" data-target="#">Talk To Us</div></center>
-    
-        </div>
-      </div>
-    </div> -->
 
-    <div class="div_info mt-10" id="Amenities">
-      <span class="hashtag_top"> &nbsp; </span>
-      
-      <div class="individualproject_title">
-      
-          
-        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Amenities</h5>
-      
-      </div>
-      <div class="amenities_list" id="content-1">
-        <ul>
-          <?php
-    if (isset($property->amenities) && $property->amenities) {
-        foreach ($property->amenities as $amenity) {
-            ?>
-          <li>
-            <div class="amenities_img">
-               <?php
-                if ($amenity->image) {
-                    ?>
-                    <img class="animated fadeInUp wow"  alt="<?= $amenity->alt_title ?>"
-                            title="<?=$amenity->image_desc?>"
-                          
-                          src="<?= base_url('uploads/amenities/' . $amenity->image) ?>">
-                             <?php
-                } 
-                else {
-                    ?>
-                    <img class="animated fadeInUp wow" alt="<?= $amenity->image ?>"
-                         src="https://placehold.it/58x58">
-                    <?php
-                }
-                ?>
-            </div>
-            <div class="amenities_cont"><?= ucwords($amenity->name) ?></div>
-          </li>
-          <?php
-        }
-      }
-      ?>
-         
-        
-        </ul>
-      </div>
-      </div>
-
-    <div class="div_info mt-10" id="Gallery">
-      <span class="hashtag_top"> &nbsp; </span>
-      
-      <div class="individualproject_title">
-      
-        <a class="link" href="" title="" target="_blank" itemprop="url">
-          
-        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Gallery</h5>
-        </a>
-      </div>
-
-      <div class="sppb-row">
-
-        <ul class="nav-gallery nav-tabs mytab" role="tablist"
-          style="margin-top: 20px; margin-bottom: 35px;">
-  
-          <li role="presentation" class="active">
-            <a href="#General" aria-controls="settings" role="tab"
-              data-toggle="tab" aria-expanded="false">Elevation
-            </a>
-          </li>
-  
-          <?php  
- if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-  'property_floor_plans')))
-{
+<?php
+$this->load->view('inc/footer');
 ?>
-  
-          <li role="presentation" class="">
-            <a href="#floorplan" aria-controls="profile" role="tab"
-              data-toggle="tab" aria-expanded="true"> Floorplan
-            </a>
-          </li>
-          <?php
-          }
-           if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-                                                                                 'property_master_plans')))
-    {
-?>
-  
-          <li role="presentation" class="">
-            <a href="#Masterplan" aria-controls="profile" role="tab"
-              data-toggle="tab" aria-expanded="true">Masterplan
-            </a>
-          </li>
-          <?php
-        }
-        ?>
-  
-        </ul>
-  
-        <div class="tab-content delay-09s animated wow animated"
-          style="visibility: visible; animation-name: fadeInDown;">
-  
-          <div role="tabpanel" class="tab-pane fade active in" id="General">
-          
-            <div class="row general bottom40">
-            <div class="demo-gallery">
-              <ul class="lightgallery" class="list-unstyled row">
-                <?php
-             if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-               'property_elevations')) != null) {
-             // print_r($images);
-                  foreach ($images as $i => $image) {
-                    ?>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?= base_url($image->image) ?>"  >
-                  <a href="">
-                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
-                  </a>
-                </li>  
-                <?php
-                      }
-                      }
-                      else
-                      {
-                      echo  "<center>No Image Found<center>";
-                      }
-                      ?>           
-              </ul>
-            </div>
-           
-          </div>
-  
-          </div>
-  
-          <div role="tabpanel" class="tab-pane fade  " id="Masterplan">
-  
-            <div class="row masterplan bottom40">
-            <div class="demo-gallery">
-              <ul class="lightgallery" class="list-unstyled row">
-                <?php
-               if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-                'property_master_plans'))) {
-
-                 foreach ($images as $i => $image) {
-                  ?>
-                <li class="col-xs-12 col-sm-4 col-md-6 col-lg-12" data-src="<?= base_url($image->image) ?>"  >
-                  <a href="">
-                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
-                  </a>
-                </li>
-                <?php
-                  }
-                  }
-
-                  ?>
-              </ul>
-            </div>
-            </div>      
-          </div>
-  
-  
-          <div role="tabpanel" class="tab-pane fade  " id="floorplan">
-            <div class="row general bottom40">
-            <div class="demo-gallery">
-              <ul class="lightgallery" class="list-unstyled row">
-                   <?php
-      if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_floor_plans'))) {
-          foreach ($images as $i => $image) {
-              ?>
-                <li class="col-xs-6 col-sm-4 col-md-6 col-lg-6" data-src="<?= base_url($image->image) ?>"  >
-                  <a href="">
-                    <img class="img-responsive" src="<?= base_url($image->image) ?>">
-                  </a>
-                </li> 
-                    <?php
-                      }
-                  }
-                  ?>
-              </ul>
-            </div>
-            </div>
-            
-          
-          </div>
-  
-  
-          </div>
-  
-  
-        </div>
-
-        
-    </div>
-
-    <div class="row div_info mt-10" id="Specification">
-      <div class="individualproject_title">
-      
-        <a class="link" href="" title="" target="_blank" itemprop="url">
-          
-        <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Specification</h5>
-        </a>
-      </div>
-  
-      <div class="col-md-12 Specification">
-      
-        <!-- Toggles Container -->
-        <div class="style-2">
-          <?php
-          if (($specifications = $this->properties_model->getPropertySpecification($property->id)) != null) 
-          {           
-            foreach ($specifications as $k => $specification) {
-              if (($items = $this->properties_model->getPropertySpecification($property->id,
-                                                                $specification->id)) != null) {
-          ?>
-          <div class="toggle-wrap">
-            <span class="trigger "><a href="#"><?= $specification->name ?><i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><?php
-                    $s=1;
-                foreach (explode(',', $items) as $item) {
-                    ?>
-                                            <?= $s.". ".$item ."<br />"?>
-
-                                                <?php
-                    $s++;
-                }
-                ?></p>
-            </div>
-          </div>
-         
-          <?php
-}
- }
-}
-          ?>
-  
-          <!-- <div class="toggle-wrap">
-            <span class="trigger"><a href="#">Flooring<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Living, Dining, Kitchen &amp; Bedrooms- Vitrified tiles – Varmora / AGL or equivalent brand</li>
-                <li>Toilet flooring  - Anti skid Ceramic tiles – Varmora / AGL or equivalent brand </li>
-                <li>Toilet dadoing up to 7 feet- ceramic glazed tiles – Varmora / AGL or equivalent brand</li>
-                <li>Kitchen dadoing above the counter to height of 2 feet- ceramic glazed tiles – 
-                  Varmora/AGL or equivalent brand (only supply)</li>
-                <li>Balcony -   Anti skid Ceramic tiles – Varmora / AGL or equivalent brand</li>
-                <li>Common Area- Anti skid Ceramic tiles – flooring and skirting</li></ul></p>
-            </div>
-          </div>
-          <div class="toggle-wrap">
-            <span class="trigger "><a href="#">Toilet<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Sanitary fittings - American standard or equivalent brand -  Wall hung EWC, wash   basin</li>
-                <li>CP fittings - Jaquar or equivalent make – Shower spout, Diverter, Shower head, Pillar cock,concealed cistern, Flush plate, angle value, health faucet</li>
-                <li>Provision for geyser and Exhaust fan in toilets.</li></ul></p>
-            </div>
-          </div>
-  
-          <div class="toggle-wrap">
-            <span class="trigger"><a href="#">Kitchen<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Granite top &amp; single bowl Futura / Jayna sink with drain board or equivalent brand to be provided (only supply)
-              </li>
-              <li>Provision for Chimney in kitchen.</li>
-              <li>Provision for Water purifier
-              </li></ul></p>
-            </div>
-          </div>
-          <div class="toggle-wrap">
-            <span class="trigger "><a href="#">Windows<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>2 Track UPVC windows with glazed shutters and mosquito mesh 
-                Kommerling or equivalent brand 
-               
-               </li></ul></p>
-            </div>
-          </div>
-
-          <div class="toggle-wrap">
-            <span class="trigger"><a href="#">Doors<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Main Door -Tata steel or equivalent brand -Super Quality steel door &amp; frame                        
-              </li>                      
-              <li>Internal doors - Tata steel or equivalent brand </li>
-              <li>Toilet doors - FRP door</li>
-              <li>Balcony doors - Kommerling or equivalent brand- 2 Track UPVC glazed shutter with mosquito mesh</li>
-              <li>Common door - Fire rated steel doors for fire exit</li></ul></p>
-            </div>
-          </div>
-
-          <div class="toggle-wrap">
-            <span class="trigger "><a href="#">Electrical<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Modular switches of Schneider or Equivalent Brand
-              </li>
-              <li> ELCB and MCB with independent EB meter of approved brand</li>
-              <li>Good quality concealed copper wiring of approved brand</li>
-              <li>Provision for Washing Machine point.</li></ul></p>
-            </div>
-          </div>
-  
-        
-          <div class="toggle-wrap">
-            <span class="trigger"><a href="#">Elevator<i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Schindler / Johnson lifts or equivalent brand
-            
-              </li></ul></p>
-            </div>
-          </div>
-          <div class="toggle-wrap">
-            <span class="trigger"><a href="#"> Water Supply  <i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Bore well water supply / Municipal water supply if available
-              </li>
-              </ul></p>
-            </div>
-          </div>
-
-          <div class="toggle-wrap">
-            <span class="trigger "><a href="#"> Power Backup <i class="sl sl-icon-plus"></i></a></span>
-            <div class="toggle-container">
-              <p><ul><li>Power backup for common areas, lift lobbies and
-                0.5 KW power backup for each flat through limiter switch
-                
-                </li></ul></p>
-            </div>
-          </div>
-   -->
-  
-        </div>
-        <!-- Toggles Container / End -->
-      </div>
-    
-    </div>
-
-    
-             <?php
-              if($property->walkthrough)
-              {
-              ?>
-    <div class="div_info mt-10" id="Video">
-      
-        <!-- Video -->
-        <div class="individualproject_title ">
-      
-          
-            
-          <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Walkthrough Video</h5>
-          
-        </div>
-        
-        <div class="responsive-iframe">
-          
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= getYoutubeVideoId($property->walkthrough) ?>?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
-        </div>
-    
-    </div>
-            <?php
-                                        }
-
-    if($property->map)
-    {
-      ?>
-
-    <div class="div_info mt-10" id="Location">
-      <div class="property-description">
-  
-        <div class="individualproject_title">
-      
-          
-            
-          <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Location  Map</h5>
-          
-        </div>
-  
-          <div id="propertyMap-container">
-            <!-- <div id="propertyMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"></div><div class="gm-err-title">Oops! Something went wrong.</div><div class="gm-err-message">This page didn't load Google Maps correctly. See the JavaScript console for technical details.</div></div></div></div></div>
-            <a href="#" id="streetView">Street View</a>-->
-          </div> 
-          <img src="<?= base_url("uploads/".strtolower($property->city_name)."/".str_replace(' ','-',strtolower($property->builder))."/$property->slug/map/$property->map") ?>" draggable="false" style="user-select: none;">
-      </div>
-    </div>
-                             <?php 
-    }                                           
-?>
-
-      <!--
-      <div class="div_info mt-10" id="Location-Advantages">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="individualproject_title">
-      
-              <h5 itemprop="name"><?= $property->title ? $property->title : '' ?> Location Advantage</h5>
-              
-            </div>
-      
-        
-      
-            <div class=" specification_list">
-              
-      
-              <div class="col-md-6">
-                <ul class="list-3 color">
-                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
-                  <li>Consectetur adipiscing elit <span>10 min</span></li>
-                  <li>Integer molestie lorem at massa <span>10 min</span></li>
-                  <li>Facilisis in pretium nisl aliquet <span>10 min</span></li>
-                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
-                
-                </ul>
-              </div>
-      
-              <div class="col-md-6">
-                <ul class="list-3 color">
-                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
-                  <li>Consectetur adipiscing elit <span>10 min</span></li>
-                  <li>Integer molestie lorem at massa <span>10 min</span></li>
-                  <li>Facilisis in pretium nisl aliquet <span>10 min</span></li>
-                  <li>Lorem ipsum dolor sit amet <span>10 min</span></li>
-                </ul>
-              </div>
-            </div>
-      
-          </div>
-        </div>
-      </div>
-      -->
-
-      <div class="div_info mt-10" id="About_project">
-        <div class="individualproject_title">
-      
-          
-          <h5 itemprop="name">About The Builder</h5>
-          <div class="project-logo mt-10"><img src="<?= base_url().'uploads/builders/'.$property->builder_image?>" class="img-responsive">
-            <p><?=$property->builder?></p>
-          </div>
-        
-        </div>
-        
-         <?=$property->builder_description?>
-        
-      </div>
-      <?php
-      if(count($property->faq)>=1)
-      {
-        ?>
-      
-      <div class="div_info mt-10" id="FAQ">
-        <div class="FAQ-title">
-        
-          <h5 itemprop="name">FAQ's</h5>
-          
-        </div>
-        <div class="panel-group" id="accordion">
-          <?php
-          $a=1; 
-          foreach ($property->faq as $faq) {
-            if($a==1)
-            {
-         ?>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle text-left" data-toggle="collapse" data-parent="#accordion" href="#collapseNine"><?=$faq->fq?></a>
-              </h4>
-            </div>
-            <div id="collapseNine" class="panel-collapse collapse in">
-              <div class="panel-body"><?=$faq->fa?>
-              </div>
-            </div>
-          </div>
-          <?php
-           }
-           else
-            {
-              ?>
-
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle text-left collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen"><?=$faq->fq?></a>
-              </h4>
-            </div>
-            <div id="collapseTen" class="panel-collapse collapse">
-              <div class="panel-body">
-              <?=$faq->fa?>
-              </div>
-            </div>
-          </div>
-          <?php 
-        }
-        $a++;
-          }
-          ?>
-
-        </div>
-      </div> 
-      <?php
-    }
-    ?>
-  </div>
-
-  
-  
-
-  <div class="col-lg-4">
-    <div id="sideform" class="needhelp_form sideform ">
-      <div class="needhelp_form_close  mt-10">
-
-        </div><h5>Need help in your house search?</h5>
-        
-        <style type="text/css">.g-recaptcha{transform:scale(.77);-webkit-transform:scale(.77);transform-origin:0 0;-webkit-transform-origin:0 0}.needhelp_form h5{margin:0}.needhelp_form .needhelp_form_list .submit_btn{margin-top:0}.needhelp_form .needhelp_form_list ul li input{height:28px}.needhelp_form .needhelp_form_list ul li input[type=checkbox]{height:12px}.needhelp_form .needhelp_form_list ul li{margin:0 0 5px}</style>
-        
-        <div class="needhelp_form_list">
-          
-           <form action="<?=base_url('home/sendEmail');?>" name="WebForm-1498709213622" method="POST" id="elqform2">
-                <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-                <ul>
-                  <li class="form-sec"> 
-                    <input type="text" placeholder="Name*" id="" required="" name="name"></li>
-                  <li class="form-sec">
-                
-                <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
-              </li>
-                <li class="form-sec">
-                  <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
-                </li>
-                <li style="margin-top:20px !Important;">
-                  <center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop" onclick="document.getElementById('elqform2').submit();">Enquire Now</div></center>
-                </li>
-              </ul>
-            </form>
-          <div class="mb-40">
-            <div class="offers-wrap lead-offer no-bg-style"> 
-              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/cashback.png')">
-              </div>  
-              <div class="spl-txt-wrap va-middle"> 
-                <div class="spl-title va-top">Assured Callback in 5 mins</div> 
-                <ul class="va-top reset-ul offer-ul"> 
-                  <li class="offer">Get an assured callback in 5 mins from sales expert (9 AM - 6 PM IST)</li> 
-                </ul> 
-                </div>      
-            </div>
-            <div class="offers-wrap lead-offer no-bg-style">
-              <div class="spl-img va-top  bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/offer.png')"> 
-              </div>                 
-              <div class="spl-txt-wrap va-middle"> 
-                <div class="spl-title va-top">Authorised Channel Partner</div>
-                <ul class="va-top reset-ul offer-ul"> 
-                  <li class="offer">Holding Bricks is an authorised channel partner for this project</li>
-                </ul> 
-                </div>            
-            </div>
-          </div>  
-        </div>
-      </div>
-      
-    <!-- Widget -->
-			<div class="widget margin-top-20 margin-bottom-30">
-				<h3 class="">Projects Nearby :</h3>
-				<div class="underline margin-bottom-35"></div>
-
-				<div class="outer" id="scroll-nearby">
-          <?php
-
-        if (($projects = $this->home_model->getsameLocationProjects($property->location_id, $property->id,
-                3)) != null) { 
-                  foreach ($projects as $project) { 
-                    ?>
-					<!-- Item -->
-					<div class="item">
-						<div class="listing-item compact box">
-
-							<a href="<?= site_url(url_title($project->city_name) . "/" . (url_title($project->area)) . "/$project->slug/") ?>" class="listing-img-container corner-box">
-
-								<div class="corner"><h2><span>
-                 <?php
-                    if ($this->properties_model->hasPriceRequest($project->id->id)) {
-                        echo "Price on Request";
-                    } else {
-                        ?>
-                        &#8377; <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
-                                'property_flat_types', null,
-                                'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                        - <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
-                                'property_flat_types', null,
-                                'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                        <?php
-                    }
-                    ?>
-                                                          
-                  </span></h2></div>
-								<div class="listing-corner-badges">
-									<span class="featured">Onwards*</span>
-									
-								</div>
-								<div class="listing-img-content">
-									<span class="listing-compact-title"><?= $project->title ?> <i><?= $project->location ?></i></span>
-
-									<!-- <ul class="listing-hidden-content">
-										<li>Area <span></span></li>
-										
-										<li>Price <span>1 Cr</span></li>
-									</ul> -->
-								</div>
-
-								<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($project->city_name))."/".str_replace(" ","-",strtolower($project->builder))."/" .$project->slug.'/'.$project->image) ?>" alt="">
-							</a>
-
-						</div>
-					</div>
-					<!-- Item / End -->
-        <?php
-      }
-      }
-      else
-        { echo "No Properties Found!";  }
-
-					?>
-   
-				</div>
-				<center>
-					<button class="btn btn-view"><a href="<?php echo base_url('listing') ?>" style="color: white;">See More</a></button>
-				</center>
-
-			</div>
-			<!-- Widget / End -->
-
-			<!-- Widget -->
-			<div class="widget margin-top-20 margin-bottom-30">
-				<h3 class="">Best Deals In Your City :</h3>
-				<div class="underline-widget margin-bottom-35"></div>
-
-				<div class="outer" id="scroll-bestdeals"> 
-          <?php
-
-        if (($projects = $this->home_model->getBestdealProperties($property->city_id, $property->id,3)) != null) { 
-                  foreach ($projects as $project) { 
-                    ?>
-          <!-- Item -->
-          <div class="item">
-            <div class="listing-item compact box">
-
-              <a href="<?= site_url(url_title($project->city_name) . "/" . (url_title($project->area)) . "/$project->slug/") ?>" class="listing-img-container corner-box">
-
-                <div class="corner"><h2><span>
-                 <?php
-                    if ($this->properties_model->hasPriceRequest($project->id->id)) {
-                        echo "Price on Request";
-                    } else {
-                        ?>
-                        &#8377; <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
-                                'property_flat_types', null,
-                                'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                        - <?= (($row = $this->properties_model->getPropertyParam(array('property_id' => $project->id),
-                                'property_flat_types', null,
-                                'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
-                        <?php
-                    }
-                    ?>
-                                                          
-                  </span></h2></div>
-                <div class="listing-corner-badges">
-                  <span class="featured">Onwards*</span>
-                  
-                </div>
-                <div class="listing-img-content">
-                  <span class="listing-compact-title"><?= $project->title ?> <i><?= $project->location ?></i></span>
-
-                  <!-- <ul class="listing-hidden-content">
-                    <li>Area <span></span></li>
-                    
-                    <li>Price <span>1 Cr</span></li>
-                  </ul> -->
-                </div>
-
-                <img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($project->city_name))."/".str_replace(" ","-",strtolower($project->builder))."/" .$project->slug.'/'.$project->image) ?>" alt="">
-              </a>
-
-            </div>
-          </div>
-          <!-- Item / End -->
-        <?php
-      }
-      }
-      else
-        { echo "No Properties Found!";  }
-
-          ?>
-   
-        </div>
-				<center>
-					<button class="btn btn-view"><a style="color: white;">See More</a></button>
-				</center>
-
-			</div>
-			<!-- Widget / End -->
-
-			<!-- Widget -->
-			<div class="widget margin-top-20 margin-bottom-30">
-				<h3 class="">Latest Blogs :</h3>
-				<div class="underline-blog margin-bottom-35"></div>
-
-				<div class="outer" id="scroll-Blogs">
-           <?php
-
-        if (($blogs = $this->blogs_model->loadBlogslimit(3)) != null) { 
-                  foreach ($blogs as $blog) { 
-                    ?>
-					<!-- Item -->
-					<div class="item">
-						
-						<div class="listing-item compact">
-
-							<a href="<?=base_url('blog/').$blog->slug?>" class="listing-img-container">
-
-							
-								<div class="listing-img-content">
-									<span class="listing-compact-title"><?=$blog->title?> </span> 
-								</div>
-
-								<img src="<?=base_url('uploads/')?>blog_images/<?=$blog->image?>" alt="">
-							</a>
-
-						</div>
-					</div>
-					 
-				</div>
-        <?php
-          }
-
-          }
-        ?>
-				<center>
-					<button class="btn btn-view"><a style="color: white;">See More</a></button>
-				</center>
-
-			</div>
-			<!-- Widget / End -->
-        
-        </div>
-    </div>
-</div>
-<!-- Flip banner -->
-<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/single-property-03.jpg"  data-img-width="2500" data-img-height="1600">
-  <div class="flip-banner-content" style="color:rgb(219 18 57)">
-    <h2 class="flip-visible">We help people and homes find each other</h2>
-    <h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
-  </div>
-</a>
-<!-- Flip banner / End -->
-
-
-<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="Brochure-pop" style="opacity: 1;">
-  <!-- data-backdrop="static" data-keyboard="false" -->
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
-    
-    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
-    <li class="right_col"><h5><?=$property->title?> Brochure</h5></li>
-    
-      <div class="needhelp_form_list">
-          
-        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-            <ul>
-              <li class="form-sec"> 
-                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
-              
-          
-              <li class="form-sec">
-            
-            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
-          </li>
-            <li class="form-sec">
-              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
-            </li>
-
-            <li style="margin-top:20px!important">
-            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
-          </li>
-          </ul>
-        </form>
-      </div>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div>
-
-<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="main-pop" style="opacity: 1;">
-  <!-- data-backdrop="static" data-keyboard="false" -->
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
-    
-    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
-    <li class="right_col"><h5><?=$property->title?> Brochure</h5></li>
-    
-      <div class="needhelp_form_list">
-          
-        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-            <ul>
-              <li class="form-sec"> 
-                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
-              
-          
-              <li class="form-sec">
-            
-            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
-          </li>
-            <li class="form-sec">
-              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
-            </li>
-
-            <li style="margin-top:20px!important">
-            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
-          </li>
-          </ul>
-        </form>
-      </div>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div>
-
-<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="Price-pop" style="opacity: 1;">
-  <!-- data-backdrop="static" data-keyboard="false" -->
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-    <div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-    <li class="property-col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>
-    <li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>  
-    <li class="right_col"><h5><?=$property->title?> Download Costsheet</h5></li>
-    
-      <div class="needhelp_form_list">
-          
-        <form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-            <div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-            <ul>
-              <li class="form-sec"> 
-                <input type="text" placeholder="Name*" id="" required="" name="name"></li>
-              
-          
-              <li class="form-sec">
-            
-            <input type="tel" placeholder="Phone Number*" id="" required="" name="phone">
-          </li>
-            <li class="form-sec">
-              <input type="email" placeholder="Email ID*" required="" name="email" id="fcemail" autocomplete="off" class="emailcheck">
-            </li>
-
-            <li style="margin-top:20px!important">
-            <center><input type="submit" class="btn btn-submit" name=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</nav><!-- <div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Close</div> --></center>
-          </li>
-          </ul>
-        </form>
-      </div>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div>
-
-<?php $this->load->view('inc/footer'); ?>
-
-<script>
-	$(document).ready(function(){
-		$('.lightgallery').lightGallery(); 
-	});
-</script>

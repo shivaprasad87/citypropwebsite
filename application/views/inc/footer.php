@@ -10,6 +10,7 @@
 					</div>
 				</div>
 			</div>
+			<?php /** @var array $social_links */ ?>
 			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				<div class="footer-item">
 					<h4>Contact Us</h4>
@@ -18,16 +19,13 @@
 							<i class="flaticon-pin"></i>Lorem Ipsum Lorem Ipsum
 						</li>
 						<li>
-							<i class="flaticon-mail"></i><a href="mailto:info@test.com">info@test.com</a>
+							<i class="flaticon-mail"></i><a href="mailto:<?= $social_links->email ?>"><?= $social_links->email ?></a>
 						</li>
 						<li>
-							<i class="flaticon-phone"></i><a href="tel:+91-0123456789">0123456789</a>
+							<i class="flaticon-phone"></i><a href="tel:+91<?= $social_links->mobile ?>"><?= $social_links->mobile ?></a>
 						</li>
 						<li>
 							<i class="flaticon-fax"></i>0123456789
-						</li>
-						<li>
-							<i class="flaticon-internet"></i><a href="mailto:info@green.com">info@green.com</a>
 						</li>
 					</ul>
 				</div>
@@ -39,20 +37,20 @@
 					</h4>
 					<ul class="links">
 						<li>
-							<a href="">Home</a>
+							<a href="<?=base_url()?>">Home</a>
 						</li>
 						<li>
-							<a href="about.html">About Us</a>
+							<a href="<?=base_url('about')?>">About Us</a>
 						</li>
 
 						<li>
-							<a href="contact.html">Contact Us</a>
+							<a href="<?=base_url('contact')?>">Contact Us</a>
 						</li>
 						<li>
-							<a href="career.html">Career</a>
+							<a href="<?=base_url('careers')?>">Career</a>
 						</li>
 						<li>
-							<a href="Blog.html">Blog</a>
+							<a href="<?=base_url('blog')?>">Blog</a>
 						</li>
 
 					</ul>
@@ -76,14 +74,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-md-12">
-					<p class="copy">©  <a href="#"></a> 2020 City Prop</p>
+					<p class="copy">©  <a href="#"></a> <?=date('Y')?> City Prop Realtors</p>
 				</div>
 				<div class="col-lg-4 col-md-12">
 					<ul class="social-list clearfix">
-						<li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="<?= $social_links->facebook ?>" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="<?= $social_links->twitter ?>" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="<?= $social_links->instagram ?>" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="<?= $social_links->linked_in ?>" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
 			</div>
