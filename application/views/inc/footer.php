@@ -61,8 +61,8 @@
 					<h4>Subscribe</h4>
 					<div class="Subscribe-box">
 						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-						<form class="form-inline" action="#" method="GET">
-							<input type="text" class="form-control mb-sm-0" id="inlineFormInputName3" placeholder="Email Address">
+						<form class="form-inline" action="<?=base_url('subscribers')?>" method="POST">
+							<input type="text" name="email" class="form-control mb-sm-0" id="inlineFormInputName3" placeholder="Email Address">
 							<button type="submit" class="btn"><i class="fa fa-paper-plane"></i></button>
 						</form>
 					</div>
