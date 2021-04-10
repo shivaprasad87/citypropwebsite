@@ -199,7 +199,7 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 							<a class="nav-link" id="6-tab" data-toggle="tab" href="#6" role="tab" aria-controls="6" aria-selected="true">Features</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Floor Plans</a>
+							<a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Gallery</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="true">Details</a>
@@ -223,24 +223,60 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 							</div>
 						</div>
 						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
-							<div class="floor-plans mb-50">
-								<h3 class="heading-2">Floor Plans</h3>
-								<table>
-									<tbody><tr>
-										<td><strong>Size</strong></td>
-										<td><strong>Rooms</strong></td>
-										<td><strong>Bathrooms</strong></td>
-										<td><strong>Garage</strong></td>
-									</tr>
-									<tr>
-										<td>1600</td>
-										<td>3</td>
-										<td>2</td>
-										<td>1</td>
-									</tr>
-									</tbody>
-								</table>
-								<img src="<?=base_url()?>assets/img/floor-plans.png" alt="floor-plans" class="img-fluid">
+							<ul class="nav nav-tabs" id="galleryTab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active show" id="one-tab" data-toggle="tab" href="#elvation" role="tab" aria-controls="8" aria-selected="false">Elevation</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan" role="tab" aria-controls="8" aria-selected="true">Floorplan</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan" role="tab" aria-controls="8" aria-selected="true">Masterplan</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="galleryTabContent">
+								<div class="tab-pane fade active show" id="elvation" role="tabpanel" aria-labelledby="one-tab">
+									<div class="properties-description mb-50">
+										<h3 class="heading-2">
+											Elevation
+										</h3>
+										
+									</div>
+								</div>
+
+								<div class="tab-pane fade " id="floorplan" role="tabpanel" aria-labelledby="one-tab">
+									<div class="properties-description mb-50">
+										<h3 class="heading-2">
+										Floor Plans
+										</h3>
+										<div class="floor-plans mb-50">
+								
+											<table>
+												<tbody><tr>
+													<td><strong>Size</strong></td>
+													<td><strong>Rooms</strong></td>
+													<td><strong>Bathrooms</strong></td>
+													<td><strong>Garage</strong></td>
+												</tr>
+												<tr>
+													<td>1600</td>
+													<td>3</td>
+													<td>2</td>
+													<td>1</td>
+												</tr>
+												</tbody>
+											</table>
+											<img src="<?=base_url()?>assets/img/floor-plans.png" alt="floor-plans" class="img-fluid">
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade " id="masterplan" role="tabpanel" aria-labelledby="one-tab">
+									<div class="properties-description mb-50">
+										<h3 class="heading-2">
+										Master Plans
+										</h3>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
