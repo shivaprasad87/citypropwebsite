@@ -93,9 +93,9 @@ class Home_model extends MY_Model {
             if (isset($content['bhk']) && $content['bhk']!=null) {
                $this->db->where('pft.flat_type_id =', $content['bhk']); 
             }
-            if (isset($content['price_range']) && $content['price_range'] && $content['price_range'][1]!=null) {
-               $this->db->where('pft.total >=', $content['price_range'][0]);
-               $this->db->where('pft.total <=',  $content['price_range'][1]);
+            if (isset($content['min_price']) && $content['min_price']!=null) {
+               $this->db->where('pft.total >=', $content['min_price']);
+               $this->db->where('pft.total <=',  $content['max_price']);
             }
             if (isset($content['baths']) && $content['baths']!=null) {
                $this->db->where('pft.size =', $content['baths']); 
@@ -121,11 +121,6 @@ class Home_model extends MY_Model {
                 }
             }
 
-            // if ((isset($content['price']) && $content['price']) != NULL) {
-            //     $range = explode(",", $content['price']);
-            //     $this->db->where('p.budget >', $range[0]);
-            //     $this->db->where('p.budget <=', $range[1]);
-            // }
         }
 
         $this->db->where('p.status', 1);

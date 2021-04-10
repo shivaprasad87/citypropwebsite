@@ -5,39 +5,41 @@
 			<?php $desk = 0;
 			/** @var array $sliders */
 			foreach ($sliders as $slider) {
-			$img=array();
-			$img=explode('.', $slider->image);
+				$img = array();
+				$img = explode('.', $slider->image);
 
-			?>
-			<div class="carousel-item banner-max-height item-bg <?=($desk==0)?'active':'';?>">
-				<img class="d-block w-100 h-100" src="<?= base_url('uploads/sliders/' .  $slider->image) ?>" alt="banner">
-				<div class="carousel-caption banner-slider-inner d-flex h-100">
-					<div class="carousel-content container">
-						<div class="text-c">
-							<h3><?=$slider->heading?></h3>
-							<p>
-								<?=$slider->title?>
-							</p>
-							<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
-							<a href="#"
-							   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a>
+				?>
+				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
+					<img class="d-block w-100 h-100" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
+						 alt="banner">
+					<div class="carousel-caption banner-slider-inner d-flex h-100">
+						<div class="carousel-content container">
+							<div class="text-c">
+								<h3><?= $slider->heading ?></h3>
+								<p>
+									<?= $slider->title ?>
+								</p>
+								<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
+								<a href="#"
+								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<?php
-			$desk++;
+				<?php
+				$desk++;
 			}
 			?>
 		</div>
 		<div class="btn-secton">
 			<ol class="carousel-indicators">
 				<?php
-				$i=0;
+				$i = 0;
 				foreach ($sliders as $slider) {
-				?>
-				<li data-target="#bannerCarousole" data-slide-to="<?=$i?>>" class="<?=($desk==0)?'active':'';?>"></li>
-				<?php
+					?>
+					<li data-target="#bannerCarousole" data-slide-to="<?= $i ?>>"
+						class="<?= ($desk == 0) ? 'active' : ''; ?>"></li>
+					<?php
 					$i++;
 				}
 				?>
@@ -271,13 +273,28 @@
 		<div class="slick-slider-area">
 			<div class="row slick-carousel"
 				 data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+				<?php
+				$i=1;
+				$j=1;
+				/** @var array $properties */
+				if(count($properties)>0) {
+				foreach ($properties as $property) {
+
+				?>
 				<div class="slick-slide-item">
 					<div class="property-box-3">
 						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Villas</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-1.jpg" alt="properties">
-								<div class="price-box"><span>Rs 90 Lakh</span></div>
+							<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" class="property-img">
+								<div class="tag"><?=$property->prop_type?></div>
+								<img class="d-block w-100" src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
+									 alt="properties">
+								<div class="price-box"><span><?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+														'property_flat_types', null,
+														'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+										. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+														'property_flat_types', null,
+														'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?>
+													*</span></div>
 								<div class="ratings">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
@@ -291,11 +308,11 @@
 						<div class="details">
 							<div class="top">
 								<h1 class="title">
-									<a href="">Masons Villas</a>
+									<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"><?= $property->title ?></a>
 								</h1>
 								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
+									<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" tabindex="0">
+										<i class="fa fa-map-marker"></i><?php echo $property->area . ", " . $property->city_name; ?>
 									</a>
 								</div>
 							</div>
@@ -305,71 +322,15 @@
 										<span>Unit</span>2,3,4 BHK Apartments
 									</li>
 
-									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
-									</li>
-								</ul>
-							</div>
-							<div class="footer clearfix">
-								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
-								</div>
-								<ul class="pull-right">
-									<li><a href="#"><i class="flaticon-heart"></i></a></li>
-									<li><a href="#"><i class="flaticon-share"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="slick-slide-item">
-					<div class="property-box-3">
-						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Villa</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-2.jpg" alt="properties">
-								<div class="price-box"><span>Rs 10 Lakh</span></div>
-								<div class="ratings">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(23 reviews)</span>
-								</div>
-							</a>
-						</div>
-						<div class="details">
-							<div class="top">
-								<h1 class="title">
-									<a href="">Real Luxury Villa</a>
-								</h1>
-								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
-									</a>
-								</div>
-							</div>
-							<div class="facilities-list">
-								<ul class="clearfix">
-									<li>
-										<span>Unit</span>2,3,4 BHK Apartments
-									</li>
 
 									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
+										<span>Status</span><?= $property->issue_date; ?>
 									</li>
 								</ul>
 							</div>
 							<div class="footer clearfix">
 								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
+									<p><a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" class="btn btn-sm button-theme">Know More</a></p>
 								</div>
 								<ul class="pull-right">
 									<li><a href="#"><i class="flaticon-heart"></i></a></li>
@@ -379,222 +340,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="slick-slide-item">
-					<div class="property-box-3">
-						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Villa</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-3.jpg" alt="properties">
-								<div class="price-box"><span>Rs 90 Lakh</span></div>
-								<div class="ratings">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(23 reviews)</span>
-								</div>
-							</a>
-						</div>
-						<div class="details">
-							<div class="top">
-								<h1 class="title">
-									<a href="">Luxury Villa</a>
-								</h1>
-								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
-									</a>
-								</div>
-							</div>
-							<div class="facilities-list">
-								<ul class="clearfix">
-									<li>
-										<span>Unit</span>2,3,4 BHK Apartments
-									</li>
-
-									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
-									</li>
-								</ul>
-							</div>
-							<div class="footer clearfix">
-								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
-								</div>
-								<ul class="pull-right">
-									<li><a href="#"><i class="flaticon-heart"></i></a></li>
-									<li><a href="#"><i class="flaticon-share"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="slick-slide-item">
-					<div class="property-box-3">
-						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Flat</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-4.jpg" alt="properties">
-								<div class="price-box"><span>Rs 10 Lakh</span></div>
-								<div class="ratings">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(23 reviews)</span>
-								</div>
-							</a>
-						</div>
-						<div class="details">
-							<div class="top">
-								<h1 class="title">
-									<a href="">Two storey modern flat</a>
-								</h1>
-								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
-									</a>
-								</div>
-							</div>
-							<div class="facilities-list">
-								<ul class="clearfix">
-									<li>
-										<span>Unit</span>2,3,4 BHK Apartments
-									</li>
-
-									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
-									</li>
-								</ul>
-							</div>
-							<div class="footer clearfix">
-								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
-								</div>
-								<ul class="pull-right">
-									<li><a href="#"><i class="flaticon-heart"></i></a></li>
-									<li><a href="#"><i class="flaticon-share"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="slick-slide-item">
-					<div class="property-box-3">
-						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Apartment</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-5.jpg" alt="properties">
-								<div class="price-box"><span>Rs 10 Lakh</span></div>
-								<div class="ratings">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(23 reviews)</span>
-								</div>
-							</a>
-						</div>
-						<div class="details">
-							<div class="top">
-								<h1 class="title">
-									<a href="">Relaxing Apartment</a>
-								</h1>
-								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
-									</a>
-								</div>
-							</div>
-							<div class="facilities-list">
-								<ul class="clearfix">
-									<li>
-										<span>Unit</span>2,3,4 BHK Apartments
-									</li>
-
-									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
-									</li>
-								</ul>
-							</div>
-							<div class="footer clearfix">
-								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
-								</div>
-								<ul class="pull-right">
-									<li><a href="#"><i class="flaticon-heart"></i></a></li>
-									<li><a href="#"><i class="flaticon-share"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="slick-slide-item">
-					<div class="property-box-3">
-						<div class="property-thumbnail">
-							<a href="" class="property-img">
-								<div class="tag">Independent Villas</div>
-								<img class="d-block w-100" src="assets/img/properties/properties-6.jpg" alt="properties">
-								<div class="price-box"><span>Rs 10 Lakh</span></div>
-								<div class="ratings">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(23 reviews)</span>
-								</div>
-							</a>
-						</div>
-						<div class="details">
-							<div class="top">
-								<h1 class="title">
-									<a href="">Independent Villas</a>
-								</h1>
-								<div class="location">
-									<a href="" tabindex="0">
-										<i class="fa fa-map-marker"></i>Bangalore
-									</a>
-								</div>
-							</div>
-							<div class="facilities-list">
-								<ul class="clearfix">
-									<li>
-										<span>Unit</span>2,3,4 BHK Apartments
-									</li>
-
-									<li>
-										<span>Sqft</span> 35,000
-									</li>
-									<li>
-										<span>Status</span>Under Construction
-									</li>
-								</ul>
-							</div>
-							<div class="footer clearfix">
-								<div class="pull-left days">
-									<p><a href="#" class="btn btn-sm button-theme">Know More</a></p>
-								</div>
-								<ul class="pull-right">
-									<li><a href="#"><i class="flaticon-heart"></i></a></li>
-									<li><a href="#"><i class="flaticon-share"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php }
+				} else {
+					echo "No Properties Found!";
+				}
+				?>
 			</div>
 			<div class="slick-prev slick-arrow-buton clip-home">
 				<i class="fa fa-angle-left"></i>
@@ -618,7 +368,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-12 col-sm-12">
 				<div class="row">
-					<div class="col-lg-12 col-md-6 col-pad">
+					<div class="col-lg-12 col-md-6 col-pad" onclick="location.href='city/bangalore'">
 						<div class="category">
 							<div class="category_bg_box cat-1-bg">
 								<div class="category-overlay">
@@ -626,7 +376,10 @@
 										<h3 class="category-title">
 											<a href="">Bangalore</a>
 										</h3>
-										<h4 class="category-subtitle">27 Properties</h4>
+										<?php
+										$content['city'] = 2;
+										?>
+										<h4 class="category-subtitle"><?php print($this->home_model->loadProperties(0, 0, true, $content));?> Properties</h4>
 									</div>
 								</div>
 							</div>
@@ -656,7 +409,10 @@
 								<h3 class="category-title">
 									<a href="#">Pune</a>
 								</h3>
-								<h4 class="category-subtitle">12 Properties</h4>
+								<?php
+								$content['city'] = 1;
+								?>
+								<h4 class="category-subtitle"><?php print($this->home_model->loadProperties(0, 0, true, $content));?> Properties</h4>
 							</div>
 						</div>
 					</div>
@@ -709,7 +465,7 @@
 				<div class="main-title main-title-3">
 					<h1>Our Testimonial</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-					<a href="#" class="btn important-btn btn-theme btn-md">Contact us</a>
+					<a href="<?=base_url('contact')?>" class="btn important-btn btn-theme btn-md">Contact us</a>
 				</div>
 			</div>
 			<div class="col-lg-7 offset-lg-1">
@@ -717,54 +473,32 @@
 				<div class="slick-slider-area">
 					<div class="row slick-carousel"
 						 data-slick='{"slidesToShow": 2, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+
+							<?php
+							/**
+							 * @var array $testimonials
+							 */
+							if (count($testimonials) > 0) {
+								foreach ($testimonials as $testimonial) {
+									?>
 						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="assets/img/avatar/avatar-1.jpg" alt="testimonial-2">
+									<div class="testimonial-info-box">
+										<div class="profile-user">
+											<div class="avatar">
+												<img src="<?= base_url('uploads/testimonials/' . $testimonial->image) ?>" alt="testimonial-2">
+											</div>
+										</div>
+										<h5>
+											<a href="#"><?= $testimonial->name ?></a>
+										</h5>
+										<h6><?= $testimonial->job_desc ?></h6>
+										<p><i class="fa fa-quote-left"></i> <?= $testimonial->comment ?><i class="fa fa-quote-right"></i></p>
 									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-									since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
 						</div>
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="assets/img/avatar/avatar-3.jpg" alt="testimonial-2">
-									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-									since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="assets/img/avatar/avatar-2.jpg" alt="testimonial-2">
-									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and
-									typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-									since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
+									<?php
+								}
+							}
+							?>
 					</div>
 				</div>
 			</div>
@@ -787,8 +521,8 @@
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
 				<div class="Subscribe-box">
-					<form class="form-inline" action="#" method="GET">
-						<input type="text" class="form-control mb-sm-0" id="inlineFormInputName4"
+					<form class="form-inline" action="<?= base_url('subscibers') ?>" method="POST">
+						<input type="text" class="form-control mb-sm-0" name="email" id="inlineFormInputName4"
 							   placeholder="Email Address">
 						<button type="submit" class="btn">Subscribe</button>
 					</form>

@@ -4,7 +4,7 @@
 		<div class="breadcrumb-area">
 			<h1>About Us</h1>
 			<ul class="breadcrumbs">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="<?= base_url() ?>">Home</a></li>
 				<li class="active">About Us</li>
 			</ul>
 		</div>
@@ -18,7 +18,7 @@
 		<div class="row">
 			<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
 				<div class="about-info">
-					<img class="d-block w-100" src="img/properties/properties-6.jpg" alt="Third slide">
+					<img class="d-block w-100" src="assets/img/properties/properties-6.jpg" alt="Third slide">
 					<div class="Properties-info">
 						<!-- <ul>
 							<li>
@@ -43,16 +43,21 @@
 			</div>
 			<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 				<div class="about-text">
-					<h3>Welcome to City Prop</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five electronic typesetting, remaining essentially unchanged. specimen book. It has survived not only five electronic typesetting, remaining.</p>
-					<a href="#" class="btn btn-md button-theme">Read More</a>
+					<?php
+					if (($option = $this->aboutUs_model->getOption('first_title')) != null) {
+						?>
+						<h3><?= $option ?></h3>
+						<?php
+					}
+					?>
+					<p><?= $this->aboutUs_model->getOption('first_content') ?></p>
+					<!--0-->
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <!-- About city estate end -->
-
 
 
 <!-- Counters 2 strat -->
@@ -128,7 +133,8 @@
 							<h3>
 								<a href="">Apartments</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt</p>
 							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -146,7 +152,8 @@
 									Houses
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt</p>
 							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -164,7 +171,8 @@
 									Villas
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt</p>
 							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -174,7 +182,7 @@
 			<div class="col-md-3 col-xs-6">
 				<div class="Looking-For btn-6">
 					<div class="bo">
-						<div class="service-info-4">
+						<div class="service-info-4">0
 							<div class="icon">
 								<i class="flaticon-area"></i>
 							</div>
@@ -183,7 +191,8 @@
 									Plots
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+								incididunt</p>
 							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -207,7 +216,7 @@
 					<center>
 						<h1>Our Testimonial</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-						<a href="#" class="btn important-btn btn-theme btn-md">Contact us</a>
+						<a href="<?= base_url('contact') ?>" class="btn important-btn btn-theme btn-md">Contact us</a>
 					</center>
 
 				</div>
@@ -216,65 +225,34 @@
 				<!-- Slick slider area start -->
 				<div class="slick-slider-area">
 					<div class="row slick-carousel">
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="img/avatar/avatar-1.jpg" alt="testimonial-2">
+						<?php
+						/**
+						 * @var array $testimonials
+						 */
+						if (count($testimonials) > 0) {
+							foreach ($testimonials as $testimonial) {
+								?>
+								<div class="slick-slide-item">
+									<div class="testimonial-info-box">
+										<div class="profile-user">
+											<div class="avatar">
+												<img src="<?= base_url('uploads/testimonials/' . $testimonial->image) ?>"
+													 alt="testimonial-2">
+											</div>
+										</div>
+										<h5>
+											<a href="#"><?= $testimonial->name ?></a>
+										</h5>
+										<h6> <?= $testimonial->job_desc ?></h6>
+										<p><i class="fa fa-quote-left"></i><?= $testimonial->comment ?> <i
+													class="fa fa-quote-right"></i></p>
 									</div>
 								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
 
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="img/avatar/avatar-3.jpg" alt="testimonial-2">
-									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
-
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="img/avatar/avatar-1.jpg" alt="testimonial-2">
-									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
-
-						<div class="slick-slide-item">
-							<div class="testimonial-info-box">
-								<div class="profile-user">
-									<div class="avatar">
-										<img src="img/avatar/avatar-2.jpg" alt="testimonial-2">
-									</div>
-								</div>
-								<h5>
-									<a href="#">Lorem ipsum</a>
-								</h5>
-								<h6>Bangalore</h6>
-								<p><i class="fa fa-quote-left"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown <i class="fa fa-quote-right"></i></p>
-							</div>
-						</div>
+								<?php
+							}
+						}
+						?>
 					</div>
 				</div>
 			</div>

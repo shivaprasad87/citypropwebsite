@@ -17,7 +17,6 @@ class Home extends Public_Controller
 		$this->load->model('achievements_model');
 		$this->load->model('blogs_model');
 
-		// $this->session->unset_userdata('city');
 		$this->data['property_types'] = $this->home_model->getWhere(array('status' => 1), 'property_types');
 		$this->data['locations'] = $this->home_model->getWhere(array('status' => 1), 'locations');
 		$this->data['property_status'] = $this->home_model->getWhere(array('status' => 1), 'property_status');
@@ -28,11 +27,6 @@ class Home extends Public_Controller
 
 	}
 
-// echo 
-
-	/**
-	 * Default
-	 */
 	function index()
 	{
 		$this->data['keyword'] = $this->input->post('keyword') ? $this->input->post('keyword') : '';
@@ -367,12 +361,13 @@ class Home extends Public_Controller
 	function searchListing()
 	{
 
-		$perpage = 0;
+		$perpage = 10;
 		$base_url = site_url('searchListing');
 		$uri_segment = 2;
 		$page = ($this->uri->segment(2)) ? $this->uri->segment(2) : 1;
 
 		$content = $this->input->post() ? $this->input->post() : null;
+
 		if ($this->input->post('showPattern')) {
 			$this->data['showPattern'] = $this->input->post('showPattern');
 		} else {
@@ -405,11 +400,11 @@ class Home extends Public_Controller
 		$this->data['amenities'] = $this->home_model->getWhere(array('status' => 1), 'amenities');
 		$this->data['locations'] = $this->home_model->getWhere(array('status' => 1), 'locations');
 		$this->data['meta'] = array(
-			'title' => 'Searched Properties Listing - Holdingbricks ',
+			'title' => 'Searched Properties Listing - City Prop ',
 			'description' => 'Test Search Page Description'
 		);
 
-		$this->data['view_page'] = 'searchListing';
+		$this->data['view_page'] = 'listing';
 		$this->load->view('template', $this->data);
 	}
 
@@ -499,7 +494,7 @@ class Home extends Public_Controller
 			'description' => 'Looking for a property in India? Our experts will guide you to select among best properties in your preferred location by analyzing every project in detail.',
 			'keywords' => 'Real Estate Websites in India, Property Portals in India, Property Experts in India, Properties in India, Real Estate Properties, Online Property Sites, India Real Estate, Real Estate Agents in India, Property Sites in India, Property for Sale in India. '
 		);
-
+		$this->data['testimonials'] = $this->home_model->get_testimonials();
 		$this->data['view_page'] = 'about';
 		$this->load->view('template', $this->data);
 	}

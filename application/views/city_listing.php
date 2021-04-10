@@ -1,410 +1,349 @@
-<div class="clearfix"></div>
+<!-- Sub banner start -->
+<div class="Home-sub-banner">
+	<div class="container">
+		<div class="breadcrumb-area">
+			<h1>Properties Details</h1>
+			<ul class="breadcrumbs">
+				<li><a href="<?=base_url()?>">Home</a></li>
+				<li class="active">Properties Details</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Sub Banner end -->
 
-
-<!-- Titlebar
-================================================== -->
-<div class="parallax titlebar"
-data-background="<?=base_url('assets/')?>images/listings-parallax.jpg"
-data-color="#333333"
-data-color-opacity="0.7"
-data-img-width="800"
-data-img-height="505">
-
-<div id="titlebar">
+<!-- Properties section body start -->
+<div class="properties-section content-area">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-
-				<h2>Listings</h2>
-				<span></span>
-				
-				<!-- Breadcrumbs -->
-				<nav id="breadcrumbs">
-					<ul>
-						<li><a href="<?=base_url();?>">Home</a></li>
-						<li><a href="<?=base_url('listing');?>">Listings</a></li>
-					</ul>
-				</nav>
-
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-<div class="container property-details" id="wrapper1">
-	<div class="row">
-		<div class="col-lg-8 mt-10">
-			<!-- <div class="div-shadow">
-				<div class="col-pad">
-					<div class="property-banner">
-						<img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
-						<div class="prop-status">
-							Under Construction
+			<div class="col-lg-8 col-md-12">
+				<!-- Option bar start -->
+				<div class="option-bar d-xl-block d-lg-block d-md-block d-sm-block">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<div class="sorting-options2">
+								<span class="sort">Sort by:</span>
+								<select class="selectpicker search-fields" name="default-order">
+									<option>Default Order</option>
+									<option>Price High to Low</option>
+									<option>Price: Low to High</option>
+									<option>Newest Properties</option>
+									<option>Oldest Properties</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12 d-none d-lg-block d-md-block d-sm-none">
+							<div class="sorting-options">
+								<a href="#" class="change-view-btn list active-view-btn"><i class="fa fa-th-list"></i></a>
+								<a href="#" class="change-view-btn grid "><i class="fa fa-th-large"></i></a>
+							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="property-title1 mt-10">
-					<p>Project Title</p>
-					<h6>Project Name</h6>
-					<span>Project Location</span>
-					<p class="font9">RERA : <br> 1234556788999</p>
-				</div>
-				<hr>
-				<div class="mt-10">
-					<div class="project_price_details_info">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Starting Price</p><h6><span class="rupee_font">`</span> 74 Lakhs*</h6>
-							</div>
-								
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Configurations</p><h6>2 &amp; 3 BHK</h6>
-							</div>
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Sq Ft</p><h6>1165 -1590</h6>
-							</div>
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Price per Sq Ft</p><h6><span class="rupee_font">`</span> 5649*</h6>
-							</div>
-						</div>
-					</div>
-				
-				</div>
-
-			</div>
-
-	
-			<div class="div-shadow mt-30">
-				<div class="col-pad">
-					<div class="property-banner">
-						<img src="<?=base_url('assets/')?>images/popular-location-04.jpg" class="img-responsive">
-						<div class="prop-status">
-							Under Construction
-						</div>
-					</div>
-				</div>
-
-				<div class="property-title1 mt-10">
-					<p>Project Title</p>
-					<h6>Project Cyberscape</h6>
-					<span>Project Location</span>
-					<p class="font9">RERA : <br> 1234556788999</p>
-				</div>
-				<hr>
-				<div class=" mt-10">
-					<div class="project_price_details_info">
-						<div class="row">
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Starting Price</p><h6><span class="rupee_font">`</span> 74 Lakhs*</h6>
-							</div>
-								
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Configurations</p><h6>2 &amp; 3 BHK</h6>
-							</div>
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Sq Ft</p><h6>1165 -1590</h6>
-							</div>
-
-							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-								<p>Price per Sq Ft</p><h6><span class="rupee_font">`</span> 5649*</h6>
-							</div>
-						</div>
-					</div>
-				
-				</div>
-
-				</div> -->
-	
-					<!-- Sorting / Layout Switcher -->
-		<div class="row margin-bottom-15">
-
-			<div class="col-md-6">
-				<!-- Sort by -->
-				<div class="sort-by">
-					<label>Sort by:</label>
-
-					<div class="sort-by-select">
-						<select data-placeholder="Default order" class="chosen-select-no-single" >
-							<option>Default Order</option>	
-							<option>Price Low to High</option>
-							<option>Price High to Low</option>
-							<option>Newest Properties</option>
-							<option>Oldest Properties</option>
-						</select>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-6">
-				<!-- Layout Switcher -->
-				<div class="layout-switcher">
-					<a href="#" class="list"><i class="fa fa-th-list"></i></a>
-					<a href="#" class="grid"><i class="fa fa-th-large"></i></a>
-				</div>
-			</div>
-		</div>
-
-		
-		<!-- Listings -->
-		<div class="listings-container list-layout">
-
-			<?php 
-          $i=1;
-          $j=1;
-          if(count($properties)>0)
-          {
-          foreach ($properties as $property) {
-            
-           ?>
-			<!-- Listing Item -->
-			<div class="listing-item">
-
-				<div class="listing-img-container">
-
-					<div class="listing-badges badges-page">
-						<!-- <span class="featured">Featured</span> -->
-						<span class="rera">Rera Approved</span>
-						<span>For Sale</span>
-					</div>
-
-					
-
-					<div class="listing-img-content">
-						<span class="listing-price">35 Lakhs <i>Onwards</i></span>
-						
-						<div  data-tip-content="Rating"><fieldset class="rating">
-							<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							<input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-							<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							<input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-							<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							<input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-							<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							<input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-							<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							<input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-						</fieldset></div>
-						
-					</div>
-
-					
-
-					<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>" alt="">
-
-				</div>
-
-				
-				
-				<div class="listing-content">
-
-					<div class="listing-title">
-						<h4><a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank"><?= $property->title ?></a></h4>
-						<a href="">
-							<i class="fa fa-map-marker"></i>
-							<?php echo $property->area.", ".$property->city_name; ?>
-						</a>
-
-						<a  href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" target="_blank" class="details button border">View Details</a>
-					</div>
+				<!-- Property box 2 start -->
+				<div class="listings-container list-layout property-box-2">
 					<?php
-                  if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
-                        $bhk='';
-                        $i=0;
-                        foreach ($flatTypes as $flatType) {
-                            if($i==0)
-                                $bhk.=$flatType->flat_type;
-                            else
-                            $bhk.=', '.$flatType->flat_type;
-                        $i++;
-                        }
-                    } 
-                   $propType   = $this->properties_model->getPropertyType(['id'=>$property->property_type_id]);
-                   ?>
-					<ul class="listing-details">
-						<li><?php echo $bhk; $bhk=''; ?></li>
-						<li></li>
-						
-						
-					</ul>
+					$i=1;
+					$j=1;
+					/** @var array $properties */
+					if(count($properties)>0) {
+						foreach ($properties as $property) {
 
-					<div class="listing-footer">
-						<a href="#"><i class="fa fa-building"></i> Type <?= $property->prop_type ?></a>
-						<span><i class="fa fa-calendar-o"></i> Possession <?php
-                if($property->possession_date!='0000-00-00')
-                {
-                    $date1 = date("Y-m-d");
-                    $date2 = date("Y-m-d", strtotime($property->possession_date)); 
-                    if($date1 > $date2)
-                        echo "Ready";
-                    else
-                echo  date('M, Y', strtotime($property->possession_date));
-                }
-                else 
-                echo "Ready"; 
-                ?></span>
+							?>
+							<div class="listing-item">
+								<div class="row">
+									<div class="listing-img-container col-pad">
+										<div class="property-thumbnail">
+											<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"
+											   class="property-img">
+												<img src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
+													 alt="properties" class="img-fluid">
+												<div class="tag">Apartments</div>
+												<div class="listing-badges">
+													<span class="featured">Featured</span>
+												</div>
+												<div class="price-box"><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+																	'property_flat_types', null,
+																	'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+													." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+																	'property_flat_types', null,
+																	'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>* <i>Onwards</i></div>
+											</a>
+										</div>
+									</div>
+									<div class="listing-content col-pad">
+										<div class="detail">
+											<div class="hdg">
+												<h3 class="title">
+													<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"><?= $property->title ?></a>
+												</h3>
+												<h5 class="location">
+													<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
+														<i class="flaticon-pin"></i><?php echo $property->area . ", " . $property->city_name; ?>
+													</a>
+												</h5>
+												<div class="rera-tag-new" title="Rera Approved Project"><img
+															src="<?=base_url('assets/') ?>img/rera-tag.svg" alt="Rera Approved Project">
+												</div>
+											</div>
+											<div class="facilities-list">
+												<ul class="clearfix">
+													<?php
+													if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
+														$bhk = '';
+														$i = 0;
+														foreach ($flatTypes as $flatType) {
+															if ($i == 0)
+																$bhk .= $flatType->flat_type;
+															else
+																$bhk .= ', ' . $flatType->flat_type;
+															$i++;
+														}
+													}
+													$propType = $this->properties_model->getPropertyType(['id' => $property->property_type_id]);
+													?>
+													<li>
+														<span>Unit</span><?php echo $bhk;
+														$bhk = ''; ?>
+													</li>
+
+													<li>
+														<span>Sqft</span> 35,000
+													</li>
+													<li>
+														<span>Status</span><?=$property->issue_date;?>
+													</li>
+												</ul>
+											</div>
+											<div class="footer">
+												<a href="#" tabindex="0">
+													<?php
+													if($property->possession_date!='0000-00-00')
+														echo  "Possession by ".date('M, Y', strtotime($property->possession_date));
+													else
+														echo "Ready"; ?>
+												</a>
+												<div class="div-line"><span tabindex="0">
+												New
+											</span></div>
+
+												<div class="disclaimer"><a href="#" tabindex="0">
+														<!--														2 BHK in Sector 3 Vasundhar a Ghaziabad:Well designed ...-->
+													</a></div>
+											</div>
+											<div class="hdg">
+												<span itemprop="name">By <?=$property->builder?></span>
+												<button class="btn-detail ">
+													<a href=<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" target="_blank">
+													View More
+													</a>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php }
+					}
+					else
+					{
+						echo "No Properties Found!";
+					}
+					?>
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<!-- Page navigation start -->
+					<div class="pagination-box hidden-mb-45 text-center">
+						<nav aria-label="Page navigation example">
+							<?= isset($pagination) && $pagination ? $pagination : '' ?>
+						</nav>
 					</div>
-
 				</div>
-				<!-- Listing Item / End -->
-
 			</div>
-		<?php } } 
-		else
-		{
-			echo "No Properties Found!";
-		}
-		?>
-			<!-- Listing Item / End -->
- 
-		
+			<div class="col-lg-4 col-md-12">
+				<div class="sidebar-right">
+					<!-- Advanced search start -->
+					<div class="widget advanced-search">
+						<h3 class="sidebar-title">Advanced Search</h3>
+						<div class="s-border"></div>
+						<div class="m-border"></div>
+						<form action="<?=base_url('searchListing')?>" method="post">
+							<div class="form-group">
+								<select name="property_status_id" class="selectpicker search-fields">
+									<option value="">--Select Status--</option>
+									<?php
+									foreach ($property_status as $property_status)
+									{
+										echo "<option value='".$property_status->id."'>".$property_status->name."</option>";
+									}
+									?>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="selectpicker search-fields" name="property_type">
+									<option value="">--Select Type--</option>
+									<?php
+									foreach ($property_types as $property_types)
+									{
+										echo "<option value='".$property_types->id."'>".$property_types->name."</option>";
+									}
+									?>
+								</select>
+							</div>
 
-		</div>
+							<div class="form-group">
+								<select class="selectpicker search-fields" name="city">
+									<option value="">--Select City--</option>
+									<?php
+									foreach ($cities as $cities)
+									{
+										echo "<option value='".$cities->id."'>".$cities->name."</option>";
+									}
+									?>
+								</select>
+							</div>
+							<div class="range-slider clearfix form-group">
+								<label>Area</label>
+								<div data-min="0" data-max="10000" onclick="price();" data-min-name="min_area" data-max-name="max_area" data-unit="Sqft," class="range-slider-ui ui-slider" aria-disabled="false"></div>
+								<input type="hidden" name="min_area" id="min_area">
+								<input type="hidden" name="max_area" id="max_area">
+								<div class="clearfix"></div>
+							</div>
+							<div class="range-slider clearfix form-group mb-30">
+								<label>Price</label>
+								<div data-min="0" data-max="150000" onclick="price();"  data-min-name="min_price" data-max-name="max_price" data-unit="Rs" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+								<input type="hidden" name="min_price" id="min_price">
+								<input type="hidden" name="max_price" id="max_price">
+								<script>
+									function price()
+									{
+										var min = $('.min-value').text();
+										var array = min.split(",");
+										$("#min_area").val(array[0]);
+										$("#min_price").val(array[1]);
+										var min = $('.max-value').text();
+										var array = min.split(",");
+										$("#max_area").val(array[0]);
+										$("#max_price").val(array[1]);
 
-		<div class="clearflix"></div>
-		<!-- Listings Container / End -->
+									}
 
-		<br>
-		<!-- Pagination -->
-		<div class="pagination-container margin-top-20">
-			<!-- <nav class="pagination">
-				<ul>
-					<li><a href="#" class="current-page">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li class="blank">...</li>
-					<li><a href="#">22</a></li>
-				</ul>
-			</nav>
-
-			<nav class="pagination-next-prev">
-				<ul>
-					<li><a href="#" class="prev">Previous</a></li>
-					<li><a href="#" class="next">Next</a></li>
-				</ul>
-			</nav> -->
-			<?= isset($pagination) && $pagination ? $pagination : '' ?>
-		</div>
-		<!-- Pagination / End -->
-
-		</div>
-
-		
-
-		<div class="col-lg-4 mt-10" >
-			<div id="sideform" class="needhelp_form sideform my-sticky-form  ">
-				<div class="needhelp_form_close  mt-10">
-	
-				</div>
-				<h5>Need help in your house search?</h5>
-					
-					<style type="text/css">.g-recaptcha{transform:scale(.77);-webkit-transform:scale(.77);transform-origin:0 0;-webkit-transform-origin:0 0}.needhelp_form h5{margin:0}.needhelp_form .needhelp_form_list .submit_btn{margin-top:0}.needhelp_form .needhelp_form_list ul li input{height:28px}.needhelp_form .needhelp_form_list ul li input[type=checkbox]{height:12px}.needhelp_form .needhelp_form_list ul li{margin:0 0 5px}</style>
-					
-					<div class="needhelp_form_list">
-						
-						<form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-								<div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-								<ul>
-									<li class="form-sec">	
-										<input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
-									<li class="form-sec">
-								
-								<input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
-							</li>
-								<li class="form-sec">
-									<input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
-								</li>
-								<li style="margin-top:20px !Important;">
-									<center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Enquire Now</div></center>
-								</li>
-							</ul>
+								</script>
+								<div class="clearfix"></div>
+							</div>
+							<!--							<a class="show-more-options" data-toggle="collapse" data-target="#options-content">-->
+							<!--								<i class="fa fa-plus-circle"></i> Other Features-->
+							<!--							</a>-->
+							<!--							<div id="options-content" class="collapse">-->
+							<!--								<h3 class="sidebar-title">Features</h3>-->
+							<!--								<div class="s-border"></div>-->
+							<!--								<div class="m-border"></div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox2" type="checkbox">-->
+							<!--									<label for="checkbox2">-->
+							<!--										Air Condition-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox3" type="checkbox">-->
+							<!--									<label for="checkbox3">-->
+							<!--										Places to seat-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox4" type="checkbox">-->
+							<!--									<label for="checkbox4">-->
+							<!--										Swimming Pool-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox1" type="checkbox">-->
+							<!--									<label for="checkbox1">-->
+							<!--										Free Parking-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox7" type="checkbox">-->
+							<!--									<label for="checkbox7">-->
+							<!--										Central Heating-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox5" type="checkbox">-->
+							<!--									<label for="checkbox5">-->
+							<!--										Laundry Room-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox6" type="checkbox">-->
+							<!--									<label for="checkbox6">-->
+							<!--										Window Covering-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<div class="checkbox checkbox-theme checkbox-circle">-->
+							<!--									<input id="checkbox8" type="checkbox">-->
+							<!--									<label for="checkbox8">-->
+							<!--										Alarm-->
+							<!--									</label>-->
+							<!--								</div>-->
+							<!--								<br>-->
+							<!--							</div>-->
+							<div class="form-group mb-0">
+								<button class="search-button">Search</button>
+							</div>
 						</form>
-						<div class="mb-40">
-							<div class="offers-wrap lead-offer no-bg-style"> 
-								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/cashback.png')">
-								</div>  
-								<div class="spl-txt-wrap va-middle"> 
-									<div class="spl-title va-top">Assured Callback in 5 mins</div> 
-									<ul class="va-top reset-ul offer-ul"> 
-										<li class="offer">Get an assured callback in 5 mins from sales expert (9 AM - 6 PM IST)</li> 
-									</ul> 
-									</div>      
-							</div>
-							<div class="offers-wrap lead-offer no-bg-style">
-								<div class="spl-img va-top bg-img-default bg-img-contain"  style=" background-image:url('<?=base_url('assets/')?>images/offer.png')"> 
-								</div>                 
-								<div class="spl-txt-wrap va-middle"> 
-									<div class="spl-title va-top">Authorised Channel Partner</div>
-									<ul class="va-top reset-ul offer-ul"> 
-										<li class="offer">City Prop is an authorised channel partner for this project</li>
-									</ul> 
-									</div>            
-							</div>
-						</div>	
 					</div>
+					<!-- Recent properties start -->
+					<div class="widget recent-properties">
+						<h3 class="sidebar-title">Recent Properties</h3>
+						<div class="s-border"></div>
+						<div class="m-border"></div>
+						<div class="media mb-4">
+							<a class="pr-3" href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">
+								<img class="media-object" src="img/properties/small-properties-1.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">Modern Family Home</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27,  </a>
+								</div>
+							</div>
+						</div>
+						<div class="media mb-4">
+							<a class="pr-3" href="properties-details.html">
+								<img class="media-object" src="img/properties/small-properties-2.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="properties-details.html">Beautiful Single Home</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs415,000 | <a href="#"><i class="fa fa-calendar"></i> Feb 14,  </a>
+								</div>
+							</div>
+						</div>
+						<div class="media">
+							<a class="pr-3" href="properties-details.html">
+								<img class="media-object" src="img/properties/small-properties-3.jpg" alt="small-properties">
+							</a>
+							<div class="media-body align-self-center">
+								<h5>
+									<a href="properties-details.html">Real Luxury Villa</a>
+								</h5>
+								<div class="listing-post-meta">
+									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 12,  </a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
 			</div>
-
-			
-
-		</div>
-
 		</div>
 	</div>
 </div>
-
-
-<div class="margin-top-50"></div>
-<!-- Flip banner -->
-<a href="" class="flip-banner parallax-home" data-background="<?=base_url('assets/')?>images/single-property-03.jpg"  data-color-opacity="0.9" data-img-width="2500" data-img-height="1600">
-	<div class="flip-banner-content" style="color:rgb(219 18 57)">
-		<h2 class="flip-visible">We help people and homes find each other</h2>
-		<h2 class="flip-hidden">Browse Properties <i class="sl sl-icon-arrow-right"></i></h2>
-	</div>
-</a>
-<!-- Flip banner / End -->
-
-
-<div class="modal Home-pupup fade in" tabindex="-1" role="dialog" id="main-pop" style="opacity: 1;">
-	<!-- data-backdrop="static" data-keyboard="false" -->
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-		<div class="modal-body text-center needhelp_form-modal" style="margin: auto;">
-		<li class="left_col"><img class="text-center modal-logo" src="<?=base_url('assets/')?>images/Holding-bricks.png"></li>	
-		<li class="right_col"><h5>Project Name Brochure</h5></li>
-		
-			<div class="needhelp_form_list">
-					
-				<form action="" name="WebForm-1498709213622" method="POST" id="elqform2">
-						<div class="throwerror" style="color:red;font-size:15px;padding-bottom:18px;"></div>
-						<ul>
-							<li class="form-sec">	
-								<input type="text" placeholder="Name*" id="" required="" name="Name*"></li>
-							
-					
-							<li class="form-sec">
-						
-						<input type="tel" placeholder="Phone Number*" id="" required="" name="phone*">
-					</li>
-						<li class="form-sec">
-							<input type="email" placeholder="Email ID*" required="" name="emailAddress" id="fcemail" autocomplete="off" class="emailcheck">
-						</li>
-
-						<li style="margin-top:20px!important">
-						<center><div class="btn btn-submit" data-toggle="modal" data-target="#main-pop">Download</div></center>
-					</li>
-					</ul>
-				</form>
-			</div>
-        </div>
-    </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div>
-
-
+<!-- Properties section body end -->

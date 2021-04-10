@@ -81,6 +81,7 @@ $route['city/(:any)'] 		   = "home/city/$1";
 $route['city/(:any)/(:num)']   = "home/city/$1/$2";
 $route['favourites'] 		   = "home/favourites";
 $route['searchListing'] 	   = "home/searchListing";
+$route['searchListing/(:num)'] 	   = "home/searchListing/$1";
 $route['subscribers'] 		   = "home/subscribers";
 $route['listing'] 		   	   = "home/listing";
 $route['listing/(:any)']       = "home/listing/$1";

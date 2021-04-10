@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 				<div class="footer-item clearfix">
-					<img src="assets/home/img/logos/logo.png" alt="logo" class="f-logo">
+					<img src="<?=base_url()?>assets/home/img/logos/logo.png" alt="logo" class="f-logo">
 					<div class="text">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae posuere sapien vitae posuere.</p>
 					</div>

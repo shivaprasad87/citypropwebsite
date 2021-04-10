@@ -29,7 +29,7 @@
                                                                             style="font:14px/1.4285714 Arial,sans-serif;padding:10px 0 20px">
 
                                                                             
-                                                                            <img src="<?=base_url('assets/images/logo.jpeg')?>" style="text-align:center;display: block;margin: 0 auto 20px;width: 15%;">
+                                                                            <img src="<?=base_url('assets/home/img/logos/logo.png')?>" style="text-align:center;display: block;margin: 0 auto 20px;width: 15%;">
                                                                             <!-- <h2>User Details</h2> -->
                                                                             <table class="m_7833591651013642041commit-list"
                                                                                    style="width:100%;border-collapse:collapse;border: 1px solid #ddd;">

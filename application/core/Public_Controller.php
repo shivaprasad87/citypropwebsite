@@ -50,7 +50,7 @@ protected function paginate($perpage, $total, $base_url, $uri_segment, $class = 
     $config["num_links"] = 4;
     $config['use_page_numbers'] = true;
         //config for bootstrap pagination class integration
-    $config['full_tag_open'] = '<ul class="pager">';
+    $config['full_tag_open'] = '<ul class="pagination">';
     $config['full_tag_close'] = '</ul>';
     $config['first_link'] = false;
     $config['last_link'] = false;
@@ -64,7 +64,7 @@ protected function paginate($perpage, $total, $base_url, $uri_segment, $class = 
     $config['next_tag_close'] = '</li>';
     $config['last_tag_open'] = '<li>'; 
     $config['last_tag_close'] = '</li>';
-    $config['cur_tag_open'] = '<li class="active"><a href="#">';
+    $config['cur_tag_open'] = '<li class="page-item"><a class="page-link active" href="#">';
     $config['cur_tag_close'] = '</a></li>';
     $config['num_tag_open'] = '<li>';
     $config['num_tag_close'] = '</li>';
