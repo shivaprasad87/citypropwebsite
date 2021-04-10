@@ -4,7 +4,7 @@
 		<div class="breadcrumb-area">
 			<h1>Contact us</h1>
 			<ul class="breadcrumbs">
-				<li><a href="index.html">Home</a></li>
+				<li><a href="<?=base_url()?>">Home</a></li>
 				<li class="active">Contact us</li>
 			</ul>
 		</div>
@@ -18,9 +18,9 @@
 		<!-- Main title -->
 		<div class="main-title text-center">
 			<h1>Contact Us</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<!--			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
 		</div>
-		<form action="#" method="GET" enctype="multipart/form-data">
+		<form action="<?=base_url('contact')?>" method="POST" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-lg-7">
 					<div class="row">
@@ -62,23 +62,23 @@
 							<i class="flaticon-phone"></i>
 							<div class="media-body">
 								<h5>Phone:</h5>
-								<p><a href="tel:0123456789">0123456789</a></p>
+								<p><a href="tel:+91<?= $social_links->mobile ?>">+91 <?= $social_links->mobile ?></a></p>
 							</div>
 						</div>
 						<div class="media">
 							<i class="flaticon-mail"></i>
 							<div class="media-body">
 								<h5>Email:</h5>
-								<p><a href="#">info@test.com</a></p>
+								<p><a href="mailto:<?= $social_links->email ?>"><?= $social_links->email ?></a></p>
 							</div>
 						</div>
-						<div class="media">
-							<i class="flaticon-internet"></i>
-							<div class="media-body">
-								<h5>Web:</h5>
-								<p><a href="#">info@test.com</a></p>
-							</div>
-						</div>
+<!--						<div class="media">-->
+<!--							<i class="flaticon-internet"></i>-->
+<!--							<div class="media-body">-->
+<!--								<h5>Web:</h5>-->
+<!--								<p><a href="#">info@test.com</a></p>-->
+<!--							</div>-->
+<!--						</div>-->
 
 					</div>
 				</div>
