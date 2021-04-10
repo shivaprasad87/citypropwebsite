@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="<?= $keywords ?>">
 <meta name="description" content="<?= $description ?>"> 
-<link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css1/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/reality-icon.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/');?>css/bootsnav.css">

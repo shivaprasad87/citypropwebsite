@@ -354,7 +354,18 @@ button:focus {
 .btn-theme:hover,.btn-theme-dark:hover {
     color: #FFF;
 }
-
+.form-inline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
 .btn-white-lg-outline {
     color: #FFF;
     background: transparent;
@@ -6567,6 +6578,7 @@ footer {
 
 .smail-properties .list-inline-item a img {
     width: 100%;
+    height: 100%;
     border: none;
     border-radius: 0;
 }
