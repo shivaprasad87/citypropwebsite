@@ -210,45 +210,33 @@ $this->load->view('inc/header');
 							<a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab"
 							   aria-controls="three" aria-selected="true">Details</a>
 						</li>
+						<?php
+						if ($property->map)
+						{
+						?>
 						<li class="nav-item">
 							<a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab" aria-controls="5"
 							   aria-selected="true">Location</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab" aria-controls="4"
-							   aria-selected="true">Video</a>
-						</li>
+						<?php
+						}
+						if ($property->walkthrough) {
+							?>
+							<li class="nav-item">
+								<a class="nav-link" id="4-tab" data-toggle="tab" href="#4" role="tab" aria-controls="4"
+								   aria-selected="true">Video</a>
+							</li>
+							<?php
+						}
+						?>
 					</ul>
 					<div class="tab-content" id="carTabContent">
 						<div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
 							<div class="properties-description mb-50">
 								<h3 class="heading-2">
-									Prestige Greenwoods
+									<?= $property->title ?>
 								</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque.
-									Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien
-									vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur
-									convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In
-									fermentum facilisis massa, a consequat purus viverra a. Aliquam pellentesque nibh et
-									nibh feugiat gravida. Maecenas ultricies, diam vitae semper placerat, velit risus
-									accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod
-									fringilla. Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus
-									magna lorem, elementum id gravida ac, laoreet tristique augue. Maecenas dictum lacus
-									eu nunc porttitor, ut hendrerit arcu efficitur.</p>
-								<p>pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper
-									placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan
-									elit sed neque euismod fringilla. Curabitur lobortis nunc velit, et fermentum urna
-									dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet tristique augue.
-									Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
-								<p>Aliquam ultricies nunc porta metus interdum mollis. Donec porttitor libero augue,
-									vehicula tincidunt lectus placerat a. Sed tincidunt dolor non sem dictum dignissim.
-									Nulla vulputate orci felis, ac ornare purus ultricies a. Fusce euismod magna orci,
-									sit amet aliquam turpis dignissim ac. In at tortor at ligula pharetra sollicitudin.
-									Sed tincidunt, purus eget laoreet elementum, felis est pharetra ante, tincidunt
-									feugiat libero enim sed risus.Sed at leo sit amet mi bibendum aliquam. Interdum et
-									malesuada fames ac ante ipsum primis in faucibus. Praesent cursus varius odio, non
-									faucibus dui. Nunc vehicula lectus sed velit suscipit aliquam vitae eu ipsum.
-									adipiscing elit.</p>
+								<?= $property->description ?>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
@@ -258,14 +246,28 @@ $this->load->view('inc/header');
 										<a class="nav-link active show" id="one-tab" data-toggle="tab" href="#elvation"
 										   role="tab" aria-controls="8" aria-selected="false">Elevation</a>
 									</li>
+									<?php
+									if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+											'property_floor_plans')))
+									{
+									?>
 									<li class="nav-item">
 										<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan" role="tab"
 										   aria-controls="8" aria-selected="true">Floorplan</a>
 									</li>
+										<?php
+									}
+									if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+											'property_master_plans')))
+									{
+									?>
 									<li class="nav-item">
 										<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan" role="tab"
 										   aria-controls="8" aria-selected="true">Masterplan</a>
 									</li>
+										<?php
+									}
+									?>
 								</ul>
 							</div>
 							<div class="tab-content" id="galleryTabContent">
@@ -273,30 +275,25 @@ $this->load->view('inc/header');
 									 aria-labelledby="one-tab">
 									<div class="properties-description mb-50">
 										<div class="gallery">
+											<?php
+											if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+													'property_elevations')) != null) {
+											foreach ($images as $i => $image) {
+											?>
 											<a class="fancybox-button" rel="fancybox-button"
-											   href="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_b.jpg"
+											   href="<?= base_url($image->image) ?>"
 											   title="image 1">
-												<img src="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_m.jpg"
+												<img src="<?= base_url($image->image) ?>"
 													 alt=""/>
 											</a>
-											<a class="fancybox-button" rel="fancybox-button"
-											   href="http://farm1.staticflickr.com/471/19102574835_d5a7837217_b.jpg"
-											   title="image 2">
-												<img src="http://farm1.staticflickr.com/471/19102574835_d5a7837217_m.jpg"
-													 alt=""/>
-											</a>
-											<a class="fancybox-button" rel="fancybox-button"
-											   href="http://farm1.staticflickr.com/288/19353466834_6be3600330_b.jpg"
-											   title="image 3">
-												<img src="http://farm1.staticflickr.com/288/19353466834_6be3600330_m.jpg"
-													 alt=""/>
-											</a>
-											<a class="fancybox-button" rel="fancybox-button"
-											   href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg"
-											   title="image 4">
-												<img src="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_m.jpg"
-													 alt=""/>
-											</a>
+												<?php
+											}
+											}
+											else
+											{
+												echo  "<center>No Image Found<center>";
+											}
+											?>
 										</div>
 
 									</div>
@@ -309,49 +306,55 @@ $this->load->view('inc/header');
 										</h3>
 										<div class="floor-plans mb-50">
 
-											<table>
-												<tbody>
-												<tr>
-													<td><strong>Size</strong></td>
-													<td><strong>Rooms</strong></td>
-													<td><strong>Bathrooms</strong></td>
-													<td><strong>Garage</strong></td>
-												</tr>
-												<tr>
-													<td>1600</td>
-													<td>3</td>
-													<td>2</td>
-													<td>1</td>
-												</tr>
-												</tbody>
-											</table>
+<!--											<table>-->
+<!--												<tbody>-->
+<!--												<tr>-->
+<!--													<td><strong>Size</strong></td>-->
+<!--													<td><strong>Rooms</strong></td>-->
+<!--													<td><strong>Bathrooms</strong></td>-->
+<!--													<td><strong>Garage</strong></td>-->
+<!--												</tr>-->
+<!--												<tr>-->
+<!--													<td>1600</td>-->
+<!--													<td>3</td>-->
+<!--													<td>2</td>-->
+<!--													<td>1</td>-->
+<!--												</tr>-->
+<!--												</tbody>-->
+<!--											</table>-->
 											<div class="gallery">
+												<?php
+												if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_floor_plans'))) {
+												foreach ($images as $i => $image) {
+												?>
 												<a class="fancybox-button" rel="fancybox-button"
 												   href="<?= base_url() ?>assets/img/floor-plans.png" title="image 1">
 													<img src="<?= base_url() ?>assets/img/floor-plans.png" alt=""/>
 												</a>
-												<a class="fancybox-button" rel="fancybox-button"
-												   href="<?= base_url() ?>assets/img/floor-plans.png" title="image 2">
-													<img src="<?= base_url() ?>assets/img/floor-plans.png" alt=""/>
-												</a>
-												<a class="fancybox-button" rel="fancybox-button"
-												   href="<?= base_url() ?>assets/img/floor-plans.png" title="image 3">
-													<img src="<?= base_url() ?>assets/img/floor-plans.png" alt=""/>
-												</a>
+													<?php
+												}
+												}
+												?>
 											</div>
-
-
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane fade " id="masterplan" role="tabpanel" aria-labelledby="one-tab">
 									<div class="properties-description mb-50">
 										<div class="gallery">
+											<?php
+											if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_master_plans'))) {
+											foreach ($images as $i => $image) {
+											?>
 											<a class="fancybox-button" rel="fancybox-button"
-											   href="<?= base_url() ?>assets/img/floor-plans.png" title="image 1">
-												<img src="http://localhost/assets/img/floor-plans.png" alt=""
+											   href="<?= base_url($image->image) ?>" title="image 1">
+												<img src="<?= base_url($image->image) ?>" alt=""
 													 style=" width: 100%; height: 50%;">
 											</a>
+												<?php
+											}
+											}
+											?>
 										</div>
 
 									</div>
@@ -428,59 +431,18 @@ $this->load->view('inc/header');
 								<div class="row">
 									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 										<ul class="amenities">
-											<li>
-												<i class="fa fa-check"></i>Air conditioning
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Balcony
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Pool
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Room service
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Gym
-											</li>
-										</ul>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-										<ul class="amenities">
-											<li>
-												<i class="fa fa-check"></i>Wifi
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Parking
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Double Bed
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Home Theater
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Electric
-											</li>
-										</ul>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-										<ul class="amenities">
-											<li>
-												<i class="fa fa-check"></i>Telephone
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Jacuzzi
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Alarm
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Garage
-											</li>
-											<li>
-												<i class="fa fa-check"></i>Security
-											</li>
+											<?php
+											if (isset($property->amenities) && $property->amenities) {
+												foreach ($property->amenities as $amenity) {
+													?>
+													<li>
+														<i class="fa fa-check"></i><?= ucwords($amenity->name) ?>
+													</li>
+													<?php
+												}
+
+											}
+											?>
 										</ul>
 									</div>
 								</div>
@@ -491,9 +453,8 @@ $this->load->view('inc/header');
 								<div class="map">
 									<h3 class="heading-2">Property Location</h3>
 									<div id="map" class="contact-map">
-										<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.660072568!2d77.35073295903771!3d12.954517012303143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1613576953712!5m2!1sen!2sin"
-												width="600" height="450" frameborder="0" style="border:0;"
-												allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+										<img src="<?= base_url("uploads/" . "/$property->slug/map/$property->map") ?>"
+											 draggable="false" style="user-select: none;">
 									</div>
 								</div>
 							</div>
@@ -503,7 +464,8 @@ $this->load->view('inc/header');
 								<h3 class="heading-2">
 									Property Video
 								</h3>
-								<iframe src="https://www.youtube.com/embed/r2x4lL9M2Rk" allowfullscreen=""></iframe>
+								<iframe src="https://www.youtube.com/embed/<?= getYoutubeVideoId($property->walkthrough) ?>?rel=0&amp;showinfo=0"
+										allowfullscreen=""></iframe>
 							</div>
 						</div>
 					</div>
@@ -552,19 +514,21 @@ $this->load->view('inc/header');
 									<div class="row">
 										<div class="listing-img-container col-pad">
 											<div class="property-thumbnail">
-												<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>" class="property-img">
-													<img src="<?= base_url('uploads/'.str_replace(" ","-",strtolower($property->city_name))."/".str_replace(" ","-",strtolower($property->builder))."/" .$property->slug.'/'.$property->image) ?>"
+												<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"
+												   class="property-img">
+													<img src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
 														 alt="properties" class="img-fluid">
 													<div class="tag"><?= $property->prop_type ?></div>
 													<div class="listing-badges">
 														<span class="featured">Featured</span>
 													</div>
-													<div class="price-box"><span><?php echo "Rs. ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+													<div class="price-box"><span><?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
 																			'property_flat_types', null,
 																			'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
-															." - ".  (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+															. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
 																			'property_flat_types', null,
-																			'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ;?>*</span></div>
+																			'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?>*</span>
+													</div>
 												</a>
 											</div>
 										</div>
@@ -572,11 +536,11 @@ $this->load->view('inc/header');
 											<div class="detail">
 												<div class="hdg">
 													<h3 class="title">
-														<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>"><?= $property->title ?></a>
+														<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"><?= $property->title ?></a>
 													</h3>
 													<h5 class="location">
-														<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>">
-															<i class="flaticon-pin"></i><?php echo $property->area.", ".$property->city_name; ?>
+														<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
+															<i class="flaticon-pin"></i><?php echo $property->area . ", " . $property->city_name; ?>
 														</a>
 													</h5>
 													<div class="rera-tag-new" title="Rera Approved Project"><img
@@ -625,7 +589,7 @@ $this->load->view('inc/header');
 														</a></div>
 												</div>
 												<div class="hdg">
-													<span itemprop="name">By <?=$property->builder?></span>
+													<span itemprop="name">By <?= $property->builder ?></span>
 													<button class="btn-detail ">
 														<a href="property-detail.html" target="_blank">
 															View More
@@ -810,34 +774,35 @@ $this->load->view('inc/header');
 						<div class="m-border"></div>
 						<?php
 						if (count($properties) > 0) {
-						foreach ($properties as $property) {
-						?>
-						<div class="media mb-4">
-							<a class="pr-3" href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
-								<img class="media-object"
-									 src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
-									 alt="small-properties">
-							</a>
-							<div class="media-body align-self-center">
-								<h5>
-									<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>"><?= $property->title ?></a>
-								</h5>
-								<div class="listing-post-meta">
-									<?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
-													'property_flat_types', null,
-													'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
-									. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
-													'property_flat_types', null,
-													'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?>
-									* | <a href="#"><i class="fa fa-calendar"></i> <?php
-										if ($property->possession_date != '0000-00-00')
-											echo "Possession by " . date('M, Y', strtotime($property->possession_date));
-										else
-											echo "Ready"; ?> </a>
+							foreach ($properties as $property) {
+								?>
+								<div class="media mb-4">
+									<a class="pr-3"
+									   href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
+										<img class="media-object"
+											 src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
+											 alt="small-properties">
+									</a>
+									<div class="media-body align-self-center">
+										<h5>
+											<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>"><?= $property->title ?></a>
+										</h5>
+										<div class="listing-post-meta">
+											<?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+															'property_flat_types', null,
+															'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+											. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+															'property_flat_types', null,
+															'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?>
+											* | <a href="#"><i class="fa fa-calendar"></i> <?php
+												if ($property->possession_date != '0000-00-00')
+													echo "Possession by " . date('M, Y', strtotime($property->possession_date));
+												else
+													echo "Ready"; ?> </a>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<?php }
+							<?php }
 						} else {
 							echo "No Properties Found!";
 						}
