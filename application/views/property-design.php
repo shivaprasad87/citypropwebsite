@@ -211,14 +211,13 @@ $this->load->view('inc/header');
 							   aria-controls="three" aria-selected="true">Details</a>
 						</li>
 						<?php
-						if ($property->map)
-						{
-						?>
-						<li class="nav-item">
-							<a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab" aria-controls="5"
-							   aria-selected="true">Location</a>
-						</li>
-						<?php
+						if ($property->map) {
+							?>
+							<li class="nav-item">
+								<a class="nav-link" id="5-tab" data-toggle="tab" href="#5" role="tab" aria-controls="5"
+								   aria-selected="true">Location</a>
+							</li>
+							<?php
 						}
 						if ($property->walkthrough) {
 							?>
@@ -248,23 +247,23 @@ $this->load->view('inc/header');
 									</li>
 									<?php
 									if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-											'property_floor_plans')))
-									{
-									?>
-									<li class="nav-item">
-										<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan" role="tab"
-										   aria-controls="8" aria-selected="true">Floorplan</a>
-									</li>
+											'property_floor_plans'))) {
+										?>
+										<li class="nav-item">
+											<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan"
+											   role="tab"
+											   aria-controls="8" aria-selected="true">Floorplan</a>
+										</li>
 										<?php
 									}
 									if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-											'property_master_plans')))
-									{
-									?>
-									<li class="nav-item">
-										<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan" role="tab"
-										   aria-controls="8" aria-selected="true">Masterplan</a>
-									</li>
+											'property_master_plans'))) {
+										?>
+										<li class="nav-item">
+											<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan"
+											   role="tab"
+											   aria-controls="8" aria-selected="true">Masterplan</a>
+										</li>
 										<?php
 									}
 									?>
@@ -277,21 +276,19 @@ $this->load->view('inc/header');
 										<div class="gallery">
 											<?php
 											if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
-													'property_elevations')) != null) {
-											foreach ($images as $i => $image) {
-											?>
-											<a class="fancybox-button" rel="fancybox-button"
-											   href="<?= base_url($image->image) ?>"
-											   title="image 1">
-												<img src="<?= base_url($image->image) ?>"
-													 alt=""/>
-											</a>
-												<?php
-											}
-											}
-											else
-											{
-												echo  "<center>No Image Found<center>";
+															'property_elevations')) != null) {
+												foreach ($images as $i => $image) {
+													?>
+													<a class="fancybox-button" rel="fancybox-button"
+													   href="<?= base_url($image->image) ?>"
+													   title="image 1">
+														<img src="<?= base_url($image->image) ?>"
+															 alt=""/>
+													</a>
+													<?php
+												}
+											} else {
+												echo "<center>No Image Found<center>";
 											}
 											?>
 										</div>
@@ -305,34 +302,19 @@ $this->load->view('inc/header');
 											Floor Plans
 										</h3>
 										<div class="floor-plans mb-50">
-
-<!--											<table>-->
-<!--												<tbody>-->
-<!--												<tr>-->
-<!--													<td><strong>Size</strong></td>-->
-<!--													<td><strong>Rooms</strong></td>-->
-<!--													<td><strong>Bathrooms</strong></td>-->
-<!--													<td><strong>Garage</strong></td>-->
-<!--												</tr>-->
-<!--												<tr>-->
-<!--													<td>1600</td>-->
-<!--													<td>3</td>-->
-<!--													<td>2</td>-->
-<!--													<td>1</td>-->
-<!--												</tr>-->
-<!--												</tbody>-->
-<!--											</table>-->
 											<div class="gallery">
 												<?php
-												if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_floor_plans'))) {
-												foreach ($images as $i => $image) {
-												?>
-												<a class="fancybox-button" rel="fancybox-button"
-												   href="<?= base_url() ?>assets/img/floor-plans.png" title="image 1">
-													<img src="<?= base_url() ?>assets/img/floor-plans.png" alt=""/>
-												</a>
-													<?php
-												}
+												if (($images = $this->properties_model->getWhere(array('property_id' => $property->id), 'property_floor_plans'))) {
+													foreach ($images as $i => $image) {
+														?>
+														<a class="fancybox-button" rel="fancybox-button"
+														   href="<?= base_url() ?>assets/img/floor-plans.png"
+														   title="image 1">
+															<img src="<?= base_url() ?>assets/img/floor-plans.png"
+																 alt=""/>
+														</a>
+														<?php
+													}
 												}
 												?>
 											</div>
@@ -343,16 +325,16 @@ $this->load->view('inc/header');
 									<div class="properties-description mb-50">
 										<div class="gallery">
 											<?php
-											if (($images =  $this->properties_model->getWhere(array('property_id' => $property->id),'property_master_plans'))) {
-											foreach ($images as $i => $image) {
-											?>
-											<a class="fancybox-button" rel="fancybox-button"
-											   href="<?= base_url($image->image) ?>" title="image 1">
-												<img src="<?= base_url($image->image) ?>" alt=""
-													 style=" width: 100%; height: 50%;">
-											</a>
-												<?php
-											}
+											if (($images = $this->properties_model->getWhere(array('property_id' => $property->id), 'property_master_plans'))) {
+												foreach ($images as $i => $image) {
+													?>
+													<a class="fancybox-button" rel="fancybox-button"
+													   href="<?= base_url($image->image) ?>" title="image 1">
+														<img src="<?= base_url($image->image) ?>" alt=""
+															 style=" width: 100%; height: 50%;">
+													</a>
+													<?php
+												}
 											}
 											?>
 										</div>
@@ -363,64 +345,91 @@ $this->load->view('inc/header');
 						</div>
 						<div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
 							<div class="property-details mb-40">
-								<h3 class="heading-2">Property Details</h3>
+								<h3 class="heading-2">Property Pricing Details</h3>
 								<div class="row">
-									<div class="col-md-4 col-sm-6">
-										<ul>
-											<li>
-												<strong>Property Id:</strong>215
-											</li>
-											<li>
-												<strong>Price:</strong>$1240/ Month
-											</li>
-											<li>
-												<strong>Property Type:</strong>House
-											</li>
-											<li>
-												<strong>Bathrooms:</strong>3
-											</li>
-											<li>
-												<strong>Bathrooms:</strong>2
-											</li>
-										</ul>
-									</div>
-									<div class="col-md-4 col-sm-6">
-										<ul>
-											<li>
-												<strong>Property Lot Size:</strong>800 ft2
-											</li>
-											<li>
-												<strong>Land area:</strong>230 ft2
-											</li>
-											<li>
-												<strong>Year Built:</strong>
-											</li>
-											<li>
-												<strong>Available From:</strong>
-											</li>
-											<li>
-												<strong>Garages:</strong>2
-											</li>
-										</ul>
-									</div>
-									<div class="col-md-4 col-sm-6">
-										<ul>
-											<li>
-												<strong>Sold:</strong>Yes
-											</li>
-											<li>
-												<strong>City:</strong>Usa
-											</li>
-											<li>
-												<strong>Parking:</strong>Yes
-											</li>
-											<li>
-												<strong>Property Owner:</strong>Sohel Rana
-											</li>
-											<li>
-												<strong>Zip Code: </strong>2451
-											</li>
-										</ul>
+									<div class="floor-plans mb-50 col-md-12">
+										<table>
+											<tbody>
+											<thead>
+											<tr>
+												<th class="her" style="background: #53ABBD;">Unit Type
+												</th>
+												<th class="her" style="background: #53ABBD;">Size(SBA)
+												</th>
+												<th class="her" style="background: #53ABBD;">Carpet Area</th>
+												<th class="her" style="background: #53ABBD;">Price</th>
+												<th class="her" style="background: #53ABBD;">Whatsapp</th>
+											</tr>
+											</thead>
+											<tbody style="color: #5c5c5c;">
+											<?php
+											if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
+															$property->id)) != null) {
+												foreach ($flatTypes as $flatType) {
+													?>
+													<tr style="background: #ededed;">
+														<td>
+															<?= $flatType->flat_type ?>
+														</td>
+														<td>
+															<?= $this->properties_model->getPropertyRange(array(
+																	'property_id' => $property->id,
+																	'flat_type_id' => $flatType->flat_type_id
+															), 'property_flat_types',
+																	'size') ?>
+															<?= $this->properties_model->getPropertyParam(array(
+																	'property_id' => $property->id,
+																	'flat_type_id' => $flatType->flat_type_id
+															), 'property_flat_types', 'unit') ?>
+														</td>
+														<td>
+															<?= $this->properties_model->getPropertyRange(array(
+																	'property_id' => $property->id,
+																	'flat_type_id' => $flatType->flat_type_id
+															), 'property_flat_types', 'carpet_area') ?> Sq.ft
+														</td>
+														<td>
+															<?php
+															if ($flatType->price_on_request) {
+																echo "Price on Request";
+															} else {
+																?>
+																<i class="fa fa-inr" aria-hidden="true"></i>
+																<?= (($row = $this->properties_model->getPropertyParam(array(
+																				'property_id' => $property->id,
+																				'flat_type_id' => $flatType->flat_type_id
+																		), 'property_flat_types', null,
+																				'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+																-
+																<?= (($row = $this->properties_model->getPropertyParam(array(
+																				'property_id' => $property->id,
+																				'flat_type_id' => $flatType->flat_type_id
+																		), 'property_flat_types', null,
+																				'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0 ?>
+																<?php
+															}
+															?>
+														</td>
+														<td align="center"><a
+																	href="https://api.whatsapp.com/send?phone=+91<?= $social_links->whatsapp ?>&text=Hi Team Cityprop, I would be interested in%20<?= $property->title ? $property->title : '' ?>%20 <?= $flatType->flat_type ?>"
+																	target="_blank"><img
+																		src="<?= base_url('assets/banner_patch/whatsapp.png') ?>">
+															</a></td>
+													</tr>
+													<?php
+												}
+											} else {
+												?>
+												<tr style="background: #ededed;">
+													<td colspan="6" class="text-center">No data available</td>
+												</tr>
+												<?php
+											}
+											?>
+
+											</tbody>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
