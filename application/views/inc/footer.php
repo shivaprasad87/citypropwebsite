@@ -93,8 +93,11 @@
 
 
 <script src="<?=base_url('assets/home/js')?>/jquery-2.2.0.min.js"></script>
-<script src="<?=base_url('assets/home/js')?>/popper.min.js"></script>
+
+<!-- <script src="<?=base_url('assets/home/js')?>/popper.min.js"></script> -->
 <script src="<?=base_url('assets/home/js')?>/bootstrap.min.js"></script>
+
+<script src="<?=base_url('assets/js')?>/jquery.fancybox.pack.js"></script>
 <script  src="<?=base_url('assets/home/js')?>/bootstrap-submenu.js"></script>
 <script  src="<?=base_url('assets/home/js')?>/rangeslider.js"></script>
 <script  src="<?=base_url('assets/home/js')?>/jquery.mb.YTPlayer.js"></script>
@@ -113,6 +116,20 @@
 <script  src="<?=base_url('assets/home/js')?>/maps.js"></script>
 <script  src="<?=base_url('assets/home/js')?>/app.js"></script>
 
+
+<script>
+	$(document).ready(function() {
+	$(".fancybox-button").fancybox({
+		prevEffect		: 'none',
+		nextEffect		: 'none',
+		closeBtn		: 'none',
+		helpers		: {
+			title	: { type : 'inside' },
+			buttons	: {}
+		}
+	});
+});
+</script>
 
 </body>
 

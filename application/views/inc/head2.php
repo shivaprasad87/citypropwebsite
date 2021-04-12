@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/bootstrap-select.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/magnific-popup.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/leaflet.css" type="text/css">
+	<link rel="stylesheet" href="<?=base_url('assets/')?>css/jquery.fancybox.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/map.css" type="text/css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/fonts/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/fonts/flaticon/font/flaticon.css">

@@ -223,24 +223,37 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 							</div>
 						</div>
 						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
-							<ul class="nav nav-tabs" id="galleryTab" role="tablist">
-								<li class="nav-item">
-									<a class="nav-link active show" id="one-tab" data-toggle="tab" href="#elvation" role="tab" aria-controls="8" aria-selected="false">Elevation</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan" role="tab" aria-controls="8" aria-selected="true">Floorplan</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan" role="tab" aria-controls="8" aria-selected="true">Masterplan</a>
-								</li>
-							</ul>
+							<div class="center">
+								<ul class="nav nav-tabs" id="galleryTab" role="tablist">
+									<li class="nav-item">
+										<a class="nav-link active show" id="one-tab" data-toggle="tab" href="#elvation" role="tab" aria-controls="8" aria-selected="false">Elevation</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id="6-tab" data-toggle="tab" href="#floorplan" role="tab" aria-controls="8" aria-selected="true">Floorplan</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" id="6-tab" data-toggle="tab" href="#masterplan" role="tab" aria-controls="8" aria-selected="true">Masterplan</a>
+									</li>
+								</ul>
+							</div>
 							<div class="tab-content" id="galleryTabContent">
 								<div class="tab-pane fade active show" id="elvation" role="tabpanel" aria-labelledby="one-tab">
 									<div class="properties-description mb-50">
-										<h3 class="heading-2">
-											Elevation
-										</h3>
-										
+									<div class="gallery">
+									<a class="fancybox-button" rel="fancybox-button" href="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_b.jpg" title="image 1">
+										<img src="http://farm4.staticflickr.com/3826/18875570170_e20cf27a4d_m.jpg" alt="" />
+									</a>
+									<a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/471/19102574835_d5a7837217_b.jpg" title="image 2">
+										<img src="http://farm1.staticflickr.com/471/19102574835_d5a7837217_m.jpg" alt="" />
+									</a>
+									<a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/288/19353466834_6be3600330_b.jpg" title="image 3">
+										<img src="http://farm1.staticflickr.com/288/19353466834_6be3600330_m.jpg" alt="" />
+									</a>
+									<a class="fancybox-button" rel="fancybox-button" href="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_b.jpg" title="image 4">
+										<img src="http://farm1.staticflickr.com/313/19831416459_5ddd26103e_m.jpg" alt="" />
+									</a>
+									</div>
+									
 									</div>
 								</div>
 
@@ -266,15 +279,30 @@ if (($images = $this->properties_model->getWhere(array('property_id' => $propert
 												</tr>
 												</tbody>
 											</table>
-											<img src="<?=base_url()?>assets/img/floor-plans.png" alt="floor-plans" class="img-fluid">
+											<div class="gallery">
+											<a class="fancybox-button" rel="fancybox-button" href="<?=base_url()?>assets/img/floor-plans.png" title="image 1">
+										<img src="<?=base_url()?>assets/img/floor-plans.png" alt="" />
+									</a>
+									<a class="fancybox-button" rel="fancybox-button" href="<?=base_url()?>assets/img/floor-plans.png" title="image 2">
+										<img src="<?=base_url()?>assets/img/floor-plans.png" alt="" />
+									</a>
+									<a class="fancybox-button" rel="fancybox-button" href="<?=base_url()?>assets/img/floor-plans.png" title="image 3">
+										<img src="<?=base_url()?>assets/img/floor-plans.png" alt="" />
+									</a>
+											</div>
+											
+									
 										</div>
 									</div>
 								</div>
 								<div class="tab-pane fade " id="masterplan" role="tabpanel" aria-labelledby="one-tab">
 									<div class="properties-description mb-50">
-										<h3 class="heading-2">
-										Master Plans
-										</h3>
+										<div class="gallery">
+										<a class="fancybox-button" rel="fancybox-button" href="<?=base_url()?>assets/img/floor-plans.png" title="image 1">
+									<img src="http://localhost/assets/img/floor-plans.png" alt="" style=" width: 100%; height: 50%;">
+									</a>
+										</div>
+									
 									</div>
 								</div>
 							</div>

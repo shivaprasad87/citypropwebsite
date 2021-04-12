@@ -467,6 +467,13 @@ button:focus {
 }
 
 @media all and (max-width: 767px) {
+    .gallery{
+        display: flow-root;
+    }
+    .fancybox-button img {
+        width: 50%;
+        float: left;
+    }
     .flex-direction-nav {
         display: none
     }
@@ -4774,7 +4781,12 @@ footer {
 }
 
 @media (min-width: 768px) {
-    
+    .fancybox-button img {
+       height: 200px;
+       width: 32%;
+
+        
+    }
     .properties-details-Slider .carousel-inner {
         height: 650px;
     }
@@ -8679,4 +8691,8 @@ footer {
     background-size: cover;
     background-position: center;
     
+}
+.fancybox-button img{
+    border: 1px solid #dad8d8;
+    padding: 5px;
 }
