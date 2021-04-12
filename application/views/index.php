@@ -58,29 +58,31 @@
 			<div class="search-section-area ssa2">
 				<div class="search-area-inner">
 					<div class="search-contents">
-						<form method="GET">
+						<form action="<?= base_url('searchListing') ?>" method="post">
 							<div class="row">
 
 								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
 									<div class="form-group">
-										<select class="selectpicker search-fields" name="all-type">
-											<option>All Type</option>
-											<option>Apartments</option>
-											<option>Villa</option>
-											<option>Plots</option>
-
+										<select class="selectpicker search-fields" name="property_type">
+											<option value="">--Select Type--</option>
+											<?php
+											foreach ($property_types as $property_types) {
+												echo "<option value='" . $property_types->id . "'>" . $property_types->name . "</option>";
+											}
+											?>
 										</select>
 									</div>
 								</div>
 
 								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
 									<div class="form-group">
-										<select class="selectpicker search-fields" name="location">
-											<option>location</option>
-											<option>Bangalore</option>
-											<option>Hydrabad</option>
-											<option>Pune</option>
-
+										<select class="selectpicker search-fields" name="city">
+											<option value="">--Select City--</option>
+											<?php
+											foreach ($cities as $cities) {
+												echo "<option value='" . $cities->id . "'>" . $cities->name . "</option>";
+											}
+											?>
 										</select>
 									</div>
 								</div>
@@ -190,7 +192,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -209,7 +211,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -228,7 +230,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -248,7 +250,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>

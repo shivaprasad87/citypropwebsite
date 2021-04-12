@@ -298,50 +298,40 @@
 						<h3 class="sidebar-title">Recent Properties</h3>
 						<div class="s-border"></div>
 						<div class="m-border"></div>
-						<div class="media mb-4">
-							<a class="pr-3"
-							   href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
-								<img class="media-object" src="img/properties/small-properties-1.jpg"
-									 alt="small-properties">
-							</a>
-							<div class="media-body align-self-center">
-								<h5>
-									<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">Modern
-										Family Home</a>
-								</h5>
-								<div class="listing-post-meta">
-									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 27, </a>
+						<?php
+						if (count($recent_properties) > 0) {
+							foreach ($recent_properties as $property) {
+								?>
+								<div class="media mb-4">
+									<a class="pr-3" href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>">
+										<img class="media-object"
+											 src="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"
+											 alt="small-properties">
+									</a>
+									<div class="media-body align-self-center">
+										<h5>
+											<a href="<?=strtolower(site_url(url_title($property->city_name)."/".( url_title($property->area) )."/$property->slug/"))?>"><?= $property->title ?></a>
+										</h5>
+										<div class="listing-post-meta">
+											<?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+															'property_flat_types', null,
+															'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+											. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+															'property_flat_types', null,
+															'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?>
+											* | <a href="#"><i class="fa fa-calendar"></i> <?php
+												if ($property->possession_date != '0000-00-00')
+													echo "Possession by " . date('M, Y', strtotime($property->possession_date));
+												else
+													echo "Ready"; ?> </a>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="media mb-4">
-							<a class="pr-3" href="properties-details.html">
-								<img class="media-object" src="img/properties/small-properties-2.jpg"
-									 alt="small-properties">
-							</a>
-							<div class="media-body align-self-center">
-								<h5>
-									<a href="properties-details.html">Beautiful Single Home</a>
-								</h5>
-								<div class="listing-post-meta">
-									Rs415,000 | <a href="#"><i class="fa fa-calendar"></i> Feb 14, </a>
-								</div>
-							</div>
-						</div>
-						<div class="media">
-							<a class="pr-3" href="properties-details.html">
-								<img class="media-object" src="img/properties/small-properties-3.jpg"
-									 alt="small-properties">
-							</a>
-							<div class="media-body align-self-center">
-								<h5>
-									<a href="properties-details.html">Real Luxury Villa</a>
-								</h5>
-								<div class="listing-post-meta">
-									Rs345,000 | <a href="#"><i class="fa fa-calendar"></i> Oct 12, </a>
-								</div>
-							</div>
-						</div>
+							<?php }
+						} else {
+							echo "No Properties Found!";
+						}
+						?>
 					</div>
 
 

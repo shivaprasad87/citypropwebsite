@@ -138,7 +138,7 @@ class Home extends Public_Controller
 		}
 		$this->data['keyword'] = $this->input->post('keyword') ? $this->input->post('keyword') : '';
 		$this->data['properties'] = $properties;
-
+		$this->data['recent_properties'] = $this->home_model->getProperties('properties', 6);
 		$this->data['pagination'] = $this->paginate($perpage, $total, $base_url, $uri_segment, $class = "");
 		$this->data['page'] = $page;
 		$this->data['total'] = $total;
@@ -332,7 +332,7 @@ class Home extends Public_Controller
 			'title' => $city_details->name . ' Based Listing - Holdingbricks ',
 			'description' => 'Test City Based Listing Page Description'
 		);
-
+		$this->data['recent_properties'] = $this->home_model->getProperties('properties', 6);
 		$this->data['city_name'] = $city_details->name;
 		$this->data['view_page'] = 'city_listing';
 		$this->load->view('template', $this->data);
@@ -391,7 +391,7 @@ class Home extends Public_Controller
 		$this->data['keyword'] = $this->input->post('keyword') ? $this->input->post('keyword') : '';
 		$this->data['store_content'] = $content;
 		$this->data['properties'] = $properties;
-
+		$this->data['recent_properties'] = $this->home_model->getProperties('properties', 6);
 		$this->data['pagination'] = $this->paginate($perpage, $total, $base_url, $uri_segment, $class = "");
 		$this->data['page'] = $page;
 		$this->data['total'] = $total;

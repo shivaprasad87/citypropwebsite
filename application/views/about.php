@@ -135,7 +135,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -173,7 +173,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
@@ -193,7 +193,7 @@
 							</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
 								incididunt</p>
-							<a href="" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
+							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
 				</div>
