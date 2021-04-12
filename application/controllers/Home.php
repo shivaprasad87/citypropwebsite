@@ -478,7 +478,9 @@ class Home extends Public_Controller
 				$this->session->set_flashdata('message', 'Error sending mail');
 			}
 		}
-		$this->load->view('thank-you');
+		$this->data['view_page'] = 'thank-you';
+		$this->load->view('template', $this->data);
+		//$this->load->view('thank-you');
 	}
 
 	public function price_range()
