@@ -782,8 +782,8 @@ $this->load->view('inc/header');
 						<div class="s-border"></div>
 						<div class="m-border"></div>
 						<?php
-						if (count($properties) > 0) {
-							foreach ($properties as $property) {
+						if (count($recent_properties) > 0) {
+							foreach ($recent_properties as $property) {
 								?>
 								<div class="media mb-4">
 									<a class="pr-3"
