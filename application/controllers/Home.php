@@ -947,7 +947,7 @@ class Home extends Public_Controller
 						'Name' => $this->input->post('name'),
 						'email' => $this->input->post('email'),
 						'phone' => $c_code . " - " . $this->input->post('phone'),
-						'message' => $this->input->post('name') . "(" . $c_code . " " . $this->input->post('phone') . ") has just showed an interest in the listed property <a href='" . site_url("property/$property->slug") . "'>" . $property->title . "</a> ($property->id)."
+						'message' => $this->input->post('name') . "(" . $c_code . " " . $this->input->post('phone') . ") has just showed an interest in the listed property <a href='" . strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) . "</a> ($property->id)."
 					)
 			);
 			// $units = '';
