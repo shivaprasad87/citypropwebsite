@@ -982,7 +982,7 @@ class Home extends Public_Controller
 		$property->faq = $this->properties_model->getWhere(array("p_id" => $property->id), "faq");
 
 		$property->testimonials = $this->home_model->get_testimonials($property->id);
-
+		$this->data['properties'] = $this->home_model->getProperties('properties', 3);
 		$this->data['property'] = $property;
 		$this->data['testimonials'] = json_decode(json_encode($property->testimonials), true);
 		// print_r(json_decode(json_encode($this->data['testimonials']),true));die;

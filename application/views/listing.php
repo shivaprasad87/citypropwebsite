@@ -111,9 +111,6 @@
 													</li>
 
 													<li>
-														<span>Sqft</span> 35,000
-													</li>
-													<li>
 														<span>Status</span><?= $property->issue_date; ?>
 													</li>
 												</ul>
