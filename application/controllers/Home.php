@@ -461,8 +461,8 @@ class Home extends Public_Controller
 		} else {
 			$this->home_model->insertRow(array('email' => $email, 'created_at' => date('Y-m-d H:i:s')), 'subscribers');
 			$this->config_email();
-			$this->email->from('no-reply@Holdingbricks.com', 'City Prop  WebAdmin');
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->from('seocity65@gmail.com', 'City Prop  WebAdmin');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->bcc('shivas8787@gmail.com');
 			$this->email->subject('You received a new subscriber at Cityprop .');
 			$data = array(
@@ -570,7 +570,7 @@ class Home extends Public_Controller
 
 		$this->email->from($name, $email);
 //        $this->email->to('vineeth@soarmorrow.com');
-		$this->email->to('shivas8787@gmail.com');
+		$this->email->to('ashitsingh236@gmail.com');
 
 		$this->email->subject("You have received a new enquiry for $property->title");
 		$data = array(
@@ -743,7 +743,7 @@ class Home extends Public_Controller
 			$message = $this->input->post('message');
 			$subject = $this->input->post('subject');
 			$this->email->from($name, $email);
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->subject($subject);
 			$data = array(
 				'post' => array(
@@ -796,7 +796,7 @@ class Home extends Public_Controller
 				$address = $this->input->post('address');
 
 				$this->email->from($name, $email);
-				$this->email->to('shivas8787@gmail.com');
+				$this->email->to('ashitsingh236@gmail.com');
 				$this->email->subject("You have received a new career request at Holdingbricks ");
 
 				$data = array(
@@ -880,7 +880,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
 			$data = array(
