@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Property Details </title>
-	<meta name="description" content="City Prop ">
+	<title>
+		<?= str_replace(' ', ' ', substr(strip_tags($property->meta_title), 0, 1000)) ?>
+	</title>
+	<meta name="description" content="<?= substr(strip_tags($property->meta_desc), 0, 1000) ?>" />
+	<meta name="keywords" content="<?= str_replace(' ', ' ', substr(strip_tags($property->meta_keywords), 0, 1000)) ?>" />
+	<meta property="og:url" content="<?= current_url() ?>" />
+	<meta property="og:title" content="<?= $property->title ? $property->title : '' ?>" />
+	<meta property="og:site_name" content="Fullbasket Property" />
+	<meta property="og:description" content="<?= substr(strip_tags($property->description), 0, 1000) ?>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="<?= base_url('uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' . $property->image) ?>"/>
+	<meta property="og:locale" content="en_us" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@Fullbasketproperty" />
+	<meta name="twitter:title" content="<?= $property->title ? $property->title : '' ?>" />
+	<meta name="twitter:description" content="<?= substr(strip_tags($property->description), 0, 1000) ?>" />
+	<!-- <meta name="twitter:image" content="<?= base_url("uploads/$property->slug/$property->image") ?>"/>
+        <script type='text/javascript' src='<?= base_url() ?>assets/property/unitegallery/js/jquery-11.0.min.js'></script> -->
+	<link rel="shortcut icon" type="image/x-icon" href="<?= site_url('') ?>assets/img/sp-logo.png" />
+
+	<link rel="canonical" href="<?= current_url() ?>">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">

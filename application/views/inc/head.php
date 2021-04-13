@@ -5,6 +5,23 @@
 	<meta name="keywords" content="<?= $keywords ?>">
 	<meta name="description" content="<?= $description ?>">
 	<meta name="image" content="<?= isset($image) ? $image : "" ?>">
+	<!-- Open Graph data -->
+	<meta prefix="og: https://ogp.me/ns#"  property="og:title" content="<?=$title?>" />
+	<meta prefix="og: https://ogp.me/ns#"  property="og:type" content="article" />
+	<meta prefix="og: https://ogp.me/ns#"  property="og:url" content="<?=current_url()?>" />
+	<meta prefix="og: https://ogp.me/ns#"  property="og:image" content="<?=base_url();?>img/logos/black-logo.png" />
+	<meta prefix="og: https://ogp.me/ns#"  property="og:description" content="<?= $description ?>" />
+	<meta prefix="og: https://ogp.me/ns#"  property="og:site_name" content="City Prop Realtors" />
+	<meta prefix="og: https://ogp.me/ns#"  property="article:published_time" content="2017-05-11T12:46:52Z" />
+	<meta prefix="og: https://ogp.me/ns#"  property="article:modified_time" content="2017-05-11T12:46:52Z" />
+	<meta prefix="og: https://ogp.me/ns#"  property="article:section" content="Real Estate" />
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@cityprop">
+	<meta name="twitter:title" content="<?= $title ?>">
+	<meta name="twitter:description" content="<?= $description ?>">
+	<meta name="twitter:creator" content="@way2vineeth"
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
