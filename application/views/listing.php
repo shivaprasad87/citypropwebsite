@@ -134,7 +134,7 @@
 											<div class="hdg">
 												<span itemprop="name">By <?= $property->builder ?></span>
 												<button class="btn-detail ">
-													<a href=<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" target="
+													<a href=<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?> target="
 													   _blank">
 													View More
 													</a>

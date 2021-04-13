@@ -16,6 +16,7 @@ class Home extends Public_Controller
 		$this->load->model('properties_model');
 		$this->load->model('achievements_model');
 		$this->load->model('blogs_model');
+		$this->load->model('builders_model','bm');
 
 		$this->data['property_types'] = $this->home_model->getWhere(array('status' => 1), 'property_types');
 		$this->data['locations'] = $this->home_model->getWhere(array('status' => 1), 'locations');

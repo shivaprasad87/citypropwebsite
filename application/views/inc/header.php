@@ -1,3 +1,6 @@
+<script>
+	var base_url = "<?=base_url()?>";
+</script>
 <!-- Main header start -->
 <header class="main-header header-transparent sticky-header">
 	<div class="container">
@@ -17,7 +20,7 @@
 
 					</li>
 					<li class="nav-item <?php if($this->uri->segment(1)=='about') echo 'active';?>">
-						<a class="nav-link " href="<?=base_url('about');?>" >
+						<a class="nav-link " href="<?=base_url('about');?>" s>
 							About Us
 						</a>
 
