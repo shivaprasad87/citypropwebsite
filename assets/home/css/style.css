@@ -8654,7 +8654,16 @@ footer {
     }
 
 }
+.cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 100%; 
+    height: 140px; 
+    white-space: nowrap;
+  }
 
-
-
+  .cut-text:hover { 
+    height: 100%; 
+    animation-delay: 250ms;
+}
 
