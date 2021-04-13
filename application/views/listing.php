@@ -169,7 +169,7 @@
 						<div class="m-border"></div>
 						<form action="<?= base_url('searchListing') ?>" method="post">
 							<div class="form-group">
-								<select name="property_status_id" class="selectpicker search-fields">
+								<select name="property_status_id" class=" search-fields">
 									<option value="">--Select Status--</option>
 									<?php
 									foreach ($property_status as $property_status) {
@@ -179,7 +179,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="selectpicker search-fields" name="property_type">
+								<select class=" search-fields" name="property_type">
 									<option value="">--Select Type--</option>
 									<?php
 									foreach ($property_types as $property_types) {
@@ -190,7 +190,7 @@
 							</div>
 
 							<div class="form-group">
-								<select class="selectpicker search-fields" name="city">
+								<select class=" search-fields" name="city">
 									<option value="">--Select City--</option>
 									<?php
 									foreach ($cities as $cities) {
