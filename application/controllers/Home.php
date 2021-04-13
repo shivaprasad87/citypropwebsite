@@ -16,6 +16,7 @@ class Home extends Public_Controller
 		$this->load->model('properties_model');
 		$this->load->model('achievements_model');
 		$this->load->model('blogs_model');
+		$this->load->model('builders_model','bm');
 
 		$this->data['property_types'] = $this->home_model->getWhere(array('status' => 1), 'property_types');
 		$this->data['locations'] = $this->home_model->getWhere(array('status' => 1), 'locations');
@@ -170,7 +171,7 @@ class Home extends Public_Controller
 		$phone = trim(stripslashes($_POST['phone']));
 		$message = trim(stripslashes($_POST['message']));
 		$this->email->from($name, $email);
-		$this->email->to('ranjeet.singh@Holdingbrickservices.com');
+		$this->email->to('ashitsingh236@gmail.com');
 		$this->email->bcc('shivas8787@gmail.com');
 		$this->email->subject('Enquiry for you');
 		$data = array('post' => array('name' => $name, 'email' => $email, 'phone' => $phone, 'message' => $message));
@@ -194,7 +195,7 @@ class Home extends Public_Controller
 
 		$this->email->from($this->input->post('name'), $this->input->post('email'));
 //        $this->email->to('vineeth@soarmorrow.com');
-		$this->email->to('ranjeet.singh@Holdingbrickservices.com');
+		$this->email->to('ashitsingh236@gmail.com');
 		$this->email->bcc('shivas8787@gmail.com');
 
 		$this->email->subject('New Notification from Holdingbricks property');
@@ -254,7 +255,7 @@ class Home extends Public_Controller
 		$project = trim(stripslashes($_POST['enqproject']));
 
 		$this->email->from($name, $email);
-		$this->email->to('ranjeet.singh@Holdingbrickservices.com');
+		$this->email->to('ashitsingh236@gmail.com');
 		$this->email->bcc('shivas8787@gmail.com');
 
 		$this->email->subject($project . ' Enquiry for you');
@@ -460,8 +461,8 @@ class Home extends Public_Controller
 		} else {
 			$this->home_model->insertRow(array('email' => $email, 'created_at' => date('Y-m-d H:i:s')), 'subscribers');
 			$this->config_email();
-			$this->email->from('no-reply@Holdingbricks.com', 'City Prop  WebAdmin');
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->from('seocity65@gmail.com', 'City Prop  WebAdmin');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->bcc('shivas8787@gmail.com');
 			$this->email->subject('You received a new subscriber at Cityprop .');
 			$data = array(
@@ -518,7 +519,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('ranjeet.singh@Holdingbrickservices.com');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->bcc('shivas8787@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
@@ -569,7 +570,7 @@ class Home extends Public_Controller
 
 		$this->email->from($name, $email);
 //        $this->email->to('vineeth@soarmorrow.com');
-		$this->email->to('shivas8787@gmail.com');
+		$this->email->to('ashitsingh236@gmail.com');
 
 		$this->email->subject("You have received a new enquiry for $property->title");
 		$data = array(
@@ -742,7 +743,7 @@ class Home extends Public_Controller
 			$message = $this->input->post('message');
 			$subject = $this->input->post('subject');
 			$this->email->from($name, $email);
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->subject($subject);
 			$data = array(
 				'post' => array(
@@ -795,7 +796,7 @@ class Home extends Public_Controller
 				$address = $this->input->post('address');
 
 				$this->email->from($name, $email);
-				$this->email->to('shivas8787@gmail.com');
+				$this->email->to('ashitsingh236@gmail.com');
 				$this->email->subject("You have received a new career request at Holdingbricks ");
 
 				$data = array(
@@ -879,7 +880,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
 			$data = array(
@@ -936,7 +937,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 			$this->email->bcc('shivas8787@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has an interest in ' . $property->title);
@@ -1045,7 +1046,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has Requested callback ');
 			$c_code = $this->input->post('countrycode') ? $this->input->post('countrycode') : '+91';
@@ -1072,7 +1073,7 @@ class Home extends Public_Controller
 			$this->config_email();
 
 			$this->email->from($this->input->post('name'), $this->input->post('email'));
-			$this->email->to('shivas8787@gmail.com');
+			$this->email->to('ashitsingh236@gmail.com');
 
 			$this->email->subject($this->input->post('name') . ' has Requested callback ');
 			$c_code = $this->input->post('countrycode') ? $this->input->post('countrycode') : '+91';
