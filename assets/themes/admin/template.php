@@ -332,7 +332,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <footer class="sticky-footer">
             <div class="container">
                 <p class="text-muted">
-                    Copyright@ Holdingbricks Pvt Ltd <?=date('Y');?>
+                    Copyright@ City Prop Realtors <?=date('Y');?>
                 </p>
             </div>
         </footer>

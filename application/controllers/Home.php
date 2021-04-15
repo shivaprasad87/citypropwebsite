@@ -198,7 +198,7 @@ class Home extends Public_Controller
 		$this->email->to('ashitsingh236@gmail.com');
 		$this->email->bcc('shivas8787@gmail.com');
 
-		$this->email->subject('New Notification from Holdingbricks property');
+		$this->email->subject('New Notification from City Prop property');
 		$this->email->subject('Resale property Submitted');
 		$post = array();
 		foreach ($this->input->post() as $key => $value) {
@@ -330,7 +330,7 @@ class Home extends Public_Controller
 		$this->data['price_range'] = $this->home_model->getPriceRanges();
 		$this->data['amenities'] = $this->home_model->getWhere(array('status' => 1), 'amenities');
 		$this->data['meta'] = array(
-			'title' => $city_details->name . ' Based Listing - Holdingbricks ',
+			'title' => $city_details->name . ' Based Listing - City Prop ',
 			'description' => 'Test City Based Listing Page Description'
 		);
 		$this->data['recent_properties'] = $this->home_model->getProperties('properties', 6);
@@ -444,7 +444,7 @@ class Home extends Public_Controller
 		$this->data['total'] = $total;
 		$this->data['perpage'] = $perpage;
 		$this->data['meta'] = array(
-			'title' => 'Favouite Properties Listing - Holdingbricks ',
+			'title' => 'Favouite Properties Listing - City Prop ',
 			'description' => 'Favourite Properties Listing Page Description'
 		);
 
@@ -604,8 +604,8 @@ class Home extends Public_Controller
 	public function privacy()
 	{
 		$this->data['meta'] = array(
-			'title' => 'Privacy Policy - Holdingbricks  ',
-			'description' => 'Privacy policy of City Prop, a leading property agent in India. For any support and concerns, please connect at support@Holdingbricks.com  ',
+			'title' => 'Privacy Policy - City Prop  ',
+			'description' => 'Privacy policy of City Prop, a leading property agent in India. For any support and concerns, please connect at support@City Prop.com  ',
 			'keywords' => 'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Real Estate Websites In India, Property Sites In India, Real Estate Agents In India, Property Portals In India, Real Estate, Indian Real Estate '
 		);
 		$privacy = $this->home_model->getAll('terms');
@@ -622,8 +622,8 @@ class Home extends Public_Controller
 	public function disclaimer()
 	{
 		$this->data['meta'] = array(
-			'title' => 'Disclaimer - Holdingbricks  ',
-			'description' => 'Holdingbricks  provides information regarding the Real Estate Projects in India.  ',
+			'title' => 'Disclaimer - City Prop  ',
+			'description' => 'City Prop  provides information regarding the Real Estate Projects in India.  ',
 			'keywords' => 'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property Portals In Bangalore, Property Portals In Pune, Property Portals In Hyderabad, Property Portals In Mumbai, Real Estate, Indian Real Estate '
 		);
 		$privacy = $this->home_model->getAll('disclaimer');
@@ -641,8 +641,8 @@ class Home extends Public_Controller
 	public function vastu()
 	{
 		$this->data['meta'] = array(
-			'title' => 'vastu - Holdingbricks  ',
-			'description' => 'Holdingbricks  provides information regarding the Real Estate Projects in India.  ',
+			'title' => 'vastu - City Prop  ',
+			'description' => 'City Prop  provides information regarding the Real Estate Projects in India.  ',
 			'keywords' => 'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Property Portals In Bangalore, Property Portals In Pune, Property Portals In Hyderabad, Property Portals In Mumbai, Real Estate, Indian Real Estate '
 		);
 		$privacy = $this->home_model->getAll('vasthu');
@@ -726,7 +726,7 @@ class Home extends Public_Controller
 	{
 		$this->data['meta'] = array(
 			'title' => 'City Prop Contact and Address Details',
-			'description' => 'Want to buy a home or looking for property advice? Contact us at Holdingbricks , best property portal in India. Find our contact details across India. ',
+			'description' => 'Want to buy a home or looking for property advice? Contact us at City Prop , best property portal in India. Find our contact details across India. ',
 			'keywords' => 'City Prop Contact Details, City Prop Address, Real Estate Bangalore, Real Estate Hyderabad, Real Estate Pune, Real Estate Mumbai, Real Estate Agent in Bangalore, Real Estate Agent in Hyderabad, Real Estate Agent in Pune, Real Estate Agent in Mumbai'
 		);
 
@@ -774,7 +774,7 @@ class Home extends Public_Controller
 	public function careers()
 	{
 		$this->data['meta'] = array(
-			'title' => 'Find Jobs – Holdingbricks  ',
+			'title' => 'Find Jobs – City Prop  ',
 			'description' => 'Career opportunities at City Prop. Begin your journey in the world of Real Estate at a place where you can implement your ideas and make a difference.   ',
 			'keywords' => 'Bangalore Real Estate, Hyderabad Real Estate, Mumbai Real Estate, Pune Real Estate, Jobs in Bangalore, Jobs in Hyderabad, Jobs in Pune, Jobs in Mumbai, Job Vacancies, Job Search, Real Estate Career, Career Opportunities in Real Estate, Find Jobs Real Estate'
 		);
@@ -797,7 +797,7 @@ class Home extends Public_Controller
 
 				$this->email->from($name, $email);
 				$this->email->to('ashitsingh236@gmail.com');
-				$this->email->subject("You have received a new career request at Holdingbricks ");
+				$this->email->subject("You have received a new career request at City Prop ");
 
 				$data = array(
 					'post' => array(
@@ -1103,7 +1103,7 @@ class Home extends Public_Controller
 		$this->data['meta'] = array(
 			'title' => 'City Prop Achivements | Latest Property Updates and Trends',
 			'description' => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
-			'keywords' => 'Holdingbricks  achivements'
+			'keywords' => 'City Prop  achivements'
 		);
 		//  $content = $this->input->get('content');
 		$this->data['achievements'] = $this->achievements_model->loadAchievements($perpage, $page, FALSE, $content);
@@ -1117,7 +1117,7 @@ class Home extends Public_Controller
 		$this->data['meta'] = array(
 			'title' => 'City Prop NRI | Latest Property Updates and Trends',
 			'description' => 'Get the latest real estate property updates, news, opinions and trends in India. Expert insights to the events in the Indian Real Estate Market. ',
-			'keywords' => 'Holdingbricks  NRI'
+			'keywords' => 'City Prop  NRI'
 		);
 		$this->data['view_page'] = 'nri';
 		$this->load->view('template', $this->data);

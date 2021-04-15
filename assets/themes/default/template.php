@@ -160,7 +160,7 @@
         <div class="container">
             <div class="clearfix"><hr /></div>
             <p class="text-muted">
-                Copyright@ Prop Solutions Property Services Pvt Ltd <?=date('Y');?>
+                Copyright@ Prop Solutions Property Services Realtors <?=date('Y');?>
             </p>
         </div>
     </footer>
