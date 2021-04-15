@@ -94,14 +94,14 @@ $this->load->view('inc/header');
 					<div class="m-border"></div>
 					<form method="GET">
 						<div class="form-group">
-							<select class="selectpicker search-fields" name="all-status">
+							<select class=" search-fields" name="all-status">
 								<option>All Status</option>
 								<option>For Sale</option>
 								<option>For Rent</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<select class="selectpicker search-fields" name="all-type">
+							<select class=" search-fields" name="all-type">
 								<option>All Type</option>
 								<option>Apartments</option>
 								<option>Shop</option>
@@ -110,7 +110,7 @@ $this->load->view('inc/header');
 							</select>
 						</div>
 						<div class="form-group">
-							<select class="selectpicker search-fields" name="commercial">
+							<select class=" search-fields" name="commercial">
 								<option>Commercial</option>
 								<option>Residential</option>
 								<option>Commercial</option>
@@ -118,7 +118,7 @@ $this->load->view('inc/header');
 							</select>
 						</div>
 						<div class="form-group">
-							<select class="selectpicker search-fields" name="location">
+							<select class=" search-fields" name="location">
 								<option>location</option>
 								<option>United States</option>
 								<option>American Samoa</option>
@@ -129,7 +129,7 @@ $this->load->view('inc/header');
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="form-group">
-									<select class="selectpicker search-fields" name="bedrooms">
+									<select class=" search-fields" name="bedrooms">
 										<option>Bedrooms</option>
 										<option>1</option>
 										<option>2</option>
@@ -140,7 +140,7 @@ $this->load->view('inc/header');
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="form-group">
-									<select class="selectpicker search-fields" name="bathroom">
+									<select class=" search-fields" name="bathroom">
 										<option>Bathroom</option>
 										<option>1</option>
 										<option>2</option>
@@ -153,7 +153,7 @@ $this->load->view('inc/header');
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="form-group">
-									<select class="selectpicker search-fields" name="balcony">
+									<select class=" search-fields" name="balcony">
 										<option>Balcony</option>
 										<option>1</option>
 										<option>2</option>
@@ -164,7 +164,7 @@ $this->load->view('inc/header');
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="form-group">
-									<select class="selectpicker search-fields" name="garage">
+									<select class=" search-fields" name="garage">
 										<option>Garage</option>
 										<option>1</option>
 										<option>2</option>
@@ -438,7 +438,7 @@ $this->load->view('inc/header');
 							<div class="properties-amenities mb-30">
 								<h3 class="heading-2">Features</h3>
 								<div class="row">
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 										<ul class="amenities">
 											<?php
 											if (isset($property->amenities) && $property->amenities) {
@@ -636,7 +636,7 @@ $this->load->view('inc/header');
 						<div class="m-border"></div>
 						<form method="GET">
 							<div class="form-group">
-								<select class="selectpicker search-fields" name="all-status">
+								<select class=" search-fields" name="all-status">
 									<option>All Status</option>
 									<option>Ready to Move In</option>
 									<option>Under Construction</option>
@@ -644,7 +644,7 @@ $this->load->view('inc/header');
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="selectpicker search-fields" name="all-type">
+								<select class=" search-fields" name="all-type">
 									<option>All Type</option>
 
 									<option>Apartments</option>
@@ -656,7 +656,7 @@ $this->load->view('inc/header');
 							</div>
 
 							<div class="form-group">
-								<select class="selectpicker search-fields" name="location">
+								<select class=" search-fields" name="location">
 									<option>Location</option>
 									<option>Bangalore</option>
 									<option>Bangalore</option>
@@ -667,7 +667,7 @@ $this->load->view('inc/header');
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<div class="form-group">
-										<select class="selectpicker search-fields" name="bedrooms">
+										<select class=" search-fields" name="bedrooms">
 											<option>Bedrooms</option>
 											<option>1</option>
 											<option>2</option>
@@ -678,7 +678,7 @@ $this->load->view('inc/header');
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<div class="form-group">
-										<select class="selectpicker search-fields" name="bathroom">
+										<select class=" search-fields" name="bathroom">
 											<option>Bathroom</option>
 											<option>1</option>
 											<option>2</option>
@@ -691,7 +691,7 @@ $this->load->view('inc/header');
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6">
 									<div class="form-group">
-										<select class="selectpicker search-fields" name="balcony">
+										<select class=" search-fields" name="balcony">
 											<option>Balcony</option>
 											<option>1</option>
 											<option>2</option>

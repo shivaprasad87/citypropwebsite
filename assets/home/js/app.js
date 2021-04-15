@@ -395,7 +395,7 @@ $(function () {
     });
 
     // Select picket
-    $('.selectpicker').selectpicker();
+    // $('.selectpicker').selectpicker();
 
     // Search option's icon toggle
     $('.search-options-btn').on('click', function () {

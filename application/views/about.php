@@ -182,7 +182,7 @@
 			<div class="col-md-3 col-xs-6">
 				<div class="Looking-For btn-6">
 					<div class="bo">
-						<div class="service-info-4">0
+						<div class="service-info-4">
 							<div class="icon">
 								<i class="flaticon-area"></i>
 							</div>
