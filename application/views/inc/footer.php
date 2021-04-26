@@ -58,13 +58,27 @@
 			</div>
 			<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
 				<div class="footer-item clearfix">
-					<h4>Subscribe</h4>
+					<h4>Get In Touch</h4>
 					<div class="Subscribe-box">
-						<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p>
-						<form class="form-inline" action="<?=base_url('subscribers')?>" method="POST">
-							<input type="text" name="email" class="form-control mb-sm-0" id="inlineFormInputName3" placeholder="Email Address">
-							<button type="submit" class="btn"><i class="fa fa-paper-plane"></i></button>
-						</form>
+						<!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p> -->
+						<form action="" method="POST" enctype="multipart/form-data">
+						<div class="row">
+							<div class="form-group name col-md-12">
+								<input type="text" name="name" class="form-control" placeholder="Name">
+							</div>
+							<div class="form-group number col-md-12">
+								<input type="tel" name="phone" class="form-control" placeholder="Number">
+							</div>
+							<div class="form-group email col-md-12">
+								<input type="email" name="email" class="form-control" placeholder="Email">
+							</div>
+							
+						
+							<div class="send-btn text-center col-md-12">
+								<button type="submit " class="btn btn-md button-theme">Submit</button>
+							</div>
+						</div>
+					</form>
 					</div>
 				</div>
 			</div>

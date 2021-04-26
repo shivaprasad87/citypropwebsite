@@ -376,7 +376,7 @@
 								<div class="category-overlay">
 									<div class="category-content">
 										<h3 class="category-title">
-											<a href="">Bangalore</a>
+											<a href="">Whitefield</a>
 										</h3>
 										<?php
 										$content['city'] = 2;
@@ -393,7 +393,7 @@
 								<div class="category-overlay">
 									<div class="category-content">
 										<h3 class="category-title">
-											<a href="#">Hydrabad</a>
+											<a href="#">K.R Puram</a>
 										</h3>
 										<h4 class="category-subtitle">98 Properties</h4>
 									</div>
@@ -409,7 +409,7 @@
 						<div class="category-overlay">
 							<div class="category-content">
 								<h3 class="category-title">
-									<a href="#">Pune</a>
+									<a href="#">Sarjapur Road</a>
 								</h3>
 								<?php
 								$content['city'] = 1;
@@ -428,7 +428,7 @@
 								<div class="category-overlay">
 									<div class="category-content">
 										<h3 class="category-title">
-											<a href="#">Test</a>
+											<a href="#">South Bangalore</a>
 										</h3>
 										<h4 class="category-subtitle">98 Properties</h4>
 									</div>
@@ -442,7 +442,7 @@
 								<div class="category-overlay">
 									<div class="category-content">
 										<h3 class="category-title">
-											<a href="#">Test</a>
+											<a href="#">North Bangalore</a>
 										</h3>
 										<h4 class="category-subtitle">98 Properties</h4>
 									</div>
@@ -517,17 +517,18 @@
 		<div class="row intro-section-2">
 			<div class="col-lg-8 col-md-12 col-sm-12">
 				<div class="intro-text">
-					<h3>Subscribe to Newsletter</h3>
+					<h3>Talk To Our Property Adviser</h3>
 					<p>Subscribe to get update and information. Don't worry, we won't send spam!</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
 				<div class="Subscribe-box">
-					<form class="form-inline" action="<?= base_url('subscibers') ?>" method="POST">
-						<input type="text" class="form-control mb-sm-0" name="email" id="inlineFormInputName4"
-							   placeholder="Email Address">
-						<button type="submit" class="btn">Subscribe</button>
-					</form>
+					<div class="form-inline" >
+						<!-- <input type="text" class="form-control mb-sm-0" name="email" 
+							   placeholder="Email Address"> -->
+						<div class="form-control call-form mb-sm-0" id="inlineFormInputName4"><i class="fa fa-phone"></i>+91 123-456-789</div>
+						<button class="btn"><a href="tel:+91123456789">Call Now</a></button>
+					</div>
 				</div>
 			</div>
 		</div>

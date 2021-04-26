@@ -87,110 +87,7 @@ $this->load->view('inc/header');
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-12">
-				<!-- Advanced search start -->
-				<div class="widget-2 advanced-search  bg-grea-2 d-lg-none d-xl-none">
-					<h3 class="sidebar-title">Advanced Search</h3>
-					<div class="s-border"></div>
-					<div class="m-border"></div>
-					<form method="GET">
-						<div class="form-group">
-							<select class=" search-fields" name="all-status">
-								<option>All Status</option>
-								<option>For Sale</option>
-								<option>For Rent</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<select class=" search-fields" name="all-type">
-								<option>All Type</option>
-								<option>Apartments</option>
-								<option>Shop</option>
-								<option>Restaurant</option>
-								<option>Villa</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<select class=" search-fields" name="commercial">
-								<option>Commercial</option>
-								<option>Residential</option>
-								<option>Commercial</option>
-								<option>Land</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<select class=" search-fields" name="location">
-								<option>location</option>
-								<option>United States</option>
-								<option>American Samoa</option>
-								<option>Belgium</option>
-								<option>Canada</option>
-							</select>
-						</div>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div class="form-group">
-									<select class=" search-fields" name="bedrooms">
-										<option>Bedrooms</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div class="form-group">
-									<select class=" search-fields" name="bathroom">
-										<option>Bathroom</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div class="form-group">
-									<select class=" search-fields" name="balcony">
-										<option>Balcony</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-6 col-sm-6">
-								<div class="form-group">
-									<select class=" search-fields" name="garage">
-										<option>Garage</option>
-										<option>1</option>
-										<option>2</option>
-										<option>3</option>
-										<option>4</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="range-slider clearfix form-group">
-							<label>Area</label>
-							<div data-min="0" data-max="10000" data-min-name="min_area" data-max-name="max_area"
-								 data-unit="Sq ft" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="range-slider clearfix form-group mb-30">
-							<label>Price</label>
-							<div data-min="0" data-max="150000" data-min-name="min_price" data-max-name="max_price"
-								 data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="form-group mb-0">
-							<button class="search-button">Search</button>
-						</div>
-					</form>
-				</div>
+			
 				<!-- Tabbing box start -->
 				<div class="tabbing tabbing-box mb-40">
 					<ul class="nav nav-tabs" id="carTab" role="tablist">
@@ -200,7 +97,7 @@ $this->load->view('inc/header');
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="6-tab" data-toggle="tab" href="#6" role="tab" aria-controls="6"
-							   aria-selected="true">Features</a>
+							   aria-selected="true">Amenities</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab"
@@ -208,7 +105,7 @@ $this->load->view('inc/header');
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab"
-							   aria-controls="three" aria-selected="true">Details</a>
+							   aria-controls="three" aria-selected="true">Pricing</a>
 						</li>
 						<?php
 						if ($property->map) {
@@ -471,7 +368,7 @@ $this->load->view('inc/header');
 						<div class="tab-pane fade " id="4" role="tabpanel" aria-labelledby="4-tab">
 							<div class="inside-properties mb-50">
 								<h3 class="heading-2">
-									Property Video
+									Walkthrough Video
 								</h3>
 								<iframe src="https://www.youtube.com/embed/<?= getYoutubeVideoId($property->walkthrough) ?>?rel=0&amp;showinfo=0"
 										allowfullscreen=""></iframe>

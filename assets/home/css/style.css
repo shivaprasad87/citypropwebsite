@@ -2364,10 +2364,11 @@ input[type=checkbox]:checked + label:before {
 .property-box-2 .facilities-list li {
     list-style: none;
     float: left;
+    width:50%;
     font-weight: 500;
     line-height: 25px;
     font-size: 14px;
-    margin-right: 25px;
+    padding-right: 5px;
 }
 .property-box-3 .facilities-list li{
     list-style: none;
@@ -2382,7 +2383,7 @@ input[type=checkbox]:checked + label:before {
     float: left;
     font-weight: 500;
     line-height: 20px;
-    width: 33.3%;
+    width: 50%;
     font-size: 12px;
     margin-right: 0px;
 }
@@ -3970,12 +3971,12 @@ footer {
 }
 
 .footer .footer-inner form .form-control {
-    width: 81%;
+    width: 100%;
     height: 45px;
     padding: 10px 15px;
-    border-radius: 0;
+    border-radius:10px;
     font-size: 16px;
-    outline: 0;
+    outline: 0px;
     border: 1px solid #fff;
 }
 
@@ -3989,7 +3990,9 @@ footer {
     font-weight: 600;
     text-transform: uppercase;
 }
-
+.footer .button-theme{
+    border-radius: 20px;
+}
 .footer .footer-inner .f-border {
     width: 30px;
     height: 2px;
@@ -4070,16 +4073,29 @@ footer {
     border: 1px solid #fff;
 }
 
-.intro-section-2 .btn {
+.intro-section-2 .btn ,.intro-section-2 .btn a{
     width: 32%;
     padding: 11px 5px 10px;
     text-align: center;
     border-radius: 0 50px 50px 0;
     font-size: 15px;
     font-weight: 500;
+ 
     color: #fff;
 }
-
+.form-inline .call-form i{
+    margin: 0px 10px;
+}
+.form-inline .call-form {
+    display: inline-block;
+    width: 68%;
+    vertical-align: middle;
+    text-align: center;
+    cursor: default;
+    font-size: 20px;
+    border: none;
+    border-radius: 50px;
+}
 .intro-section-2 .intro-text h3 {
     font-size: 27px;
     margin-bottom: 10px;
@@ -4121,6 +4137,7 @@ footer {
 /** Recent properties start **/
 .recent-properties .media img {
     width: 60px;
+    height: 50px;
     border-radius: 3px;
 }
 
@@ -4830,7 +4847,10 @@ footer {
        background: rgba(0, 0, 0, 0.04) url(../img/contact.jpg) top left repeat;
     }
     .property-box-2 .facilities-list li {
-        width:27.4%;
+        width:50%;
+       }
+       .property-box-2 .facilities-list li:first-child{
+        padding-right: 10px!important;
        }
     .contact-section .form-section{
         padding: 30px 10px;
@@ -4911,7 +4931,7 @@ footer {
     right: 0;
     top: 0;
     transition: background-color .15s linear;
-    background-color: rgba(36, 42, 53, 0.5);
+    background-color: rgb(36 42 53 / 33%);
 }
 
 .category-subtitle {
