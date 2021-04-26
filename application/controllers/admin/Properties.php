@@ -525,13 +525,16 @@ if ($constructionImages) {
 
 
                     if ($this->input->post('fq')) {
+                        if ($this->input->post('fa')) {
+                        $i=0;
                         foreach ($this->input->post('fa') as $fq) {
                             $this->properties_model->insertRow(array(
                                 'p_id' => $property_id,
                                 'fq' => $fq,
-                                'fa' => $this->input->post('fa'), 
+                                'fa' => $this->input->post('fa')[$i++], 
                             ), 'faq');
                         }
+                    }
                     }
                    
                     foreach ($prop as $am => $value) {
