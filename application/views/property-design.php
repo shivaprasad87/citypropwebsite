@@ -142,7 +142,7 @@ $this->load->view('inc/header');
 										if(($logos = $this->properties_model->getWhere(array('property_id' => $property->id),'property_logo')) != null)
 										{
 											$logos=json_decode( json_encode($logos), true);
-											$logo_url = base_url().'uploads/'.$property->slug.'/logos/'.$logos[0]['logo_1'];
+											$logo_url = base_url().'uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' .$logos[0]['logo_1'];
 										}
 										else
 										{
@@ -363,18 +363,35 @@ $this->load->view('inc/header');
 								</div>
 
 								<div class="row text-center mt-20 mb-40">
+									<?php
+									if($property->floors!=0)
+									{
+									?>
 									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label for="floors" class="control-label">No of Floors</label>
 									<h6><?=$property->floors?></h6>
 									</div>
+									<?php
+									}
+									if($property->towers!=0)
+									{
+									?>
 									<div class="col-sm-6 col-md-4 col-lg-4  detls line">
 									<label for="towers" class="control-label">No of towers</label>
 									<h6><?=$property->towers?></h6>
 									</div>
+									<?php
+									}
+									if($property->units!=0)
+									{
+									?>
 									<div class="col-sm-6 col-md-4 col-lg-4 detls">
 									<label for="units" class="control-label">No of units</label>
 									<h6><?=$property->units?></h6>
 									</div>
+									<?php
+									}
+									?>
 								</div>
 							</div>
 						</div>
