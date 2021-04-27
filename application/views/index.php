@@ -190,8 +190,7 @@
 							<h3>
 								<a href="">Apartments</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Luxury Apartments With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -209,8 +208,7 @@
 									Houses
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Independent Houses With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -228,8 +226,7 @@
 									Villas
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Luxurious Villa Properties With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -248,8 +245,7 @@
 									Plots
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Checkout The Selected Plotted Development From Top Builders In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -466,7 +462,7 @@
 				<!-- Main title -->
 				<div class="main-title main-title-3">
 					<h1>Our Testimonial</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p> -->
 					<a href="<?=base_url('contact')?>" class="btn important-btn btn-theme btn-md">Contact us</a>
 				</div>
 			</div>
@@ -518,7 +514,7 @@
 			<div class="col-lg-8 col-md-12 col-sm-12">
 				<div class="intro-text">
 					<h3>Talk To Our Property Adviser</h3>
-					<p>Subscribe to get update and information. Don't worry, we won't send spam!</p>
+				
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-12 col-sm-12">
@@ -526,8 +522,8 @@
 					<div class="form-inline" >
 						<!-- <input type="text" class="form-control mb-sm-0" name="email" 
 							   placeholder="Email Address"> -->
-						<div class="form-control call-form mb-sm-0" id="inlineFormInputName4"><i class="fa fa-phone"></i>+91 123-456-789</div>
-						<button class="btn"><a href="tel:+91123456789">Call Now</a></button>
+						<div class="form-control call-form mb-sm-0" id="inlineFormInputName4"><i class="fa fa-phone"></i>+91 874 684 2086</div>
+						<button class="btn"><a href="tel:+918746842086">Call Now</a></button>
 					</div>
 				</div>
 			</div>

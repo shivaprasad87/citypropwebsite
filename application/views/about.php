@@ -119,7 +119,7 @@
 		<!-- Main title -->
 		<div class="main-title text-center">
 			<h1>What Are You Looking For</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 		</div>
 		<div class="row ">
 
@@ -133,8 +133,7 @@
 							<h3>
 								<a href="">Apartments</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Luxury Apartments With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -152,8 +151,7 @@
 									Houses
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Independent Houses With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -171,8 +169,7 @@
 									Villas
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Explore The Best In Class Luxurious Villa Properties With Best Deals In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -191,8 +188,7 @@
 									Plots
 								</a>
 							</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt</p>
+							<p>Checkout The Selected Plotted Development From Top Builders In Bangalore</p>
 							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -215,7 +211,7 @@
 
 					<center>
 						<h1>Our Testimonial</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
+						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p> -->
 						<a href="<?= base_url('contact') ?>" class="btn important-btn btn-theme btn-md">Contact us</a>
 					</center>
 

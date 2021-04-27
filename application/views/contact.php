@@ -35,15 +35,16 @@
 							</div>
 						</div>
 						<div class="col-md-6">
+							<div class="form-group number">
+								<input type="text" name="phone" class="form-control" placeholder="Phone Number">
+							</div>
+						</div>
+						<div class="col-md-6">
 							<div class="form-group subject">
 								<input type="text" name="subject" class="form-control" placeholder="Subject">
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group number">
-								<input type="text" name="phone" class="form-control" placeholder="Number">
-							</div>
-						</div>
+	
 						<div class="col-md-12">
 							<div class="form-group message">
 								<textarea class="form-control" name="message" placeholder="Write message"></textarea>
@@ -58,27 +59,42 @@
 				</div>
 				<div class="col-lg-5">
 					<div class="contact-info">
-						<div class="media">
-							<i class="flaticon-phone"></i>
+					<div class="media">
+							<i class="flaticon-pin"></i>
 							<div class="media-body">
-								<h5>Phone:</h5>
-								<p><a href="tel:+91<?= $social_links->mobile ?>">+91 <?= $social_links->mobile ?></a></p>
+								<h5>Address:</h5>
+								<p>7th Floor, Raheja Tower 26/27 MG Road, Bangalore, karnataka 560001</p>
 							</div>
 						</div>
 						<div class="media">
 							<i class="flaticon-mail"></i>
 							<div class="media-body">
 								<h5>Email:</h5>
-								<p><a href="mailto:<?= $social_links->email ?>"><?= $social_links->email ?></a></p>
+								<p><a href="mailto:seocity65@gmail.com">seocity65@gmail.com
+									<!-- <?= $social_links->email ?> -->
+								</a></p>
 							</div>
 						</div>
-<!--						<div class="media">-->
-<!--							<i class="flaticon-internet"></i>-->
-<!--							<div class="media-body">-->
-<!--								<h5>Web:</h5>-->
-<!--								<p><a href="#">info@test.com</a></p>-->
-<!--							</div>-->
-<!--						</div>-->
+						<div class="media">
+							<i class="flaticon-phone"></i>
+							<div class="media-body">
+								<h5>Phone:</h5>
+								<p><a href="tel:+918746842086">+91 8746842086
+									<!-- <?= $social_links->mobile ?> -->
+								</a></p>
+							</div>
+						</div>
+						<div class="media">
+							<i class="fa fa-whatsapp"></i>
+							<div class="media-body">
+								<h5>WhatsApp:</h5>
+								<p><a href="tel:+918746842086">+91 8746842086
+									<!-- <?= $social_links->mobile ?> -->
+								</a></p>
+							</div>
+						</div>
+						
+
 
 					</div>
 				</div>

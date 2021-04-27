@@ -24,9 +24,9 @@ html, body {
     height: 100%;
 }
 
-body {
+/* body {
     font-family: 'Raleway', sans-serif;
-}
+} */
 
 a {
     cursor: pointer;
@@ -2007,7 +2007,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .contact-2 .form-group {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .contact-2 textarea {
@@ -4092,13 +4092,14 @@ footer {
     vertical-align: middle;
     text-align: center;
     cursor: default;
-    font-size: 20px;
+    font-size: 19px;
     border: none;
     border-radius: 50px;
 }
 .intro-section-2 .intro-text h3 {
     font-size: 27px;
     margin-bottom: 10px;
+    
     color: #fff;
     line-height: normal;
     font-weight: 500;
@@ -4109,7 +4110,7 @@ footer {
     border-radius: 50px;
     background: #fff;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
-    margin-top: 9.5px;
+    /* margin-top: 9.5px; */
 }
 
 /** Tags box start **/
@@ -4845,6 +4846,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .line{
+        border-bottom: 1px solid rgb(216, 214, 214) ;
+        margin: 5px;
+    }
+    
+    .detls{
+        margin: 5px;
+    }
     .form-inline .call-form {
       
         font-size: 18px;

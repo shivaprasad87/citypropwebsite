@@ -135,16 +135,16 @@ $this->load->view('inc/header');
 								</h3>
 							
 								<div class="row text-center mt-30 mb-30">
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label class="control-label"></label>
 									<img src="../../../assets/img/company-logo.jpg" class="company-logo">
 									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label class="control-label">Location</label>
 									<h6>Lorem Ipisum</h6>
 								
 									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4">
+									<div class="col-sm-6 col-md-4 detls col-lg-4">
 									<label class="control-label">Pricing</label>
 									<h6>60 Lakhs Onwards</h6>
 									</div>
@@ -351,15 +351,15 @@ $this->load->view('inc/header');
 								</div>
 
 								<div class="row text-center mt-20 mb-40">
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label for="floors" class="control-label">No of Floors</label>
 									<h6>fgfhjkkll</h6>
 									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<div class="col-sm-6 col-md-4 col-lg-4  detls line">
 									<label for="towers" class="control-label">No of towers</label>
 									<h6>fgfhjkkll</h6>
 									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4">
+									<div class="col-sm-6 col-md-4 col-lg-4 detls">
 									<label for="units" class="control-label">No of units</label>
 									<h6>fgfhjkkll</h6>
 									</div>
@@ -426,7 +426,7 @@ $this->load->view('inc/header');
 								<input type="email" name="email" class="form-control" placeholder="Email">
 							</div>
 							<div class="form-group number col-md-6">
-								<input type="text" name="phone" class="form-control" placeholder="Number">
+								<input type="text" name="phone" class="form-control" placeholder="Phone Number">
 							</div>
 							<div class="form-group number col-md-6">
 								<input type="text" name="subject" class="form-control" placeholder="Subject">

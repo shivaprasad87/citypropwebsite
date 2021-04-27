@@ -4,9 +4,9 @@
 		<div class="row">
 			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
 				<div class="footer-item clearfix">
-					<img src="<?=base_url()?>assets/home/img/logos/logo.png" alt="logo" class="f-logo">
+					<img src="<?=base_url();?>img/logos/black-logo.png" alt="logo" class="f-logo">
 					<div class="text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae posuere sapien vitae posuere.</p>
+						<p>City Prop Realtors - The Fastest Growing Real Estate Company Providing Home Buying Solutions To Home Buyers.</p>
 					</div>
 				</div>
 			</div>
@@ -16,16 +16,20 @@
 					<h4>Contact Us</h4>
 					<ul class="contact-info">
 						<li>
-							<i class="flaticon-pin"></i>Lorem Ipsum Lorem Ipsum
+							<i class="flaticon-pin"></i>7th Floor, Raheja Tower 26/27 MG Road, Bangalore, karnataka 560001
 						</li>
 						<li>
-							<i class="flaticon-mail"></i><a href="mailto:<?= $social_links->email ?>"><?= $social_links->email ?></a>
+							<i class="flaticon-mail"></i><a href="mailto:seocity65@gmail.com">
+							<!-- <?= $social_links->email ?> -->
+							seocity65@gmail.com</a>
 						</li>
 						<li>
-							<i class="flaticon-phone"></i><a href="tel:+91<?= $social_links->mobile ?>"><?= $social_links->mobile ?></a>
+							<i class="flaticon-phone"></i><a href="tel:+918746842086">
+								<!-- <?= $social_links->mobile ?> -->+91 8746842086
+							</a>
 						</li>
 						<li>
-							<i class="flaticon-fax"></i>0123456789
+						<i class="fa fa-whatsapp"></i><a href="+918746842086">+91 8746842086</a>
 						</li>
 					</ul>
 				</div>
