@@ -1,6 +1,6 @@
 
 <img class="post-img" src="<?=base_url('assets/');?>images/popular-location-01.jpg" alt="">
-
+<link rel="stylesheet" type="text/css" href="<?=base_url('assets/home/')?>css/career.css">
 	<div class="clearfix"></div>
 	<!-- Header Container / End -->
 
@@ -251,5 +251,21 @@
 
 	<!-- Back To Top Button -->
 	<div id="backtotop"><a href="#"></a></div>
+	<script>
+		 $('.toggle-widget .content').hide();
+   // $('.toggle-widget h2:first').addClass('active').next().slideDown('fast');
+    $('.toggle-widget h2').on("click", function(){
+    if($(this).next().is(':hidden')) {
+        $('.toggle-widget h2').removeClass('active').next().slideUp('fast');
+        $(this).toggleClass('active').next().slideDown('fast');
+        $(window).scrollTop(700);
+    }
+    else{
+        $('.toggle-widget h2').removeClass('active').next().slideUp('fast');
+        $(window).scrollTop(700);
+       // $(this).toggleClass('active').next().slideDown('fast');
+    }
+    });
+	</script>
 
 </div>

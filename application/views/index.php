@@ -19,9 +19,9 @@
 								<p>
 									<?= $slider->title ?>
 								</p>
-								<a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
+								<!-- <a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
 								<a href="#"
-								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a>
+								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a> -->
 							</div>
 						</div>
 					</div>
@@ -90,7 +90,7 @@
 								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
 									<div class="form-group">
 										<div class="range-slider">
-											<div data-min="0" data-max="150000" data-unit="Rs" data-min-name="min_price"
+											<div data-min="0" data-max="15000000" data-unit="Rs" data-min-name="min_price"
 												 data-max-name="max_price" class="range-slider-ui ui-slider"
 												 aria-disabled="false"></div>
 											<div class="clearfix"></div>
@@ -176,7 +176,7 @@
 		<!-- Main title -->
 		<div class="main-title text-center">
 			<h1>What Are You Looking For</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 		</div>
 		<div class="row ">
 
@@ -269,7 +269,7 @@
 		<!-- Main title -->
 		<div class="main-title">
 			<h1>Featured Properties In Your City</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 		</div>
 		<!-- Slick slider area start -->
 		<div class="slick-slider-area">
@@ -365,7 +365,7 @@
 		<!-- Main title -->
 		<div class="main-title text-center">
 			<h1>Most Popular In City</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-12 col-sm-12">

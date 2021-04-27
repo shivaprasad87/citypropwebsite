@@ -4796,6 +4796,9 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .line{
+        border-right: 1px solid rgb(216, 214, 214) ;
+    }
     .property-box-3 .property-thumbnail img{
         height: 250px;
         background-size: cover;
@@ -4842,7 +4845,10 @@ footer {
 }
 
 @media (max-width: 768px) {
-  
+    .form-inline .call-form {
+      
+        font-size: 18px;
+    }
     .contact-section {
        background: rgba(0, 0, 0, 0.04) url(../img/contact.jpg) top left repeat;
     }
@@ -5907,15 +5913,24 @@ footer {
 .footer .listing-meta span a:hover {
     color: #8c8c8c;
 }
-
+.tab-pane label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
 .heading {
     margin: 0 0 30px;
     /* font-size: 20px; */
     font-weight: 600;
 }
-
+.properties-description h6{
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0px;
+}
 .heading-2 {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     font-size: 21px;
     font-weight: 600;
 }

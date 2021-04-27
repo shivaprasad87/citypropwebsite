@@ -129,10 +129,28 @@ $this->load->view('inc/header');
 					<div class="tab-content" id="carTabContent">
 						<div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
 							<div class="properties-description mb-50">
+								
 								<h3 class="heading-2">
 									<?= $property->title ?>
 								</h3>
+							
+								<div class="row text-center mt-30 mb-30">
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="floors" class="control-label"></label>
+									<img src="../../../assets/img/company-logo.jpg" class="company-logo">
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="floors" class="control-label">Location</label>
+									<h6>Lorem Ipisum</h6>
+								
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4">
+									<label for="towers" class="control-label">Pricing</label>
+									<h6>60 Lakhs Onwards</h6>
+									</div>
+								</div>
 								<?= $property->description ?>
+								<p><b>Rera : 00000000000</b></p>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
@@ -242,7 +260,22 @@ $this->load->view('inc/header');
 						</div>
 						<div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
 							<div class="property-details mb-40">
+							<div class="row text-center mt-20 mb-40">
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="floors" class="control-label">No of Floors</label>
+									<h6>fgfhjkkll</h6>
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="towers" class="control-label">No of towers</label>
+									<h6>fgfhjkkll</h6>
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4">
+									<label for="units" class="control-label">No of units</label>
+									<h6>fgfhjkkll</h6>
+									</div>
+								</div>
 								<h3 class="heading-2">Property Pricing Details</h3>
+								
 								<div class="row">
 									<div class="floor-plans mb-50 col-md-12">
 										<table>
