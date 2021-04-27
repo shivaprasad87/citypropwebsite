@@ -65,7 +65,7 @@
 					<h4>Get In Touch</h4>
 					<div class="Subscribe-box">
 						<!-- <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p> -->
-						<form action="" method="POST" enctype="multipart/form-data">
+						<form action="<?=base_url('home/sendEmail')?>" method="POST" enctype="multipart/form-data">
 						<div class="row">
 							<div class="form-group name col-md-12">
 								<input type="text" name="name" class="form-control" placeholder="Name">
