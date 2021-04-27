@@ -979,8 +979,6 @@ class Home extends Public_Controller
 
 		$property->gallery[] = $this->properties_model->getGallery($property->id);
 		$property->gallery[] = $this->properties_model->getWhere(array("property_id" => $property->id), "property_elevations");
-		$property->gallery[] = $this->properties_model->getWhere(array("property_id" => $property->id), "property_floor_plans");
-		$property->gallery[] = $this->properties_model->getWhere(array("property_id" => $property->id), "property_master_plans");
 
 		$property->faq = $this->properties_model->getWhere(array("p_id" => $property->id), "faq");
 
