@@ -142,7 +142,7 @@ $this->load->view('inc/header');
 										if(($logos = $this->properties_model->getWhere(array('property_id' => $property->id),'property_logo')) != null)
 										{
 											$logos=json_decode( json_encode($logos), true);
-											$logo_url = base_url().'uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/' .$logos[0]['logo_1'];
+											$logo_url = base_url().'uploads/' . str_replace(" ", "-", strtolower($property->city_name)) . "/" . str_replace(" ", "-", strtolower($property->builder)) . "/" . $property->slug . '/logos/' .$logos[0]['logo_1'];
 										}
 										else
 										{
