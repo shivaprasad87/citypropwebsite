@@ -136,16 +136,16 @@ $this->load->view('inc/header');
 							
 								<div class="row text-center mt-30 mb-30">
 									<div class="col-sm-6 col-md-4 col-lg-4 line">
-									<label for="floors" class="control-label"></label>
+									<label class="control-label"></label>
 									<img src="../../../assets/img/company-logo.jpg" class="company-logo">
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4 line">
-									<label for="floors" class="control-label">Location</label>
+									<label class="control-label">Location</label>
 									<h6>Lorem Ipisum</h6>
 								
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4">
-									<label for="towers" class="control-label">Pricing</label>
+									<label class="control-label">Pricing</label>
 									<h6>60 Lakhs Onwards</h6>
 									</div>
 								</div>
@@ -260,35 +260,22 @@ $this->load->view('inc/header');
 						</div>
 						<div class="tab-pane fade " id="three" role="tabpanel" aria-labelledby="three-tab">
 							<div class="property-details mb-40">
-							<div class="row text-center mt-20 mb-40">
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
-									<label for="floors" class="control-label">No of Floors</label>
-									<h6>fgfhjkkll</h6>
-									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4 line">
-									<label for="towers" class="control-label">No of towers</label>
-									<h6>fgfhjkkll</h6>
-									</div>
-									<div class="col-sm-6 col-md-4 col-lg-4">
-									<label for="units" class="control-label">No of units</label>
-									<h6>fgfhjkkll</h6>
-									</div>
-								</div>
-								<h3 class="heading-2">Property Pricing Details</h3>
+							
+								<h3 class="heading-2 mb-30">Property Pricing Details</h3>
 								
 								<div class="row">
-									<div class="floor-plans mb-50 col-md-12">
+									<div class="floor-plans mb-0 col-md-12">
 										<table>
 											<tbody>
 											<thead>
 											<tr>
-												<th class="her" style="background: #53ABBD;">Unit Type
+												<th class="her" style="">Unit Type
 												</th>
-												<th class="her" style="background: #53ABBD;">Size(SBA)
+												<th class="her" style="">Size(SBA)
 												</th>
-												<th class="her" style="background: #53ABBD;">Carpet Area</th>
-												<th class="her" style="background: #53ABBD;">Price</th>
-												<th class="her" style="background: #53ABBD;">Whatsapp</th>
+												<th class="her" style="">Carpet Area</th>
+												<th class="her" style="">Price</th>
+												<th class="her" style="">Whatsapp</th>
 											</tr>
 											</thead>
 											<tbody style="color: #5c5c5c;">
@@ -297,7 +284,7 @@ $this->load->view('inc/header');
 															$property->id)) != null) {
 												foreach ($flatTypes as $flatType) {
 													?>
-													<tr style="background: #ededed;">
+													<tr style="">
 														<td>
 															<?= $flatType->flat_type ?>
 														</td>
@@ -350,7 +337,7 @@ $this->load->view('inc/header');
 												}
 											} else {
 												?>
-												<tr style="background: #ededed;">
+												<tr style="">
 													<td colspan="6" class="text-center">No data available</td>
 												</tr>
 												<?php
@@ -360,6 +347,21 @@ $this->load->view('inc/header');
 											</tbody>
 											</tbody>
 										</table>
+									</div>
+								</div>
+
+								<div class="row text-center mt-20 mb-40">
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="floors" class="control-label">No of Floors</label>
+									<h6>fgfhjkkll</h6>
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4 line">
+									<label for="towers" class="control-label">No of towers</label>
+									<h6>fgfhjkkll</h6>
+									</div>
+									<div class="col-sm-6 col-md-4 col-lg-4">
+									<label for="units" class="control-label">No of units</label>
+									<h6>fgfhjkkll</h6>
 									</div>
 								</div>
 							</div>
