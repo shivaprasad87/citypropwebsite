@@ -137,20 +137,39 @@ $this->load->view('inc/header');
 								<div class="row text-center mt-30 mb-30">
 									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label class="control-label"></label>
-									<img src="../../../assets/img/company-logo.jpg" class="company-logo">
+										<?php
+										$logo_url ='';
+										if(($logos = $this->properties_model->getWhere(array('property_id' => $property->id),'property_logo')) != null)
+										{
+											$logos=json_decode( json_encode($logos), true);
+											$logo_url = base_url().'uploads/'.$property->slug.'/logos/'.$logos[0]['logo_1'];
+										}
+										else
+										{
+											//print_r($property);
+											$map[0]= $property->builder_image;
+											$logo_url = base_url().'uploads/builders/'.$map[0];
+										}
+										?>
+									<img src="<?=$logo_url?>" class="<?=$property->title;?>-logo">
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label class="control-label">Location</label>
-									<h6>Lorem Ipisum</h6>
+									<h6><?=$property->area?></h6>
 								
 									</div>
 									<div class="col-sm-6 col-md-4 detls col-lg-4">
 									<label class="control-label">Pricing</label>
-									<h6>60 Lakhs Onwards</h6>
+									<h6><?php echo "Rs. " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+														'property_flat_types', null,
+														'MIN(total) as amount')) != null) ? number_format_short($row->amount) : 0
+										. " - " . (($row = $this->properties_model->getPropertyParam(array('property_id' => $property->id),
+														'property_flat_types', null,
+														'MAX(total) as amount')) != null) ? number_format_short($row->amount) : 0; ?> Onwards</h6>
 									</div>
 								</div>
 								<?= $property->description ?>
-								<p><b>Rera : 00000000000</b></p>
+								<p><b>Rera : <?= $property->rera_number?$property->rera_number:"NA" ?></b></p>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">
@@ -273,7 +292,6 @@ $this->load->view('inc/header');
 												</th>
 												<th class="her" style="">Size(SBA)
 												</th>
-												<th class="her" style="">Carpet Area</th>
 												<th class="her" style="">Price</th>
 												<th class="her" style="">Whatsapp</th>
 											</tr>
@@ -300,12 +318,6 @@ $this->load->view('inc/header');
 															), 'property_flat_types', 'unit') ?>
 														</td>
 														<td>
-															<?= $this->properties_model->getPropertyRange(array(
-																	'property_id' => $property->id,
-																	'flat_type_id' => $flatType->flat_type_id
-															), 'property_flat_types', 'carpet_area') ?> Sq.ft
-														</td>
-														<td>
 															<?php
 															if ($flatType->price_on_request) {
 																echo "Price on Request";
@@ -330,7 +342,7 @@ $this->load->view('inc/header');
 														<td align="center"><a
 																	href="https://api.whatsapp.com/send?phone=+91<?= $social_links->whatsapp ?>&text=Hi Team Cityprop, I would be interested in%20<?= $property->title ? $property->title : '' ?>%20 <?= $flatType->flat_type ?>"
 																	target="_blank"><img
-																		src="<?= base_url('assets/banner_patch/whatsapp.png') ?>">
+																		src="<?= base_url('assets/img/whatsapp.png') ?>">
 															</a></td>
 													</tr>
 													<?php
@@ -353,15 +365,15 @@ $this->load->view('inc/header');
 								<div class="row text-center mt-20 mb-40">
 									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label for="floors" class="control-label">No of Floors</label>
-									<h6>fgfhjkkll</h6>
+									<h6><?=$property->floors?></h6>
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4  detls line">
 									<label for="towers" class="control-label">No of towers</label>
-									<h6>fgfhjkkll</h6>
+									<h6><?=$property->towers?></h6>
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4 detls">
 									<label for="units" class="control-label">No of units</label>
-									<h6>fgfhjkkll</h6>
+									<h6><?=$property->units?></h6>
 									</div>
 								</div>
 							</div>
@@ -394,7 +406,7 @@ $this->load->view('inc/header');
 								<div class="map">
 									<h3 class="heading-2">Property Location</h3>
 									<div id="map" class="contact-map">
-										<img src="<?= base_url("uploads/" . "/$property->slug/map/$property->map") ?>"
+										<img src="<?= base_url("uploads/".strtolower($property->city_name)."/".str_replace(' ','-',strtolower($property->builder))."/$property->slug/map/$property->map") ?>"
 											 draggable="false" style="user-select: none;">
 									</div>
 								</div>
