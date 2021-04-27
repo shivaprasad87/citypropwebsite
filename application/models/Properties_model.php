@@ -548,5 +548,43 @@ class Properties_model extends MY_Model
             return false;
 
     }
-    
+	public function get_flat_type_by_id($id)
+	{
+		$query ="SELECT `name`,id FROM `flat_types` WHERE id in ($id)";
+		$query=$this->db->query($query);
+		$result = $query->result();
+		//print_r($result);
+		$result1 = '';
+		$result2 = '';
+		//print_r($result);
+		foreach ($result as $res) {
+			if($res->id==5 || $res->id ==13 || $res->id ==11)
+			{
+				if($res->id ==11)
+					$result2.='';
+				else
+					$result2 .= $res->name;
+
+
+			}
+			else
+			{
+				$bhk='yes';
+				$trim_name = trim($res->name," BHK");
+				if(strpos($res->name, '.')=='')
+					$result1 .= $trim_name."/";
+			}
+
+		}
+		$result1 =rtrim($result1, "/");
+		if($bhk=='yes')
+		{
+			$result1 .=' BHK';
+		}
+
+		return $result1." ".$result2;
+
+
+
+	}
 }
