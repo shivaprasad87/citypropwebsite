@@ -8466,6 +8466,15 @@ table th{
     height: 100%; 
     animation-delay: 250ms;
 }
+.company-logo{
+    margin: 0 auto;
+    width: 150px;
+    height: 100px;
+}
+#map {
+    width: 100%;
+    overflow: hidden;
+}
 /** Thank-you start **/
 .Thank-you-bg {
     background: rgba(0, 0, 0, 0.04) url(../img/banner/img-5.jpg) top left repeat;
