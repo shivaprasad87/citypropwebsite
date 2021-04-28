@@ -2372,10 +2372,11 @@ input[type=checkbox]:checked + label:before {
 .property-box-3 .facilities-list li{
     list-style: none;
     float: left;
+    width: 50%;
     font-weight: 500;
     line-height: 25px;
     font-size: 12px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 .property-box-1 .facilities-list li {
     list-style: none;
