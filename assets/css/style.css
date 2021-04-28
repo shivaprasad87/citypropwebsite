@@ -8472,6 +8472,7 @@ table th{
 .company-logo{
     margin: 0 auto;
     width: 185px;
+    margin-bottom: 5px;
    
 }
 #map {
