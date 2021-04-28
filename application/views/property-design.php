@@ -424,7 +424,7 @@ $this->load->view('inc/header');
 									<h3 class="heading-2">Property Location</h3>
 									<div id="map" class="contact-map">
 										<img src="<?= base_url("uploads/".strtolower($property->city_name)."/".str_replace(' ','-',strtolower($property->builder))."/$property->slug/map/$property->map") ?>"
-											 draggable="false" style="user-select: none;">
+											 draggable="false" style="user-select: none;width: 100%;">
 									</div>
 								</div>
 							</div>
