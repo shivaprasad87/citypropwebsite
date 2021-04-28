@@ -133,7 +133,7 @@
 							<h3>
 								<a href="">Apartments</a>
 							</h3>
-							<p>Explore The Best In Class Luxury Apartments With Best Deals In Bangalore</p>
+							<p>Explore The Range Of Apartment Collections From The Bangalore's Top Builders. Get Your Right Space With Us.</p>
 							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -151,7 +151,7 @@
 									Houses
 								</a>
 							</h3>
-							<p>Explore The Best In Class Independent Houses With Best Deals In Bangalore</p>
+							<p>Look Into The Premium Collection Of Residences In Bangalore. The Place You Call MY HOME!</p>
 							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -169,7 +169,7 @@
 									Villas
 								</a>
 							</h3>
-							<p>Explore The Best In Class Luxurious Villa Properties With Best Deals In Bangalore</p>
+							<p>Explore The Lavishing Villas Designed Every Inch With Luxury From Bangalore Top Builders. The Quality You Can Trust.</p>
 							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -188,7 +188,7 @@
 									Plots
 								</a>
 							</h3>
-							<p>Checkout The Selected Plotted Development From Top Builders In Bangalore</p>
+							<p>Built Your Own Home The Way You Want. Checkout The Handpicked Range Of Plotted Development In Bangalore.</p>
 							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>

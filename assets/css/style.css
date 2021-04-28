@@ -2074,7 +2074,7 @@ input[type=checkbox]:checked + label:before {
     background-size: cover;
     position: relative;
     border-radius: 10px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 /** Property box start **/
@@ -3181,6 +3181,11 @@ input[type=checkbox]:checked + label:before {
 .service-info-3:hover{
     box-shadow: 0 10px 30px 0 rgba(58, 87, 135, .15);
 }
+.service-info-3 i {
+    font-size: 45px;
+    margin-bottom: 20px;
+    line-height: normal;
+}
 
 .service-info-3 .rm-btn{
     font-weight: 500;
@@ -3192,8 +3197,19 @@ input[type=checkbox]:checked + label:before {
 }
 
 .service-info-3 .icon {
-    margin-right: 20px;
-    font-size: 50px;
+    max-width: 80px;
+    max-height: 80px;
+    margin: 0 auto 20px;
+    color: #795a5a;
+    padding: 10px;
+    background: #6a0030;
+    border-radius: 100px;
+}
+.service-info-3 h3,.service-info-3 h3 a {
+    font-size: 20px!important;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .service-info-3 h2 {
@@ -3228,6 +3244,7 @@ input[type=checkbox]:checked + label:before {
 .Looking-For {
     position: relative;
     cursor: pointer;
+    
 }
 
 .Looking-For::before,
@@ -3368,7 +3385,7 @@ input[type=checkbox]:checked + label:before {
     margin: 0 0 30px 0;
     width: 100%;
     background: #fff;
-    padding: 50px 20px 40px;
+    padding: 50px 15px 40px;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -3928,17 +3945,20 @@ footer {
     text-decoration: underline;
 }
 
-.sub-footer .social-list {
-    float: right;
+.footer .social-list {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.sub-footer .social-list li {
+.footer .social-list li {
     display: inline-block;
     font-size: 16px;
     text-align: center;
 }
 
-.sub-footer .social-list li a {
+.footer .social-list li a {
     margin: 0 2px;
     color: #fff;
     width: 40px;
@@ -3951,24 +3971,47 @@ footer {
     box-shadow: 0px 0px 0px 2px rgba(255,255,255,0.2);
 }
 
-.sub-footer .social-list li a:hover{
+.footer .social-list li a:hover{
     box-shadow: none;
 }
 
-.sub-footer .facebook-bg:hover {
+.footer .facebook-bg:hover {
     background: #4867aa!important;
 }
 
-.sub-footer .twitter-bg:hover {
+.footer .twitter-bg:hover {
     background: #56d7fe!important;
 }
 
-.sub-footer .google-bg:hover {
+.footer .google-bg:hover {
     background: #dc4e41!important;
 }
 
-.sub-footer .linkedin-bg:hover {
+.footer .linkedin-bg:hover {
     background: #0177b5!important;
+}
+.footer .whatsapp-bg:hover{
+       background: green;
+        color: white;
+}
+.white{
+    color: white;
+}
+.bg-contact{
+    background: #efefef;
+    padding: 30px 10px;
+    border-radius: 10px;
+}
+.footer .instagram-bg:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(
+45deg
+, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(
+45deg
+, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    color: white;
 }
 
 .footer .footer-inner form .form-control {
@@ -4799,6 +4842,9 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .card-height{
+        height: 420px;
+    }
     .line{
         border-right: 1px solid rgb(216, 214, 214) ;
     }
@@ -4848,6 +4894,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .service-info-3 {
+        padding: 36px 20px;
+    }
     .line{
         border-bottom: 1px solid rgb(216, 214, 214) ;
         margin: 5px;

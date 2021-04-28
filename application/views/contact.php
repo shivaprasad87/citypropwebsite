@@ -23,36 +23,38 @@
 		<form action="<?=base_url('contact')?>" method="POST" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-lg-7">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group name">
-								<input type="text" name="name" class="form-control" placeholder="Name">
+					<div class="bg-contact">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group name">
+									<input type="text" name="name" class="form-control" placeholder="Name">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group email">
-								<input type="email" name="email" class="form-control" placeholder="Email">
+							<div class="col-md-6">
+								<div class="form-group email">
+									<input type="email" name="email" class="form-control" placeholder="Email">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group number">
-								<input type="text" name="phone" class="form-control" placeholder="Phone Number">
+							<div class="col-md-6">
+								<div class="form-group number">
+									<input type="text" name="phone" class="form-control" placeholder="Phone Number">
+								</div>
 							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group subject">
-								<input type="text" name="subject" class="form-control" placeholder="Subject">
+							<div class="col-md-6">
+								<div class="form-group subject">
+									<input type="text" name="subject" class="form-control" placeholder="Subject">
+								</div>
 							</div>
-						</div>
-	
-						<div class="col-md-12">
-							<div class="form-group message">
-								<textarea class="form-control" name="message" placeholder="Write message"></textarea>
+		
+							<div class="col-md-12">
+								<div class="form-group message">
+									<textarea class="form-control" name="message" placeholder="Write message"></textarea>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="send-btn text-center">
-								<button type="submit" class="btn btn-md button-theme">Send Message</button>
+							<div class="col-md-12">
+								<div class="send-btn text-center">
+									<button type="submit" class="btn btn-md button-theme">Send Message</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -70,7 +72,7 @@
 							<i class="flaticon-mail"></i>
 							<div class="media-body">
 								<h5>Email:</h5>
-								<p><a href="mailto:seocity65@gmail.com">seocity65@gmail.com
+								<p><a href="mailto:info@cityprop.com">info@cityprop.com
 									<!-- <?= $social_links->email ?> -->
 								</a></p>
 							</div>
@@ -88,11 +90,12 @@
 							<i class="fa fa-whatsapp"></i>
 							<div class="media-body">
 								<h5>WhatsApp:</h5>
-								<p><a href="tel:+918746842086">+91 8746842086
+								<p><a href="https://api.whatsapp.com/send?phone=+918746842086&text=Hi%20I%27m%20interested%20In%20Buying/Investing%20In%20Real%20Estate.">+91 8746842086
 									<!-- <?= $social_links->mobile ?> -->
 								</a></p>
 							</div>
 						</div>
+						<p class="text-center white">RERA : AG001089</p>
 						
 
 

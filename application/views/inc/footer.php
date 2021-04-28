@@ -6,7 +6,9 @@
 				<div class="footer-item clearfix">
 					<img src="<?=base_url();?>img/logos/black-logo.png" alt="logo" class="f-logo">
 					<div class="text">
-						<p>City Prop Realtors - The Fastest Growing Real Estate Company Providing Home Buying Solutions To Home Buyers.</p>
+						<p>City Prop Realtors -<br> The Fastest Growing Real Estate Company Providing Home Buying Solutions To Home Buyers.<br>
+						RERA : AG001089</p>
+						<p></p>
 					</div>
 				</div>
 			</div>
@@ -19,9 +21,9 @@
 							<i class="flaticon-pin"></i>7th Floor, Raheja Tower 26/27 MG Road, Bangalore, karnataka 560001
 						</li>
 						<li>
-							<i class="flaticon-mail"></i><a href="mailto:seocity65@gmail.com">
+							<i class="flaticon-mail"></i><a href="mailto:info@cityprop.com">
 							<!-- <?= $social_links->email ?> -->
-							seocity65@gmail.com</a>
+							info@cityprop.com</a>
 						</li>
 						<li>
 							<i class="flaticon-phone"></i><a href="tel:+918746842086">
@@ -29,7 +31,7 @@
 							</a>
 						</li>
 						<li>
-						<i class="fa fa-whatsapp"></i><a href="+918746842086">+91 8746842086</a>
+						<i class="fa fa-whatsapp"></i><a href="https://api.whatsapp.com/send?phone=+918746842086&text=Hi%20I%27m%20interested%20In%20Buying/Investing%20In%20Real%20Estate.">+91 8746842086</a>
 						</li>
 					</ul>
 				</div>
@@ -68,13 +70,13 @@
 						<form action="<?=base_url('home/sendEmail')?>" method="POST" enctype="multipart/form-data">
 						<div class="row">
 							<div class="form-group name col-md-12">
-								<input type="text" name="name" class="form-control" placeholder="Name">
+								<input type="text" name="name" class="form-control" placeholder="Your Name">
 							</div>
 							<div class="form-group number col-md-12">
-								<input type="tel" name="phone" class="form-control" placeholder="Number">
+								<input type="tel" name="phone" class="form-control" placeholder="Phone Number">
 							</div>
 							<div class="form-group email col-md-12">
-								<input type="email" name="email" class="form-control" placeholder="Email">
+								<input type="email" name="email" class="form-control" placeholder="Your Email">
 							</div>
 							
 						
@@ -87,21 +89,23 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="sub-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-md-12">
-					<p class="copy">©  <a href="#"></a> <?=date('Y')?> City Prop Realtors</p>
-				</div>
-				<div class="col-lg-4 col-md-12">
+		<div class="footer container">
 					<ul class="social-list clearfix">
 						<li><a href="<?= $social_links->facebook ?>" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="<?= $social_links->twitter ?>" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://api.whatsapp.com/send?phone=+918746842086&text=Hi%20I%27m%20interested%20In%20Buying/Investing%20In%20Real%20Estate." class="whatsapp-bg"><i class="fa fa-whatsapp"></i></a></li>
 						<li><a href="<?= $social_links->instagram ?>" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
 						<li><a href="<?= $social_links->linked_in ?>" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
 					</ul>
 				</div>
+	</div>
+	<div class="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 text-center">
+					<p class="copy">©  <a href="#"></a> <?=date('Y')?> City Prop Realtors | RERA : AG001089</p>
+				</div>
+				
 			</div>
 		</div>
 	</div>

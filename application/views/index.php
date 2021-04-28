@@ -148,7 +148,7 @@
 							<div class="col-lg-3 col-md-6 col-sm-6 col-6">
 								<div class="form-group">
 									<div class="range-slider">
-										<div data-min="0" data-max="15000000" data-unit="INR" data-min-name="min_price"
+										<div data-min="0" data-max="15000000" data-unit="Rs" data-min-name="min_price"
 											 data-max-name="max_price" class="range-slider-ui ui-slider"
 											 aria-disabled="false"></div>
 										<div class="clearfix"></div>
@@ -178,7 +178,7 @@
 			<h1>What Are You Looking For</h1>
 			<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
 		</div>
-		<div class="row ">
+		<div class="row text-center">
 
 			<div class="col-md-3 col-xs-6">
 				<div class="Looking-For btn-6">
@@ -190,7 +190,7 @@
 							<h3>
 								<a href="">Apartments</a>
 							</h3>
-							<p>Explore The Best In Class Luxury Apartments With Best Deals In Bangalore</p>
+							<p>Explore The Range Of Apartment Collections From The Bangalore's Top Builders. Get Your Right Space With Us.</p>
 							<a href="<?=base_url('listing').'?place=apartments'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -208,7 +208,7 @@
 									Houses
 								</a>
 							</h3>
-							<p>Explore The Best In Class Independent Houses With Best Deals In Bangalore</p>
+							<p>Look Into The Premium Collection Of Residences In Bangalore. The Place You Call MY HOME!</p>
 							<a href="<?=base_url('listing').'?place=houses'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -226,7 +226,7 @@
 									Villas
 								</a>
 							</h3>
-							<p>Explore The Best In Class Luxurious Villa Properties With Best Deals In Bangalore</p>
+							<p>Explore The Lavishing Villas Designed Every Inch With Luxury From Bangalore Top Builders. The Quality You Can Trust.</p>
 							<a href="<?=base_url('listing').'?place=villas'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
@@ -245,7 +245,7 @@
 									Plots
 								</a>
 							</h3>
-							<p>Checkout The Selected Plotted Development From Top Builders In Bangalore</p>
+							<p>Built Your Own Home The Way You Want. Checkout The Handpicked Range Of Plotted Development In Bangalore.</p>
 							<a href="<?=base_url('listing').'?place=plots'?>" class="btn btn-theme btn-half site-button btn-md"><span>Read more</span></a>
 						</div>
 					</div>
