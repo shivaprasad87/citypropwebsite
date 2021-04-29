@@ -10,8 +10,10 @@
 
 				?>
 				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
-					<img class="d-block w-100 h-100" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
-						 alt="banner">
+					<img class=" d-banner w-100 h-100" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
+						 alt="desktop banner">
+					<img class=" m-banner" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
+						 alt="mobile banner">
 					<div class="carousel-caption banner-slider-inner d-flex h-100">
 						<div class="carousel-content container">
 							<div class="text-c">
