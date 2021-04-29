@@ -82,8 +82,33 @@ $this->load->view('inc/header');
 
 		<!-- --------Desktop and mobile Banner Single Image------ -->
 		<div class="banner-style">
-			<img src="<?=base_url()?>assets/img/img-3.jpg" class="d-banner">
-			<img src="<?=base_url()?>assets/img/img-4.jpg" class="m-banner">
+		          <?php
+                                    if (($images = $this->properties_model->getWhere(array('property_id' => $property->id),
+                                            'property_desktop_banners')) != null ) {
+                                        if(($m_images = $this->properties_model->getWhere(array('property_id' => $property->id),
+                                            'property_mobile_banners')) != null)
+                                        {
+                                    
+                                        $images = json_decode( json_encode($images), true);
+                                        $m_images = json_decode( json_encode($m_images), true);
+                                        $total_images =array_merge($images);
+                                    
+                                        $ban=0;
+                                        $side_image=''; 
+                                        foreach ($total_images as $image) {
+                                        ?>
+                                 <div class="item active">
+                                    <?php  
+                                       echo '<img class="d-banner" src="'. base_url().$images[$ban]['banner_path'] .'"  alt="'.$property->title.' Desktop Banner"  style="width: 100%">';
+                                       echo '<img class="m-banner" src="'. base_url().$m_images[$ban]['mobile_banner_path'].'" alt="'.$property->title.' Mobile Banner" style="width: 100%">';
+                                                   $side_image=base_url().$m_images[$ban]['mobile_banner_path'];
+                                                               ?>
+                                 </div>
+                                 <?php 
+                                    }
+                                    }
+                                            }
+                                    ?>
 		</div>
 
 	</div>

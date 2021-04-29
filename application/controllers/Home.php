@@ -43,8 +43,9 @@ class Home extends Public_Controller
 		$this->data['amenities'] = $this->home_model->getWhere(array('status' => 1), 'amenities');
 		$this->data['properties'] = $this->home_model->getProperties('properties', 6);
 		$this->data['bestdeal_properties'] = $this->home_model->getBestdealProperties('properties', 6);
-		$this->data['sliders'] = $this->home_model->order_by('id', 'desc')->getWhere(array('status' => 1, 'type' => 'H', 'banner_type' => 'desk'), 'sliders');
-		$this->data['mobilesliders'] = $this->home_model->order_by('id', 'desc')->getWhere(array('status' => 1, 'type' => 'H', 'banner_type' => 'mobile'), 'sliders');
+		$desktop = $this->home_model->order_by('id', 'desc')->getWhere(array('status' => 1, 'type' => 'H', 'banner_type' => 'desk'), 'sliders');
+		$mobile = $this->home_model->order_by('id', 'desc')->getWhere(array('status' => 1, 'type' => 'H', 'banner_type' => 'mobile'), 'sliders');
+		$this->data['sliders'] = array_merge($desktop,$mobile);
 		$this->data['builder_count'] = $this->home_model->countWhere(array('status' => 1), 'builders');
 		$this->data['location_count'] = $this->home_model->countWhere(array('status' => 1), 'locations');
 		$this->data['project_count'] = $this->home_model->countWhere(array('status' => 1), 'properties');
