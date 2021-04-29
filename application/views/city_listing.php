@@ -88,19 +88,30 @@
 											</div>
 											<div class="facilities-list">
 												<ul class="clearfix">
-													<?php
-													if (($flatTypes = $this->properties_model->getPropertyFlatType(null, $property->id)) != null) {
-														$bhk = '';
-														$i = 0;
-														foreach ($flatTypes as $flatType) {
-															if ($i == 0)
-																$bhk .= $flatType->flat_type;
-															else
-																$bhk .= ', ' . $flatType->flat_type;
-															$i++;
-														}
-													}
-													$propType = $this->properties_model->getPropertyType(['id' => $property->property_type_id]);
+														<?php
+													 if (($flatTypes = $this->properties_model->getPropertyFlatType(null,
+                                                        $property->id)) != null) {
+              $bhk='';
+              $i=0; 
+
+              foreach ($flatTypes as $flatType) {
+                  if($i==0)
+                      $bhk.=str_replace(" BHK",'',$flatType->flat_type);
+                  else
+                  $bhk.=', '.str_replace(" BHK",'',$flatType->flat_type);
+              $i++;
+              }
+              $sortedArray = explode(",",$bhk);
+              $price = array();
+            foreach ($sortedArray as $key => $row)
+            {
+                $price[$key] = $row['price'];
+            }
+             array_multisort($price, SORT_DESC, $sortedArray);
+             $bhk = rtrim(implode(", ",$sortedArray),", ");
+              $bhk .=" BHK";
+          } 
+          $propType   = $this->properties_model->getPropertyType(['id'=>$property->property_type_id]);
 													?>
 													<li>
 														<span>Unit</span><?php echo $bhk;

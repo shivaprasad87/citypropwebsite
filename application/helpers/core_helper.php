@@ -236,22 +236,22 @@ if (!function_exists('number_format_short')) {
      */
     function number_format_short($n, $precision = 2)
     {
-        if ($n < 900) {
+        if ($n < 999) {
             // 0 - 900
             $n_format = number_format($n, $precision);
             $suffix = '';
         } else {
-            if ($n < 90000) {
+            if ($n < 99999) {
                 // 0.9k-850k
                 $n_format = number_format($n / 1000, $precision);
                 $suffix = 'K';
             } else {
-                if ($n < 9000000) {
+                if ($n < 9999999) {
                     // 0.9L-850L
                     $n_format = number_format($n / 100000, $precision);
                     $suffix = 'L';
                 } else {
-                    if ($n < 900000000) {
+                    if ($n < 999999999) {
                         // 0.9Cr-850Cr
                         $n_format = number_format($n / 10000000, $precision);
                         $suffix = 'Cr.';
