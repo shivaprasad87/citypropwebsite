@@ -7,7 +7,8 @@
 			foreach ($sliders as $slider) {
 				$img = array();
 				$img = explode('.', $slider->image);
-
+                 if($slider->banner_type=='desk')
+				    { 
 				?>
 				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
 					<img class=" d-banner w-100 h-100" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
@@ -19,16 +20,14 @@
 								<h3><?= $slider->heading ?></h3>
 								<p>
 									<?= $slider->title ?>
-								</p>
-								<!-- <a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
-								<a href="#"
-								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a> -->
+								</p> 
 							</div>
 						</div>
 					</div>
 				</div>
 				<?php
 				$desk++;
+				    }
 			}
 			?>
 		</div>
@@ -37,11 +36,14 @@
 				<?php
 				$i = 0;
 				foreach ($sliders as $slider) {
+				     if($slider->banner_type=='desk')
+				    { 
 					?>
 					<li data-target="#bannerCarousole" data-slide-to="<?= $i ?>>"
 						class="<?= ($desk == 0) ? 'active' : ''; ?>"></li>
 					<?php
 					$i++;
+				    }
 				}
 				?>
 			</ol>
@@ -117,24 +119,38 @@
 <div class=" m-banner" id="banner">
 	<div id="demo" class="carousel slide" data-ride="carousel">
 
-			<!-- Indicators -->
+			<!-- Indicators --> 
 			<ul class="carousel-indicators">
-			<li data-target="#demo" data-slide-to="0" class="active"></li>
-			<li data-target="#demo" data-slide-to="1"></li>
-			<li data-target="#demo" data-slide-to="2"></li>
-			</ul>
-
+				<?php
+				$i = 0;
+				foreach ($sliders as $slider) {
+				     if($slider->banner_type=='desk')
+				    { 
+					?> 
+						<li data-target="#demo" data-slide-to="<?= $i ?>" class="<?= ($desk == 0) ? 'active' : ''; ?>"></li>
+					<?php
+					$i++;
+				    }
+				}
+				?>
+			</ul>  
 			<!-- The slideshow -->
 			<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="la.jpg" alt="Los Angeles" width="1100" height="500">
-			</div>
-			<div class="carousel-item">
-				<img src="chicago.jpg" alt="Chicago" width="1100" height="500">
-			</div>
-			<div class="carousel-item">
-				<img src="ny.jpg" alt="New York" width="1100" height="500">
-			</div>
+			    <?php $desk = 0;
+			/** @var array $sliders */
+			foreach ($sliders as $slider) {
+				$img = array();
+				$img = explode('.', $slider->image);
+                 if($slider->banner_type=='mobile')
+				    { 
+				?>
+			<div class="carousel-item <?= ($desk == 0) ? 'active' : ''; ?>">
+				<img src="<?= base_url('uploads/sliders/' . $slider->image) ?>" alt="" width="1100" height="500">
+			</div> 
+			<?php
+				    }
+			}
+			?>
 			</div>
 
 			<!-- Left and right controls -->
