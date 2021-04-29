@@ -20,6 +20,7 @@ class Properties extends Admin_Controller
 
         // load the aboutUs model
         $this->load->model('properties_model');
+        $this->load->model('builders_model');
 
         // set constants
         define('REFERRER', "referrer");
@@ -147,7 +148,7 @@ class Properties extends Admin_Controller
 				}
 				$prop_type = rtrim($prop_type, ", ");
 				if($prop_type)
-					$prop_flat_types = $this->properties_model->get_flat_type_by_id($prop_type);
+					$prop_flat_types = $this->properties_model->get_flat_type_by_id($prop_type); 
 				$location_name = $this->builders_model->getLocationById('name',array('id'=>$this->input->post('location')));
 				$city_name = $this->builders_model->getCityById('name',array('id'=>$this->input->post('city')));
 				$propType   = $this->properties_model->getPropertyType(['id'=>$this->input->post('type')]);
@@ -430,12 +431,7 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
 
                 }
                 if (isset($_FILES) && isset($_FILES["logo_1"]['tmp_name']) && $_FILES["logo_1"]['tmp_name']) {
-                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/logos/';
-                   // print_r($this->upload->data());die;
-                    $this->properties_model->insertRow(array(
-                            'property_id' => $property_id,
-                            'logo_1' => $this->upload->data('file_name'),
-                        ), 'property_logo');
+                    $path = './uploads/'.$cityName."/".$builderName."/" . $slug . '/logos/'; 
                     if (!is_dir($path)) {
                         mkdir($path, 0777, true);
                         } 
@@ -445,7 +441,12 @@ $property_id = $this->properties_model->insertRow($data, 'properties');
                     if ($this->upload->do_upload('logo_1')) {
                         $data['logo_1'] = $this->upload->data('file_name');
                     }
+                    $this->properties_model->insertRow(array(
+                            'property_id' => $property_id,
+                            'logo_1' => $data['logo_1'],
+                        ), 'property_logo'); 
                 }
+               // die();
 
 /** attach the specifications if any */
 if ($this->input->post('specification')) {
@@ -664,6 +665,79 @@ if ($constructionImages) {
         $blog->flat_types = $this->properties_model->getPropertyFlatType(null, $id);
 
         if ($this->input->post()) {
+            $project_status = '';
+			$prop_type ='';
+			$m_desc='';
+			$m_keywords='';
+			$propType['name']='';
+			if($this->input->post('meta_title')=='')
+			{
+
+
+				if($this->input->post('issue_date')== 'New Launch' || $this->input->post('issue_date')== 'Ready to move')
+				{
+					if($this->input->post('issue_date')== 'New Launch')
+						$project_status = 'Pre Launch';
+					else
+						$project_status = 'Ready To Move';
+				}
+
+
+				$property_flat_types = $this->input->post('flat_type');
+				if (isset($property_flat_types) && is_array($property_flat_types)) {
+					foreach ($property_flat_types as $flat_type_id => $property_flat_type) {
+						if (isset($property_flat_type['name']) && $property_flat_type['name']) {
+							foreach ($property_flat_type['name'] as $index => $item) {
+								if (isset($property_flat_type['name'][$index]) && $property_flat_type['name'][$index]) {
+									//$prop_type   .= $this->properties_model->getPropertyType(['id'=>$flat_type_id])['name'].' ';
+									$prop_type   .= $flat_type_id.',';
+								}
+							}
+						}
+					}
+				}
+				$prop_type = rtrim($prop_type, ", ");
+				if($prop_type)
+					$prop_flat_types = $this->properties_model->get_flat_type_by_id($prop_type); 
+				$location_name = $this->builders_model->getLocationById('name',array('id'=>$this->input->post('location')));
+				$city_name = $this->builders_model->getCityById('name',array('id'=>$this->input->post('city')));
+				$propType   = $this->properties_model->getPropertyType(['id'=>$this->input->post('type')]);
+				//print_r($propType);die;
+				if($propType['name']=='Apartments')
+				{
+					$propType['flat_name'] =" Flats";
+				}
+				else
+				{
+					$propType['flat_name'] =$propType['name'];
+				}
+				$m_title = $this->input->post('title').' '. $location_name['name'].', '.$city_name['name'].' | '.$prop_flat_types.' '.$project_status.' '.$propType['flat_name'].' For Sale';
+
+			}
+			if($this->input->post('meta_desc')=='')
+			{
+
+				$f_p =', Floor Plan';
+				if($propType['name']=='Plots')
+					$f_p='';
+
+				$m_desc= $this->input->post('title').' '.$propType['name'].' in '. $location_name['name'].', '.$city_name['name'].'  '.$prop_flat_types.' '.' For Sale. Checkout Price, Brochure, Reviews, Master Plan'.$f_p.', Amenities and More.';
+			}
+			if($this->input->post('meta_keywords')=='')
+			{
+
+
+				$m_keywords= $this->input->post('title').' '.$city_name['name'].', '.$this->input->post('title').' '. $location_name['name'].', '.$this->input->post('title').' Price, '.$this->input->post('title').' Brochure, '.$this->input->post('title').' Reviews, '.$this->input->post('title').' Master Plan, '.$this->input->post('title').' Amenities, '.$this->input->post('title').' '.$propType['name'].', '.$this->input->post('title').' '.$propType['name'].' '.$location_name['name'].', '.$this->input->post('title').' '.$project_status .', '.$this->input->post('title').' Amenities, ';
+				if($propType['name']!='Plots')
+					if($prop_flat_types)
+					{
+						$m_keywords.=$this->input->post('title').' Floor Plans, ';
+						$m_keywords.=$this->input->post('title').' '.$prop_flat_types;
+					}
+					else
+						$m_keywords.=$this->input->post('title').' Floor Plans';
+
+			}
             $builderName = $this->properties_model->getWhere(array('id'=>($this->input->post('builder') ? $this->input->post('builder') : $blog->builder_id)),'builders');
             $cityName = $this->properties_model->getWhere(array('id'=>$this->input->post('city') ? $this->input->post('city') : $blog->city_id),'cities');
             $locationName = $this->properties_model->getWhere(array('id'=>$this->input->post('location') ? $this->input->post('location') : $blog->location_id),'locations');
@@ -705,9 +779,9 @@ if ($constructionImages) {
                     'location_id' => $this->input->post('location') ? $this->input->post('location') : $blog->location_id,
                     'title' => $this->input->post('title') ? $this->input->post('title') : $blog->title,
                     'slug' => $slug,
-                    'meta_title' => $this->input->post('meta_title') ? $this->input->post('meta_title') : $blog->meta_title,
-                    'meta_keywords' => $this->input->post('meta_keywords') ? $this->input->post('meta_keywords') : $blog->meta_keywords,
-                    'meta_desc' => $this->input->post('meta_desc') ? $this->input->post('meta_desc') : $blog->meta_desc,
+                    'meta_title' => $this->input->post('meta_title')?$this->input->post('meta_title'):$m_title,
+				'meta_keywords' => $this->input->post('meta_keywords')?$this->input->post('meta_keywords'):$m_keywords,
+				'meta_desc' => $this->input->post('meta_desc')?$this->input->post('meta_desc'):$m_desc,
                     'area' => $this->input->post('area') ? $this->input->post('area') : $blog->area,
                     'budget' => $this->input->post('budget') ? $this->input->post('budget') : $blog->budget,
                     'property_type_id' => $this->input->post('type') ? $this->input->post('type') : $blog->property_type_id,

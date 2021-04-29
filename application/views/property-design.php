@@ -158,7 +158,7 @@ $this->load->view('inc/header');
 											$logo_url = base_url().'uploads/builders/'.$map[0];
 										}
 										?>
-									<img src="<?=$logo_url?>" class="<?=$property->title;?>-logo">
+									<img src="<?=$logo_url?>" class="company-logo">
 									</div>
 									<div class="col-sm-6 col-md-4 col-lg-4 detls line">
 									<label class="control-label">Location</label>
@@ -568,7 +568,7 @@ $this->load->view('inc/header');
 												<div class="hdg">
 													<span itemprop="name">By <?= $property->builder ?></span>
 													<button class="btn-detail ">
-														<a href="property-detail.html" target="_blank">
+														<a href="<?= strtolower(site_url(url_title($property->city_name) . "/" . (url_title($property->area)) . "/$property->slug/")) ?>" target="_blank">
 															View More
 														</a>
 													</button>
