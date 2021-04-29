@@ -168,8 +168,7 @@
 	</div>
 </div>
 <!-- Search Section end -->
-<br>
-<br>
+
 <!-- Services start -->
 <div class="services content-area bg-grea-3">
 	<div class="container">

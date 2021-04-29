@@ -465,8 +465,25 @@ button:focus {
         -webkit-transform: scale(1.2) translateX(-100px)
     }
 }
-
+.d-banner{
+    display: block;
+}
+.m-banner{
+    display: none;
+}
+.banner-style img{
+    width: 100%;
+}
 @media all and (max-width: 767px) {
+    .banner-style img{
+       margin-top: 50px;
+    }
+    .d-banner{
+        display: none;
+    }
+    .m-banner{
+        display: block;
+    }
     .gallery{
         display: flow-root;
     }
@@ -4778,7 +4795,7 @@ footer {
     }
 
     .banner .w-100 {
-        width: auto!important;
+        width: 100%!important;
     }
 
     .main-header .navbar-light .navbar-toggler {
@@ -4842,6 +4859,12 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .content-area {
+        margin: 60px 0px;
+    }
+    #bannerCarousole .carousel-inner {
+        margin-top: 90px;
+    }
     .card-height{
         height: 420px;
     }
@@ -4893,7 +4916,10 @@ footer {
 }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+    #bannerCarousole .carousel-inner {
+        margin-top: 70px;
+    }
     .service-info-3 {
         padding: 36px 20px;
     }
@@ -6464,7 +6490,7 @@ table th{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.29);
+    background-color: rgb(0 0 0 / 0%);
 }
 
 .properties-details-sliders .heading-properties-2 {
@@ -7725,7 +7751,11 @@ table th{
         position: fixed;
         top: 0;
         z-index: 999;
+        background: white;
         width: 100%;
+    }
+    .carousel-inner {
+        margin-top: 70px;
     }
 
     .sticky-header {

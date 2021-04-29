@@ -38,7 +38,7 @@ $this->load->view('inc/header');
 <!-- Properties details Slider -->
 <div class="properties-details-Slider">
 	<div id="propertiesDetailsSlider" class="carousel properties-details-sliders slide">
-		<div class="carousel-inner">
+	<!--<div class="carousel-inner">
 			<?php
 			$i = 0;
 			foreach ($gallery_images as $gallery) {
@@ -61,8 +61,8 @@ $this->load->view('inc/header');
 			<!--				<img src="-->
 			<? //=base_url()?><!--assets/img/img-3.jpg" class="img-fluid slider-listing" alt="slider-properties">-->
 			<!--			</div>-->
-		</div>
-		<ul class="carousel-indicators smail-properties list-inline nav nav-justified">
+		</div>-->
+		<!-- <ul class="carousel-indicators smail-properties list-inline nav nav-justified">
 			<?php
 			$i = 0;
 			foreach ($gallery_images as $gallery) {
@@ -77,7 +77,14 @@ $this->load->view('inc/header');
 				$i++;
 			}
 			?>
-		</ul>
+		</ul> -->
+
+
+		<!-- --------Desktop and mobile Banner Single Image------ -->
+		<div class="banner-style">
+			<img src="<?=base_url()?>assets/img/img-3.jpg" class="d-banner">
+			<img src="<?=base_url()?>assets/img/img-4.jpg" class="m-banner">
+		</div>
 
 	</div>
 </div>
