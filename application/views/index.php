@@ -1,5 +1,5 @@
-<!-- Banner start -->
-<div class="banner banner" id="banner">
+<!-- Desktop Banner start -->
+<div class="banner d-banner" id="banner">
 	<div id="bannerCarousole" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner">
 			<?php $desk = 0;
@@ -12,8 +12,7 @@
 				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
 					<img class=" d-banner w-100 h-100" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
 						 alt="desktop banner">
-					<img class=" m-banner" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
-						 alt="mobile banner">
+					
 					<div class="carousel-caption banner-slider-inner d-flex h-100">
 						<div class="carousel-content container">
 							<div class="text-c">
@@ -112,7 +111,122 @@
 		</div>
 	</div>
 </div>
-<!-- Banner end -->
+<!-- Desktop Banner end -->
+
+<!-- Mobile Banner start -->
+<div class="banner m-banner" id="banner">
+	<div id="mobilebannerCarousole" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<?php $desk = 0;
+			/** @var array $sliders */
+			foreach ($sliders as $slider) {
+				$img = array();
+				$img = explode('.', $slider->image);
+
+				?>
+				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
+					
+					<img class="m-banner" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
+						 alt="mobile banner">
+					<div class="carousel-caption banner-slider-inner d-flex h-100">
+						<div class="carousel-content container">
+							<div class="text-c">
+								<h3><?= $slider->heading ?></h3>
+								<p>
+									<?= $slider->title ?>
+								</p>
+								<!-- <a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
+								<a href="#"
+								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<?php
+				$desk++;
+			}
+			?>
+		</div>
+		<div class="btn-secton">
+			<ol class="carousel-indicators">
+				<?php
+				$i = 0;
+				foreach ($sliders as $slider) {
+					?>
+					<li data-target="#mobilebannerCarousole" data-slide-to="<?= $i ?>>"
+						class="<?= ($desk == 0) ? 'active' : ''; ?>"></li>
+					<?php
+					$i++;
+				}
+				?>
+			</ol>
+		</div>
+	</div>
+	<div class="container search-options-btn-area">
+		<a class="search-options-btn d-lg-none d-xl-none">
+			<div class="search-options">Search Options</div>
+			<div class="icon"><i class="fa fa-chevron-up"></i></div>
+		</a>
+	</div>
+	<!-- Search Section start -->
+	<div class="search-section ss-2" id="search-style-2">
+		<div class="container">
+			<div class="search-section-area ssa2">
+				<div class="search-area-inner">
+					<div class="search-contents">
+						<form action="<?= base_url('searchListing') ?>" method="post">
+							<div class="row">
+
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="form-group">
+										<select class="selectpicker search-fields" name="property_type">
+											<option value="">--Select Type--</option>
+											<?php
+											foreach ($property_types as $property_types) {
+												echo "<option value='" . $property_types->id . "'>" . $property_types->name . "</option>";
+											}
+											?>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="form-group">
+										<select class="selectpicker search-fields" name="city">
+											<option value="">--Select City--</option>
+											<?php
+											foreach ($cities as $cities) {
+												echo "<option value='" . $cities->id . "'>" . $cities->name . "</option>";
+											}
+											?>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="form-group">
+										<div class="range-slider">
+											<div data-min="0" data-max="15000000" data-unit="Rs" data-min-name="min_price"
+												 data-max-name="max_price" class="range-slider-ui ui-slider"
+												 aria-disabled="false"></div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
+									<div class="form-group">
+										<button class="search-button">Search</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Mobile Banner end -->
 
 <!-- Search Section start -->
 <div class="search-section search-area bg-grea animated fadeInDown" id="search-style-1">
