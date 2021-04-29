@@ -114,54 +114,39 @@
 <!-- Desktop Banner end -->
 
 <!-- Mobile Banner start -->
-<div class="banner m-banner" id="banner">
-	<div id="mobilebannerCarousole" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-			<?php $desk = 0;
-			/** @var array $sliders */
-			foreach ($sliders as $slider) {
-				$img = array();
-				$img = explode('.', $slider->image);
+<div class=" m-banner" id="banner">
+	<div id="demo" class="carousel slide" data-ride="carousel">
 
-				?>
-				<div class="carousel-item banner-max-height item-bg <?= ($desk == 0) ? 'active' : ''; ?>">
-					
-					<img class="m-banner" src="<?= base_url('uploads/sliders/' . $slider->image) ?>"
-						 alt="mobile banner">
-					<div class="carousel-caption banner-slider-inner d-flex h-100">
-						<div class="carousel-content container">
-							<div class="text-c">
-								<h3><?= $slider->heading ?></h3>
-								<p>
-									<?= $slider->title ?>
-								</p>
-								<!-- <a href="#" class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Get Started Now</span></a>
-								<a href="#"
-								   class="btn btn-lg btn-white-lg-outline btn-half site-button"><span>Free Download</span></a> -->
-							</div>
-						</div>
-					</div>
-				</div>
-				<?php
-				$desk++;
-			}
-			?>
-		</div>
-		<div class="btn-secton">
-			<ol class="carousel-indicators">
-				<?php
-				$i = 0;
-				foreach ($sliders as $slider) {
-					?>
-					<li data-target="#mobilebannerCarousole" data-slide-to="<?= $i ?>>"
-						class="<?= ($desk == 0) ? 'active' : ''; ?>"></li>
-					<?php
-					$i++;
-				}
-				?>
-			</ol>
-		</div>
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+			<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img src="la.jpg" alt="Los Angeles" width="1100" height="500">
+			</div>
+			<div class="carousel-item">
+				<img src="chicago.jpg" alt="Chicago" width="1100" height="500">
+			</div>
+			<div class="carousel-item">
+				<img src="ny.jpg" alt="New York" width="1100" height="500">
+			</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+			</a>
 	</div>
+</div>
+
 	<div class="container search-options-btn-area">
 		<a class="search-options-btn d-lg-none d-xl-none">
 			<div class="search-options">Search Options</div>
