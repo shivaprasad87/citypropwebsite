@@ -163,69 +163,7 @@
 	</div>
 </div>
 
-	<div class="container search-options-btn-area">
-		<a class="search-options-btn d-lg-none d-xl-none">
-			<div class="search-options">Search Options</div>
-			<div class="icon"><i class="fa fa-chevron-up"></i></div>
-		</a>
-	</div>
-	<!-- Search Section start -->
-	<div class="search-section ss-2" id="search-style-2">
-		<div class="container">
-			<div class="search-section-area ssa2">
-				<div class="search-area-inner">
-					<div class="search-contents">
-						<form action="<?= base_url('searchListing') ?>" method="post">
-							<div class="row">
-
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<select class="selectpicker search-fields" name="property_type">
-											<option value="">--Select Type--</option>
-											<?php
-											foreach ($property_types as $property_types) {
-												echo "<option value='" . $property_types->id . "'>" . $property_types->name . "</option>";
-											}
-											?>
-										</select>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<select class="selectpicker search-fields" name="city">
-											<option value="">--Select City--</option>
-											<?php
-											foreach ($cities as $cities) {
-												echo "<option value='" . $cities->id . "'>" . $cities->name . "</option>";
-											}
-											?>
-										</select>
-									</div>
-								</div>
-
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<div class="range-slider">
-											<div data-min="0" data-max="15000000" data-unit="Rs" data-min-name="min_price"
-												 data-max-name="max_price" class="range-slider-ui ui-slider"
-												 aria-disabled="false"></div>
-											<div class="clearfix"></div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6">
-									<div class="form-group">
-										<button class="search-button">Search</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </div>
 <!-- Mobile Banner end -->
 
