@@ -162,7 +162,7 @@ class Properties extends Admin_Controller
 					$propType['flat_name'] =$propType['name'];
 				}
 				$m_title = $this->input->post('title').' '. $location_name['name'].', '.$city_name['name'].' | '.$prop_flat_types.' '.$project_status.' '.$propType['flat_name'].' For Sale';
-
+                $m_title = str_replace("  "," ",$m_title);
 			}
 			if($this->input->post('meta_desc')=='')
 			{
@@ -712,7 +712,7 @@ if ($constructionImages) {
 					$propType['flat_name'] =$propType['name'];
 				}
 				$m_title = $this->input->post('title').' '. $location_name['name'].', '.$city_name['name'].' | '.$prop_flat_types.' '.$project_status.' '.$propType['flat_name'].' For Sale';
-
+                $m_title = str_replace("  "," ",$m_title);
 			}
 			if($this->input->post('meta_desc')=='')
 			{

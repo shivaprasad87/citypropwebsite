@@ -145,9 +145,10 @@
 				    { 
 				?>
 			<div class="carousel-item <?= ($desk == 0) ? 'active' : ''; ?>">
-				<img src="<?= base_url('uploads/sliders/' . $slider->image) ?>" alt="" width="1100" height="500">
+			<img class="img-fluid" src="<?= base_url('uploads/sliders/' . $slider->image) ?>" alt="" width="" height="">
 			</div> 
 			<?php
+			$desk++;
 				    }
 			}
 			?>
